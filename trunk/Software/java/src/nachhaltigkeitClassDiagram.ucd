@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="nachhaltigkeitClassDiagram" foregroundRGB="255,255,255" id="{UMLID=_FdecAMsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit}" metadata="uml2-1.0" initialized="true" tag="1000" key="32303037303632392032305F70726F6A656374735F7072652F616E647265">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.0 //@children.2/@sourceConnections.0 //@children.3/@sourceConnections.0 //@children.0/@sourceConnections.0" name="MyTreeNode" location="415,50" size="246,221" stereotype="" id="{UMLID=_GNT9gMsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/MyTreeNode}" runTimeClassModel="add(Ljavax.swing.tree.MutableTreeNode;),machÜberschrift(),SMALL_FONT,bezeichnung,getBezeichnung(),gibDiagramm(),getUntergebeneNodes(),MyTreeNode(Ljava.lang.String;),untergebeneNodes">
+    <children xsi:type="editmodel:CompartmentEditModel" size="97,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="SMALL_FONT" id="{UMLID=_GOMuUcsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/MyTreeNode#SMALL_FONT}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="untergebeneNodes" id="{UMLID=_GOMuUssxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/MyTreeNode@untergebeneNodes+nachhaltigkeit/MyTreeNode@ownedEnd|nachhaltigkeit/MyTreeNode#untergebeneNodes}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="bezeichnung" id="{UMLID=_GOMuUMsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/MyTreeNode#bezeichnung}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="154,113">
+      <children xsi:type="editmodel:MethodEditModel" name="MyTreeNode" id="{UMLID=_GOMuVMsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/MyTreeNode#MyTreeNode(Ljava.lang.String;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="machÜberschrift" id="{UMLID=_GOMuWssxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/MyTreeNode#machÜberschrift()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibDiagramm" id="{UMLID=_GOWfVMsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/MyTreeNode#gibDiagramm()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getBezeichnung" id="{UMLID=_GOWfV8sxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/MyTreeNode#getBezeichnung()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getUntergebeneNodes" id="{UMLID=_GOMuV8sxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/MyTreeNode#getUntergebeneNodes()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="add" id="{UMLID=_GOWfUcsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/MyTreeNode#add(Ljavax.swing.tree.MutableTreeNode;)}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="{UMLID=_GPP3MMsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/MyTreeNode@untergebeneNodes+nachhaltigkeit/MyTreeNode@ownedEnd}" source="//@children.0" target="//@children.0" targetEnd="//@children.0/@sourceConnections.0/@children.2" label="//@children.0/@sourceConnections.0/@children.0" sourceEnd="//@children.0/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" location="701,68" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="untergebeneNodes" location="246,37" id="{UMLID=_GOMuUssxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/MyTreeNode@untergebeneNodes+nachhaltigkeit/MyTreeNode@ownedEnd|nachhaltigkeit/MyTreeNode#untergebeneNodes}" anchorKind="FixedAtEdge" attachSource="true" multiplicityLabel="//@children.0/@sourceConnections.0/@children.1/@children.0" roleLabel="//@children.0/@sourceConnections.0/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1..*" location="668,66" size="16,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- untergebeneNodes" location="589,20" size="99,14" fontInfo="Arial-8-0" automaticRelocationAllowed="false" locationOnWireFromSource="-39.00000000000001" distanceFromWire="59.99999999999999" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="166,0" id="{UMLID=_GPP3McsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/MyTreeNode@untergebeneNodes+nachhaltigkeit/MyTreeNode@ownedEnd|nachhaltigkeit/MyTreeNode#ownedEnd}" anchorKind="FixedAtEdge" roleLabel="//@children.0/@sourceConnections.0/@children.2/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="+ ownedEnd" location="574,29" size="0,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true" showAttributeParameterType="true" showAttributeJavaStereotype="true" showMethodJavaStereotype="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.0" name="RootElement" location="360,320" size="124,85" stereotype="" id="{UMLID=_GNT9gcsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/RootElement}" runTimeClassModel="gibDiagramm(),RootElement()">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="101,36">
+      <children xsi:type="editmodel:MethodEditModel" name="RootElement" id="{UMLID=_GQJPEMsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/RootElement#RootElement()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibDiagramm" id="{UMLID=_GQJPEcsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/RootElement#gibDiagramm()}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" size="2,1" autoLocated="true" id="{UMLID=_GQvE9MsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/RootElement->nachhaltigkeit/MyTreeNode}" source="//@children.1" target="//@children.0" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" location="459,282" size="87,28" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="89,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="34,221"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Kennzahl" location="650,320" size="124,103" stereotype="" id="{UMLID=_GNT9gssxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/Kennzahl}" runTimeClassModel="add(Ljavax.swing.tree.MutableTreeNode;),gibDiagramm(),Kennzahl(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="101,54">
+      <children xsi:type="editmodel:MethodEditModel" name="Kennzahl" id="{UMLID=_GRLw4MsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/Kennzahl#Kennzahl(Ljava.lang.String;)}" isAssociationMemeber="true"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibDiagramm" id="{UMLID=_GRVh4ssxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/Kennzahl#gibDiagramm()}" isAssociationMemeber="true"/>
+      <children xsi:type="editmodel:MethodEditModel" name="add" id="{UMLID=_GRLw48sxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/Kennzahl#add(Ljavax.swing.tree.MutableTreeNode;)}" isAssociationMemeber="true"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" size="2,1" autoLocated="true" id="{UMLID=_GRoc2MsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/Kennzahl->nachhaltigkeit/MyTreeNode}" source="//@children.2" target="//@children.0" targetEnd="//@children.2/@sourceConnections.0/@children.2" label="//@children.2/@sourceConnections.0/@children.0" sourceEnd="//@children.2/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" location="665,282" size="87,28" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="5,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="240,221"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Bereich" location="498,320" size="124,85" stereotype="" id="{UMLID=_GNT9g8sxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/Bereich}" runTimeClassModel="gibDiagramm(),Bereich(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="101,36">
+      <children xsi:type="editmodel:MethodEditModel" name="Bereich" id="{UMLID=_GR7XxMsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/Bereich#Bereich(Ljava.lang.String;)}" isAssociationMemeber="true"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibDiagramm" id="{UMLID=_GR7XwcsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/Bereich#gibDiagramm()}" isAssociationMemeber="true"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" size="2,1" autoLocated="true" id="{UMLID=_GSYDscsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/Bereich->nachhaltigkeit/MyTreeNode}" source="//@children.3" target="//@children.0" targetEnd="//@children.3/@sourceConnections.0/@children.2" label="//@children.3/@sourceConnections.0/@children.0" sourceEnd="//@children.3/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" location="569,282" size="87,28" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="61,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="144,221"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="BscGui" location="110,40" size="132,216" stereotype="" id="{UMLID=_GSh0tcsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/BscGui}" runTimeClassModel="main([Ljava.lang.String;),valueChanged(Ljavax.swing.event.TreeSelectionEvent;),jScrollPaneTree,serialVersionUID,jPanelChart,rootElement,jContentPane,jTree,BscGui()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="109,90">
+      <children xsi:type="editmodel:AttributeEditModel" name="serialVersionUID" id="{UMLID=_GTHqkcsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/BscGui#serialVersionUID}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="jContentPane" id="{UMLID=_GTHqlMsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/BscGui#jContentPane}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="jTree" id="{UMLID=_GTHqlcsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/BscGui#jTree}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="jScrollPaneTree" id="{UMLID=_GTHqkMsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/BscGui#jScrollPaneTree}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="jPanelChart" id="{UMLID=_GTHqk8sxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/BscGui#jPanelChart}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rootElement" id="{UMLID=_GTHqkssxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/RootElement@rootElement+nachhaltigkeit/BscGui@ownedEnd|nachhaltigkeit/RootElement#rootElement}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="136,162">
+      <children xsi:type="editmodel:MethodEditModel" name="main" id="{UMLID=_GTRbn8sxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/BscGui#main([Ljava.lang.String;)}" isAssociationMemeber="true"/>
+      <children xsi:type="editmodel:MethodEditModel" name="BscGui" id="{UMLID=_GTRblMsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/BscGui#BscGui()}" isAssociationMemeber="true"/>
+      <children xsi:type="editmodel:MethodEditModel" name="valueChanged" id="{UMLID=_GTRbnMsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/BscGui#valueChanged(Ljavax.swing.event.TreeSelectionEvent;)}" isAssociationMemeber="true"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="{UMLID=_GUm4UMsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/RootElement@rootElement+nachhaltigkeit/BscGui@ownedEnd}" source="//@children.4" target="//@children.1" targetEnd="//@children.4/@sourceConnections.0/@children.2" label="//@children.4/@sourceConnections.0/@children.0" sourceEnd="//@children.4/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" location="230,289" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="110,216" id="{UMLID=_GUm4UcsxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/RootElement@rootElement+nachhaltigkeit/BscGui@ownedEnd|nachhaltigkeit/BscGui#ownedEnd}" attachSource="true" multiplicityLabel="//@children.4/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.4/@sourceConnections.0/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="+ ownedEnd" location="152,263" size="61,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" location="227,263" size="0,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="rootElement" location="0,17" id="{UMLID=_GTHqkssxEdygzfcSzY6Drw,JavaID=nachhaltigkeit/RootElement@rootElement+nachhaltigkeit/BscGui@ownedEnd|nachhaltigkeit/RootElement#rootElement}" multiplicityLabel="//@children.4/@sourceConnections.0/@children.2/@children.0" roleLabel="//@children.4/@sourceConnections.0/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="347,316" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- rootElement" location="290,344" size="63,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" showAttributeJavaStereotype="true" showMethodJavaStereotype="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=7" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="10,10" gridOrigin="0,0" rulerUnit="pixel">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showInterfaceStereotype="true" showMethods="true" showAttributes="true" showLiterlas="true" showInnerEntity="true"/>
+</editmodel:ClassDiagramEditModel>

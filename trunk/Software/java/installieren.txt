@@ -1,0 +1,2 @@
+die java dateien in eclipse importieren. das package heisst: nachhaltigkeit
+die jars in /lib als externe libaries im projektordner unter eigenschaften einbinden
