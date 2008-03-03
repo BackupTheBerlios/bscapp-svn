@@ -2,6 +2,7 @@
 package nachhaltigkeit ;
 
 import java.awt.BorderLayout;
+
 import javax.swing.JPanel;
 
 import org.jfree.chart.ChartFactory ;
