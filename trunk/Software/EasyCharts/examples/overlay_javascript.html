@@ -1,0 +1,85 @@
+<html>
+<body>
+<table width=600>
+<tr><td>
+<font face="verdana, arial, helvetica" size=-1>
+
+<b>Controlling Overlay Charts Using JavaScript</b>
+<hr>
+<applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.jar width=450 height=300 name=BarChart VIEWASTEXT>
+<param name=chart value="bar">
+<param name=sampleColors value="#3D7778">
+<param name=background value="white">
+<param name=sampleValues value="20,10,40,30,50">
+<param name=overlay0 value="line">
+<param name=overlay0_lineWidth value="5">
+<param name=overlay0_sampleValues value="15,7.5,30,22.5,37.5">
+<param name=overlay0_sampleColors value="#D10069">
+<param name=overlay1 value="line">
+<param name=overlay1_sampleValues value="10,5,20,15,25">
+<param name=overlay1_sampleColors value="#6EA7DB">
+<param name=overlay1_stackedOn value=true>
+</applet>
+
+
+<form name="input">
+overlay 1
+<INPUT NAME="overlay1" type=checkbox checked onClick=repaint()>
+overlay 2
+<INPUT NAME="overlay2" type=checkbox checked onClick=repaint()>
+</form>
+
+<script LANGUAGE="JavaScript">
+<!--
+function repaint() {
+	document.BarChart.chart.setOverlayChartOn(0, document.input.overlay1.checked);
+	document.BarChart.chart.setOverlayChartOn(1, document.input.overlay2.checked);
+}
+//-->
+</script>
+
+<pre>
+<font face="verdana, arial, helvetica" size=-1>
+<hr>
+<b>Applet code:</b>
+&lt;applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.jar width=450 height=300 name=BarChart VIEWASTEXT>
+&lt;param name=chart value="bar">
+&lt;param name=sampleColors value="#3D7778">
+&lt;param name=background value="white">
+&lt;param name=sampleValues value="20,10,40,30,50">
+&lt;param name=overlay0 value="line">
+&lt;param name=overlay0_lineWidth value="5">
+&lt;param name=overlay0_sampleValues value="15,7.5,30,22.5,37.5">
+&lt;param name=overlay0_sampleColors value="#D10069">
+&lt;param name=overlay1 value="line">
+&lt;param name=overlay1_sampleValues value="10,5,20,15,25">
+&lt;param name=overlay1_sampleColors value="#6EA7DB">
+&lt;param name=overlay1_stackedOn value=true>
+&lt;/applet>
+
+
+&lt;form name="input">
+overlay 1
+&lt;INPUT NAME="overlay1" type=checkbox checked onClick=repaint()>
+overlay 2
+&lt;INPUT NAME="overlay2" type=checkbox checked onClick=repaint()>
+&lt;/form>
+
+&lt;script LANGUAGE="JavaScript">
+&lt;!--
+function repaint() {
+	document.BarChart.chart.setOverlayChartOn(0, document.input.overlay1.checked);
+	document.BarChart.chart.setOverlayChartOn(1, document.input.overlay2.checked);
+}
+//-->
+&lt;/script>
+<hr>
+</font>
+</pre>
+    
+</td></tr>
+</table>
+</body>
+</html>

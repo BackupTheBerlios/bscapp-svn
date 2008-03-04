@@ -1,0 +1,121 @@
+<html>
+<body>
+<table width=600>
+<tr><td>
+<font face="verdana, arial, helvetica" size=-1>
+
+<b>Grid Lines</b>
+<hr>
+<applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.jar width=450 height=300>
+<param name=chart value=bar>
+<param name=sampleValues value=126,126,159,258,358,578,778,992,1251>
+<param name=sampleLabels value=02.07,02.08,02.09,02.10,02.11,02.12,03.01,03.02,03.03>
+<param name=sampleLabelsOn value=true>
+<param name=sampleLabelStyle value=below>
+<param name=sampleLabelFont value="Arial,bold,11">
+<param name=valueLinesOn value=true>
+<param name=rangeStep value=200>
+<param name=rangeLabelFont value="Arial,bold,11">
+<param name=maxValueLineCount value=10>
+<param name=defaultGridLinesOn value=true>
+<param name=gridLines value=28,50,72>
+<param name=sampleColors value=#99cc00>
+<param name=valueLinesColor value=#ffcc00>
+<param name=defaultGridLinesColor value=#ffcc00>
+<param name=gridLineColors value=red,blue,red>
+<param name=background value=white>
+</applet> 
+
+<pre>
+<font face="verdana, arial, helvetica" size=-1>
+<hr>
+<b>Applet code:</b>
+&lt;applet code=com.objectplanet.chart.ChartApplet
+&nbsp;archive=chart.jar width=450 height=300>
+&lt;param name=chart value=bar>
+&lt;param name=sampleValues value=126,126,159,258,358,578,778,992,1251>
+&lt;param name=sampleLabels value=02.07,02.08,02.09,02.10,02.11,02.12,03.01,03.02,03.03>
+&lt;param name=sampleLabelsOn value=true>
+&lt;param name=sampleLabelStyle value=below>
+&lt;param name=sampleLabelFont value="Arial,bold,11">
+&lt;param name=valueLinesOn value=true>
+&lt;param name=rangeStep value=200>
+&lt;param name=rangeLabelFont value="Arial,bold,11">
+&lt;param name=maxValueLineCount value=10>
+&lt;param name=defaultGridLinesOn value=true>
+&lt;param name=gridLines value=28,50,72>
+&lt;param name=sampleColors value=#99cc00>
+&lt;param name=valueLinesColor value=#ffcc00>
+&lt;param name=defaultGridLinesColor value=#ffcc00>
+&lt;param name=gridLineColors value=red,blue,red>
+&lt;param name=background value=white>
+&lt;/applet>
+
+
+<hr>
+<b>Servlet code:</b>
+&lt;img SRC="http://localhost:8080/servlet/com.objectplanet.chart.ChartServlet?
+width=450&
+height=300&
+chart=bar&
+sampleValues=126,126,159,258,358,578,778,992,1251&
+sampleLabels=02.07,02.08,02.09,02.10,02.11,02.12,03.01,03.02,03.03&
+valueLinesOn=true&
+maxValueLineCount=10&
+defaultGridLinesOn=true&
+gridLines=28,50,72&
+sampleColors=%2399cc00&
+valueLinesColor=%23ffcc00&
+defaultGridLinesColor=%23ffcc00&
+gridLineColors=red,blue,red&
+background=white"&gt;
+
+<hr>
+<b>Application code:</b>
+package com.objectplanet.chart.testing; 
+ 
+import com.objectplanet.chart.*; 
+import java.awt.*; 
+ 
+public class Bar { 
+ 
+    public static void main(String[] argv) { 
+        double[] sampleValues = new double[] {126,126,159,258,358,578,778,992,1251};
+        String[] sampleLabels = new String[] {"02.07","02.08","02.09","02.10","02.11","02.12","03.01","03.02","03.03"};	
+        
+        BarChart chart = new BarChart();
+        chart.setSampleCount(sampleValues.length);
+        chart.setSampleValues(0, sampleValues);
+        chart.setSampleColor(0, new Color(0x99cc00));
+        chart.setSampleLabels(sampleLabels);
+        chart.setSampleLabelStyle(Chart.BELOW);
+        chart.setFont("sampleLabelFont", new Font("Arial", Font.BOLD, 11));
+        chart.setSampleLabelsOn(true);
+        chart.setRelativeRange(0, 1.0, 200);
+        chart.setFont("rangeLabelFont", new Font("Arial", Font.BOLD, 11));
+        chart.setValueLinesOn(true);
+        chart.setMaxValueLineCount(10);
+        chart.setValueLinesColor(new Color(0xffcc00));
+        chart.setDefaultGridLinesOn(true);
+        chart.setDefaultGridLinesColor(new Color(0xffcc00));
+        chart.setGridLines(new double[]{28,50,72});
+        chart.setGridLineColors(new Color[] {Color.red,Color.blue,Color.red});
+        chart.setBackground(Color.white);
+        
+        com.objectplanet.chart.NonFlickerPanel p = new com.objectplanet.chart.NonFlickerPanel(new BorderLayout());
+        p.add("Center", chart);
+        Frame f = new Frame();
+        f.add("Center", p);
+        f.setSize(450,320);
+        f.show();
+    }
+} 
+<hr>
+</font>
+</pre>
+    
+</td></tr>
+</table>
+</body>
+</html>

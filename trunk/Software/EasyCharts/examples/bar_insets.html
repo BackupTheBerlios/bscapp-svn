@@ -1,0 +1,87 @@
+<html>
+<body>
+<table width=600>
+<tr><td>
+<font face="verdana, arial, helvetica" size=-1>
+
+<b>Graph Insets and Grid Adjustment</b>
+<hr>
+<applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.jar width=450 height=300>
+<param name=chart value="bar">
+<param name=range value="50">
+<param name=rangeLabelFont value="Arial,bold,13">
+<param name=sampleValues value="5,15,25,35,45">
+<param name=sampleColors value="red">
+<param name=graphInsets value="8,100,7,0">
+<param name=gridAdjustmentOn value="true">
+</applet>
+
+<pre>
+<font face="verdana, arial, helvetica" size=-1>
+<hr>
+<b>Applet code:</b>
+&lt;applet code=com.objectplanet.chart.ChartApplet
+&nbsp;archive=chart.jar width=450 height=300>
+&lt;param name=chart value="bar">
+&lt;param name=range value="50">
+&lt;param name=rangeLabelFont value="Arial,bold,13">
+&lt;param name=sampleValues value="5,15,25,35,45">
+&lt;param name=sampleColors value="red">
+&lt;param name=graphInsets value="8,100,7,0">
+&lt;param name=gridAdjustmentOn value="true">
+&lt;/applet>
+
+
+<hr>
+<b>Servlet code:</b>
+&lt;img src="http://localhost:8080/servlet/com.objectplanet.chart.ChartServlet?
+chart=pie&
+width=450&
+height=300&
+range=50&
+rangeLabelFont=Arial,bold,13&
+sampleValues=5,15,25,35,45&
+sampleColors=red&
+graphInsets=8,100,7,0"&gt;
+
+<hr>
+<b>Application code:</b>
+package com.objectplanet.chart.testing; 
+ 
+import com.objectplanet.chart.*; 
+import java.awt.*; 
+ 
+public class Pie { 
+ 
+    public static void main(String[] argv) { 
+        double[] sampleValues = new double[] {5,15,25,35,45};
+        
+        BarChart chart = new BarChart();
+        chart.setSampleCount(sampleValues.length);
+        chart.setSampleValues(0, sampleValues);
+        chart.setSampleColor(0, Color.red);
+        chart.setRange(0, 50);
+        chart.setFont("rangeLabelFont", new Font("Arial", Font.BOLD, 13));
+        chart.setGraphInsets(8,100,7,0);
+        chart.setGridAdjustmentOn(Chart.TOP,true);
+        chart.setGridAdjustmentOn(Chart.BOTTOM,true);
+        chart.setGridAdjustmentOn(Chart.LEFT,true);
+        chart.setGridAdjustmentOn(Chart.RIGHT,true);
+              
+        com.objectplanet.chart.NonFlickerPanel p = new com.objectplanet.chart.NonFlickerPanel(new BorderLayout());
+        p.add("Center", chart);
+        Frame f = new Frame();
+        f.add("Center", p);
+        f.setSize(450,320);
+        f.show();
+    }
+} 
+<hr>
+</font>
+</pre>
+    
+</td></tr>
+</table>
+</body>
+</html>

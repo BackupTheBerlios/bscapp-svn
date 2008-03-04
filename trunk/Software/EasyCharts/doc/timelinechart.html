@@ -1,0 +1,465 @@
+<HTML>
+<body bgcolor="#ffffff" topmargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0">
+
+<table cellspacing=0 cellpadding=5 border=0 width=100%>
+<tr bgcolor="#c6d3f7"><td>
+<font face="Arial,Verdana,Helvetica" size=-2>
+<b>&nbsp;
+<a href="../index.html">main</a> |
+<a href="index.html">documentation</a> |
+<a href="../examples/index.html">examples</a> |
+<a href="../presales_questions.html">common questions</a> |
+<a href="../changes.html">changes</a> |
+<a href="http://objectplanet.com/EasyCharts/license_details.html">licensing</a>
+</b>
+</font>
+</td>
+</tr>
+</table>
+
+<table BORDER=0 CELLSPACING=0 CELLPADDING=10 WIDTH=700>
+<tr>
+<td colspan=3>
+<font face="Arial,Verdana,Helvetica" size=-1 color="#333333">
+<p><br>
+<font size=-0>
+<b>EASYCHARTS DOCUMENTATION&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;TIMELINECHART</b>
+</font>
+</td>
+</tr>
+
+<tr><td valign=top>
+<font face="verdana,arial,helvetica" size=-1>
+<b><a href="#input_and_output_formats">1. Input and Output Formats</a></b><br>
+&nbsp;&nbsp;<a href="#setting_input_format">1.1 setting input format</a><br>
+&nbsp;&nbsp;<a href="#setting_input_format_locale">1.2 setting input format locale</a><br>
+&nbsp;&nbsp;<a href="#setting_output_format">1.3 setting output format</a><br>
+</td>
+
+<td valign=top>
+<font face="verdana,arial,helvetica" size=-1>
+<b><a href="#loading_chart_data">2. Loading Chart Data</a></b><br>
+&nbsp;&nbsp;<a href="#upper_and_lower_time">2.1 upper and lower time</a><br>
+&nbsp;&nbsp;<a href="#setting_time_scale">2.2 setting time scale</a><br>
+&nbsp;&nbsp;<a href="#setting_time_plots">2.3 setting time plots</a><br>
+</td>
+
+<td valign=top>
+<font face="verdana,arial,helvetica" size=-1>
+<b><a href="#time_labels">3. Time Labels</a></b><br>
+&nbsp;&nbsp;<a href="#turning_on_time_labels">3.1 turning on time labels</a><br>
+&nbsp;&nbsp;<a href="#setting_time_labels_explicitly">3.2 setting time labels explicitly</a><br>
+</td>
+</tr>
+
+<tr>
+<td colspan=3>
+<font face="Arial,Verdana,Helvetica" size=-1 color="#333333">
+<p>
+<font size=-1>
+<br>
+<i>All parameters from the <a href="linechart.html">LineChart</a> can also be used in the TimeLineChart.
+Parameters specified in this document are TimeLineChart specific.</i><br><br>
+<font face="verdana,arial,helvetica" size=-1>
+To create a simple Time Line chart follow theese steps:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1. Set <a href="#setting_input_format">format of the input parameters</a>.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2. Set <a href="#upper_and_lower_time">upper and lower time</a> of the time axis.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3. Set <a href="#setting_time_scale">scaling of the time axis</a>.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;4. Set your <a href="#setting_time_plots">data</a>.
+</font>
+</font>
+</td>
+</tr>
+
+</table>
+
+<p>
+<a name="parameters"></a>
+<table BORDER=0 CELLSPACING=10 CELLPADDING=0 WIDTH=600>
+<tr>
+<td colspan=6>
+<font face="Verdana,Arial,Helvetica" size=-1>
+<b>CHART PARAMETERS</b>
+</font>
+</td>
+</tr>
+<tr>
+<td valign=top><font face="arial,verdana,helvetica" size=-2>
+<a href="#autoTimeLabelsOn">autoTimeLabelsOn</a>
+<br><a href="#lowerTime">lowerTime</a>
+<br><a href="#timeFormatInput">timeFormatInput</a>
+</font></td>
+<td valign=top><font face="arial,verdana,helvetica" size=-2>
+<a href="#timeFormatInputLocale">timeFormatInputLocale</a>
+<br><a href="#timeFormatOut">timeFormatOut</a>
+<br><a href="#timeFormatOutLocale">timeFormatOutLocale</a>
+<br><a href="#timeLabels">timeLabels</a>
+</font></td>
+<td valign=top><font face="arial,verdana,helvetica" size=-2>
+<a href="#timePlots_N">timePlots_N</a>
+<br><a href="#timeScale">timeScale</a>
+<br><a href="#upperTime">upperTime</a>
+</font></td>
+</tr>
+</table>
+
+<p>
+<table BORDER=0 CELLSPACING=8 CELLPADDING=2 WIDTH=700>
+<tr>
+<td colspan=3>
+<font face="verdana, arial" size=-1><b>TIMELINECHART PARAMETERS</b></font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="timePlots_N"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>timePlots_N</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the x|y plots for the specified series, where x is a datetime string, y is the value and N is series.
+The x and y values must be delimited by |, and the datetime string must be in the format
+specified by timeFormatInput.<br>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="timePlots_0" value="2005-02-01|52.2,2005-02-02|52.2,2005-02-03|19.8"&gt;<br>
+&lt;param name="timePlots_1" value="2005-02-01|29.6,2005-02-02|61.9,2005-02-03|64.9"&gt;<hr size=1 color="#c0c0c0">
+setTimePlots(0, new String[] {"2005-02-01|52.2","2005-02-02|52.2","2005-02-03|19.8"});<br>
+setTimePlots(1, new String[] {"2005-02-01|29.6","2005-02-02|61.9","2005-02-03|64.9"});<hr size=1 color="#c0c0c0">
+timePlots_0=2005-02-01|52.2,2005-02-02|52.2,2005-02-03|19.8
+timePlots_1=2005-02-01|29.6,2005-02-02|61.9,2005-02-03|64.9
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="lowerTime"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>lowerTime</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the start time of the time axis. The time string must be in the format specified in the timeFormatInput parameter.<br>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="lowerTime" value="2005-02-01"&gt;<hr size=1 color="#c0c0c0">
+setLowerTime("2005-02-01");<hr size=1 color="#c0c0c0">
+endAngle=2005-02-01
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="upperTime"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>upperTime</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the stop time of the time axis. The time string must be in the format specified in the timeFormatInput parameter.<br>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="upperTime" value="2005-02-03"&gt;<hr size=1 color="#c0c0c0">
+setUpperTime("2005-02-03");<hr size=1 color="#c0c0c0">
+upperTime=2005-02-03
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="timeFormatInput"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>timeFormatInput</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the format of the input date time parameters.
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="timeFormatInput" value="yyyy-MM-dd"&gt;<hr size=1 color="#c0c0c0">
+setTimeFormatInput(0, "yyyy-MM-dd");<hr size=1 color="#c0c0c0">
+timeFormatInput=yyyy-MM-dd
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="timeFormatInputLocale"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>timeFormatInputLocale</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the locale of the input date time parameters (example, en,us).
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="timeFormatInputLocale" value="en,us"&gt;<hr size=1 color="#c0c0c0">
+setTimeFormatInputLocale("en,us");<hr size=1 color="#c0c0c0">
+timeFormatInputLocale=en,us
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="timeFormatOut"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>timeFormatOut</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the display format of the time labels.
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="timeFormatOut" value="MM/dd/yyyy"&gt;<hr size=1 color="#c0c0c0">
+setTimeFormatOut("MM/dd/yyyy");<hr size=1 color="#c0c0c0">
+timeFormatOut=MM/dd/yyyy
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="timeFormatOutLocale"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>timeFormatOutLocale</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the locale of the output date time parameters (example, en,us).
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="timeFormatOutLocale" value="en,us"&gt;<hr size=1 color="#c0c0c0">
+setTimeFormatOutLocale("en,us");<hr size=1 color="#c0c0c0">
+timeFormatOutLocale=en,us
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="timeScale"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>timeScale</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the scaling of the time axis in number of seconds. The default value is 1 which means
+that each step on the x-axis is one second. If you set the timeScale to 60 each step on the
+axis will be one minute. If you set the timeScale to 3600, each step will be one hour, and so on.
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="timeScale" value="84600"&gt;<hr size=1 color="#c0c0c0">
+setTimeScale(84600);    // 24 hours<hr size=1 color="#c0c0c0">
+timeScale=84600
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="autoTimeLabelsOn"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>autoTimeLabelsOn</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+If you turn this on, labels will automatically be added to the x-axis at each plot point.<br>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="autoTimeLabelsOn" value="true"&gt;<hr size=1 color="#c0c0c0">
+setAutoTimeLabelsOn(true);<hr size=1 color="#c0c0c0">
+autoTimeLabelsOn=true
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="timeLabels"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>timeLabels</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Adds time labels at the plot points indicated by the time labels.
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="timeLabels" value="2005-02-01,2005-02-02,2005-02-03"&gt;<hr size=1 color="#c0c0c0">
+setTimeLabels(new String[] {"2005-02-01","2005-02-02","2005-02-03"});<hr size=1 color="#c0c0c0">
+timeLabels=2005-02-01,2005-02-02,2005-02-03
+</font>
+</td>
+</tr>
+</table>
+
+<a name="userguide"></a>
+<p>
+<table cellspacing=10 border=0 cellpadding=0 width=100%>
+<tr>
+<td>
+<font face="Arial,Verdana,Helvetica" size=-1>
+<b>CHART USER GUIDE</b>
+</font>
+</td>
+</tr>
+
+<tr>
+<td>
+<font face="Arial,Verdana,Helvetica" size=-1>
+
+<a name="input_and_output_formats"></a>
+<p><br>
+<font size=+1>
+1. Input and Output Formats
+</font>
+
+<P><a name="setting_input_format"></a>
+<b>1.1 Setting input format</b>
+<p>
+Use timeFormatInput parameter to set the format of the input parameters.
+
+<P>
+&lt;applet code=com.objectplanet.chart.ChartApplet<br>
+ archive=chart.ext.jar width=250 height=150&gt;<br>
+&lt;param name=chart value=time_line&gt;<br>
+&lt;param name=timePlots_0 value="<b>2005-02-01</b>|52.2,<b>2005-02-02</b>|52.2,<b>2005-02-03</b>|19.8,<b>2005-02-04</b>|76.0,<b>2005-02-05</b>|76.0,<b>2005-02-06</b>|43.7,<b>2005-02-07</b>|43.7,<b>2005-02-08</b>|100"&gt;<br>
+&lt;param name=<b>timeFormatInput</b> value=<b>"yyyy-MM-dd"</b>&gt;<br>
+&lt;param name=timeScale value=86400&gt;<br>
+&lt;param name=lowerTime value=<b>"2005-02-01"</b>&gt;<br>
+&lt;param name=upperTime value=<b>"2005-02-08"</b>&gt;<br>
+&lt;/applet&gt;<br>
+
+<P><IMG width=250 height=150 src="images/timeline/timeFormatInput.gif">
+
+
+<P><a name="setting_input_format_locale"></a>
+<b>1.2 Setting input format locale</b>
+<p>
+Use timeFormatInputLocale to sets the locale of the input date time parameters.
+
+<P>
+&lt;applet code=com.objectplanet.chart.ChartApplet<br>
+ archive=chart.ext.jar width=250 height=150&gt;<br>
+&lt;param name=chart value=time_line&gt;<br>
+&lt;param name=timePlots_0 value="1 <b>Febrero</b> 2005|52.2,2 <b>Febrero</b> 2005|52.2,3 <b>Febrero</b> 2005|19.8,4 <b>Febrero</b> 2005|76.0,5 <b>Febrero</b> 2005|76.0,6 <b>Febrero</b> 2005|43.7,7 <b>Febrero</b> 2005|43.7,8 <b>Febrero</b> 2005|100"&gt;<br>
+&lt;param name=timeFormatInput value="dd MMM yyyy"&gt;<br>
+&lt;param name=<b>timeFormatInputLocale</b> value=<b>"es,es"</b>&gt;<br>
+&lt;param name=timeScale value=86400&gt;<br>
+&lt;param name=lowerTime value="1 <b>Febrero</b> 2005"&gt;<br>
+&lt;param name=upperTime value="8 <b>Febrero</b> 2005"&gt;<br>
+&lt;/applet&gt;<br>
+
+<P><IMG width=250 height=150 src="images/timeline/timeFormatInput.gif">
+
+<P><a name="setting_output_format"></a>
+<b>1.3 Setting output format</b>
+<p>
+Use timeFormatOut parameter to set the output format of the labels.
+
+<P>
+&lt;applet code=com.objectplanet.chart.ChartApplet<br>
+ archive=chart.ext.jar width=250 height=150&gt;<br>
+&lt;param name=chart value=time_line&gt;<br>
+&lt;param name=lowerTime value="2005-02-01"&gt;<br>
+&lt;param name=upperTime value="2005-02-08"&gt;<br>
+&lt;param name=timeScale value=86400&gt;<br>
+&lt;param name=timePlots_0 value="2005-02-01|52.2,2005-02-02|52.2,2005-02-03|19.8,2005-02-04|76.0,2005-02-05|76.0,2005-02-06|43.7,2005-02-07|43.7,2005-02-08|100"&gt;<br>
+&lt;param name=timeFormatInput value="yyyy-MM-dd"&gt;<br>
+&lt;param name=<b>timeFormatOut</b> value=<b>"dd MMM"</b>&gt;<br>
+&lt;param name=autoTimeLabelsOn value="true"&gt;<br>
+&lt;param name=sampleLabelAngle value=270&gt;<br>
+&lt;/applet&gt;<br>
+
+<P><IMG width=250 height=150 src="images/timeline/timelabels.png">
+
+<a name="loading_chart_data"></a>
+<p><br>
+<font size=+1>
+1. Loading Chart Data
+</font>
+
+<P><a name="upper_and_lower_time"></a>
+<b>2.1 Upper and lower time</b>
+<p>
+Use upperDate and lowerDate parameters to set start and stop times of the time axis.
+
+<P>
+&lt;applet code=com.objectplanet.chart.ChartApplet<br>
+ archive=chart.ext.jar width=250 height=150&gt;<br>
+&lt;param name=chart value=time_line&gt;<br>
+&lt;param name=timeFormatInput value="yyyy-MM-dd"&gt;<br>
+&lt;param name=<b>lowerTime</b> value=<b>"2005-02-01"</b>&gt;<br>
+&lt;param name=<b>upperTime</b> value=<b>"2005-02-08"</b>&gt;<br>
+&lt;param name=timeScale value=86400&gt;<br>
+&lt;param name=timePlots_0 value="2005-02-01|52.2,2005-02-02|52.2,2005-02-03|19.8,2005-02-04|76.0,2005-02-05|76.0,2005-02-06|43.7,2005-02-07|43.7,2005-02-08|100"&gt;<br>
+&lt;/applet&gt;<br>
+
+<P><IMG width=250 height=150 src="images/timeline/timeFormatInput.gif">
+
+
+<P><a name="setting_time_scale"></a>
+<b>2.2 Setting time scale</b>
+<p>
+Use timeScale parameter to set the scaling of the time axis in number of seconds. Set 1 for 1 second,
+60 for one minute, 3600 for one hour, 86400 for 24 hours, and so on.
+
+<P>
+&lt;applet code=com.objectplanet.chart.ChartApplet<br>
+ archive=chart.ext.jar width=250 height=150&gt;<br>
+&lt;param name=chart value=time_line&gt;<br>
+&lt;param name=timeFormatInput value="yyyy-MM-dd"&gt;<br>
+&lt;param name=lowerTime value="2005-02-01"&gt;<br>
+&lt;param name=upperTime value="2005-02-08"&gt;<br>
+&lt;param name=<b>timeScale</b> value=<b>86400</b>&gt;<br>
+&lt;param name=timePlots_0 value="2005-02-01|52.2,2005-02-02|52.2,2005-02-03|19.8,2005-02-04|76.0,2005-02-05|76.0,2005-02-06|43.7,2005-02-07|43.7,2005-02-08|100"&gt;<br>
+&lt;/applet&gt;<br>
+
+<P><IMG width=250 height=150 src="images/timeline/timeFormatInput.gif">
+
+<P><a name="setting_time_plots"></a>
+<b>2.3 Setting time plots</b>
+<p>
+Use timePlots_N parameter to add time plot series to the chart. N is index of the series.
+Use seriesCount parameter to control the number of data series.
+
+<P>
+&lt;applet code=com.objectplanet.chart.ChartApplet<br>
+ archive=chart.ext.jar width=250 height=150&gt;<br>
+&lt;param name=chart value=time_line&gt;<br>
+&lt;param name=<b>seriesCount</b> value=<b>2</b>&gt;<br>
+&lt;param name=timeFormatInput value="yyyy-MM-dd"&gt;<br>
+&lt;param name=lowerTime value="2005-02-01"&gt;<br>
+&lt;param name=upperTime value="2005-02-08"&gt;<br>
+&lt;param name=timeScale value=86400&gt;<br>
+&lt;param name=<b>timePlots_0</b> value=<b>"2005-02-01|52.2,2005-02-02|52.2,2005-02-03|19.8,2005-02-04|76.0,2005-02-05|76.0,2005-02-06|43.7,2005-02-07|43.7,2005-02-08|100"</b>&gt;<br>
+&lt;param name=<b>timePlots_1</b> value=<b>"2005-02-01|88.7,2005-02-02|89.7,2005-02-03|27.4,2005-02-04|60.0,2005-02-05|55.3,2005-02-06|70.4,2005-02-07|65.6,2005-02-08|60.8"</b>&gt;<br>
+&lt;/applet&gt;<br>
+
+<P><IMG width=250 height=150 src="images/timeline/timeplots_multiple.png">
+
+<a name="time_labels"></a>
+<p><br>
+<font size=+1>
+3. Time Labels
+</font>
+
+<P><a name="turning_on_time_labels"></a>
+<b>3.1 Turning on time labels</b>
+<p>
+Use autoTimeLabelsOn parameters to turn on the time labels.
+
+<P>
+&lt;applet code=com.objectplanet.chart.ChartApplet<br>
+ archive=chart.ext.jar width=250 height=150&gt;<br>
+&lt;param name=chart value=time_line&gt;<br>
+&lt;param name=lowerTime value="2005-02-01"&gt;<br>
+&lt;param name=upperTime value="2005-02-08"&gt;<br>
+&lt;param name=timeScale value=86400&gt;<br>
+&lt;param name=timePlots_0 value="2005-02-01|52.2,2005-02-02|52.2,2005-02-03|19.8,2005-02-04|76.0,2005-02-05|76.0,2005-02-06|43.7,2005-02-07|43.7,2005-02-08|100"&gt;<br>
+&lt;param name=timeFormatInput value="yyyy-MM-dd"&gt;<br>
+&lt;param name=timeFormatOut value="dd MMM"&gt;<br>
+&lt;param name=<b>autoTimeLabelsOn</b> value=<b>true</b>&gt;<br>
+&lt;param name=sampleLabelAngle value=270&gt;<br>
+&lt;/applet&gt;<br>
+
+<P><IMG width=250 height=150 src="images/timeline/timelabels.png">
+
+<P><a name="setting_time_labels_explicitly"></a>
+<b>3.2 Setting time labels explicitly</b>
+<p>
+Use timeLabels parameters to set only desired time labels.
+
+<P>
+&lt;applet code=com.objectplanet.chart.ChartApplet<br>
+ archive=chart.ext.jar width=250 height=150&gt;<br>
+&lt;param name=chart value=time_line&gt;<br>
+&lt;param name=lowerTime value="2005-02-01"&gt;<br>
+&lt;param name=upperTime value="2005-02-08"&gt;<br>
+&lt;param name=timeScale value=86400&gt;<br>
+&lt;param name=timePlots_0 value="2005-02-01|52.2,2005-02-02|52.2,2005-02-03|19.8,2005-02-04|76.0,2005-02-05|76.0,2005-02-06|43.7,2005-02-07|43.7,2005-02-08|100"&gt;<br>
+&lt;param name=timeFormatInput value="yyyy-MM-dd"&gt;<br>
+&lt;param name=timeFormatOut value="dd MMM"&gt;<br>
+&lt;param name=sampleLabelAngle value=270&gt;<br>
+&lt;param name=<b>timeLabels</b> value=<b>"2005-02-01,2005-02-03,2005-02-05,2005-02-07,2005-02-09"</b>&gt;<br>
+&lt;/applet&gt;<br>
+
+<P><IMG width=250 height=150 src="images/timeline/timelabels_explicit.png">
+
+
+<p><br>
+<hr size=1 color="#c0c0c0">
+<font face="verdana,arial,helvetica" size=-2><center>
+Copyright (C) 1998-2008 ObjectPlanet, Inc.<br>
+phone (+47) 2233 3360 fax (+47) 2233 3361<br>
+</center>
+</font>
+
+</BODY>
+</HTML>

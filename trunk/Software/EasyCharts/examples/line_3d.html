@@ -1,0 +1,136 @@
+<html>
+<body>
+<table width=600>
+<tr><td>
+<font face="verdana, arial, helvetica" size=-1>
+
+<b>3D Line Chart</b>
+<hr>
+<applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.jar width=450 height=300>
+<param name=chart value="line">
+<param name=seriesCount value=2>
+<param name=sampleColors value="#00A0C4,#FF6200">
+<param name=sampleValues_0 value="51,42,41,43,31,31,34,33,22">
+<param name=sampleValues_1 value="65,66,53,55,60,56,45,48,46">
+<param name=rangeStep value=100>
+<param name=valueLinesOn value=true>
+<param name=range value=80>
+<param name=lowerRange value=20>
+<param name=legendOn value=true>
+<param name=legendLabels value="Cyan,Orange">
+<param name=legendPosition value=left>
+<param name=legendFont value="Dialog,bold,14">
+<param name=valueLabelsOn value=true>
+<param name=valueLabelFont value="Arial,bold,11">
+<param name=3DModeOn value=true>
+<param name=3DDepth value=40>
+<param name=chartBackground value=#FFFCF1>
+<param name=background value=#FFFCF1>
+</applet>
+
+<pre>
+<font face="verdana, arial, helvetica" size=-1>
+<hr>
+<b>Applet code:</b>
+&lt;applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.jar width=450 height=300>
+&lt;param name=chart value="line">
+&lt;param name=seriesCount value=2>
+&lt;param name=sampleColors value="#00A0C4,#FF6200">
+&lt;param name=sampleValues_0 value="51,42,41,43,31,31,34,33,22">
+&lt;param name=sampleValues_1 value="65,66,53,55,60,56,45,48,46">
+&lt;param name=rangeStep value=100>
+&lt;param name=valueLinesOn value=true>
+&lt;param name=range value=80>
+&lt;param name=lowerRange value=20>
+&lt;param name=legendOn value=true>
+&lt;param name=legendLabels value="Cyan,Orange">
+&lt;param name=legendPosition value=left>
+&lt;param name=legendFont value="Dialog,bold,14">
+&lt;param name=valueLabelsOn value=true>
+&lt;param name=valueLabelFont value="Arial,bold,11">
+&lt;param name=3DModeOn value=true>
+&lt;param name=3DDepth value=40>
+&lt;param name=chartBackground value=#FFFCF1>
+&lt;param name=background value=#FFFCF1>
+&lt;/applet>
+
+
+<hr>
+<b>Servlet code:</b>
+&lt;img src="http://localhost:8080/servlet/com.objectplanet.chart.ChartServlet?
+chart=line&
+width=450&
+height=300&
+seriesCount=2&
+sampleColors=%2300A0C4,%23FF6200&
+sampleValues_0=51,42,41,43,31,31,34,33,22&
+sampleValues_1=65,66,53,55,60,56,45,48,46&
+rangeStep=100&
+valueLinesOn=true&
+range=80&
+lowerRange=20&
+legendOn=true&
+legendLabels=Cyan,Orange&
+legendPosition=left&
+legendFont=Dialog,bold,14&
+valueLabelsOn=true&
+valueLabelFont=Arial,bold,11&
+3DModeOn=true&
+3DDepth=40&
+chartBackground=%23FFFCF1&
+background=%23FFFCF1"&gt;
+
+<hr>
+<b>Application code:</b>
+package com.objectplanet.chart.testing; 
+ 
+import com.objectplanet.chart.*; 
+import java.awt.*; 
+ 
+public class Line { 
+ 
+    public static void main(String[] argv) { 
+        double[] sampleValues_0 = new double[] {51,42,41,43,31,31,34,33,22};
+        double[] sampleValues_1 = new double[] {65,66,53,55,60,56,45,48,46};
+        Color[] sampleColors = new Color[] {new Color(0x00A0C4), new Color(0xFF6200)};
+        
+        LineChart chart = new LineChart();
+        chart.setSeriesCount(2);
+        chart.setSampleCount(sampleValues_0.length);
+        chart.setSampleValues(0, sampleValues_0);
+        chart.setSampleValues(1, sampleValues_1);
+        chart.setSampleColors(sampleColors);
+        chart.setRange(0,80);
+        chart.setLowerRange(0,20);
+        chart.setValueLabelsOn(true);
+        chart.setValueLabelStyle(Chart.OUTSIDE);
+        chart.setValueLinesOn(true);
+        chart.setFont("valueLabelFont", new Font("Arial", Font.BOLD, 11));
+        chart.setFont("rangeLabelFont", new Font("Arial", Font.BOLD, 12));
+        chart.setLegendOn(true);
+        chart.setLegendPosition(Chart.LEFT);
+        chart.setLegendLabels(new String[] {"Cyan", "Orange"});
+        chart.setFont("legendFont", new Font("Dialog", Font.BOLD, 13));
+        chart.set3DModeOn(true);
+        chart.set3DDepth(40);
+        chart.setChartBackground(new Color(0xFFFCF1));
+        chart.setBackground(new Color(0xFFFCF1));
+        
+        com.objectplanet.chart.NonFlickerPanel p = new com.objectplanet.chart.NonFlickerPanel(new BorderLayout());
+        p.add("Center", chart);
+        Frame f = new Frame();
+        f.add("Center", p);
+        f.setSize(450,320);
+        f.show();
+    }
+} 
+<hr>
+</font>
+</pre>
+    
+</td></tr>
+</table>
+</body>
+</html>

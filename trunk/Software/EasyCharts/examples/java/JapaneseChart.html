@@ -1,0 +1,45 @@
+<html>
+<body>
+<font face="verdana, arial, helvetica" size=-1>
+<br>
+
+<p>
+Using japanese characters <br>
+<br>
+<br>
+<img src="images/Japanese_Chart.gif" border=0>
+<br>
+
+<p>
+public class JapaneseChart {<br>
+&nbsp;&nbsp; public static void main(String[] argv) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp; BarChart chart = new BarChart();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; Font font = new Font("Monospaced", Font.PLAIN, 30);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; chart.setFont("titleFont", font);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; chart.setTitleOn(true);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; chart.setTitle("\u30f3\u30d5\u30c8\u30a6\u30a7\u30a2");<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; chart.setSampleCount(5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; double values[] = {90, 70, 50, 30, 10};<br>
+&nbsp;&nbsp;&nbsp;&nbsp; chart.setSampleValues(0, values);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; com.objectplanet.chart.NonFlickerPanel p = <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new com.objectplanet.chart.NonFlickerPanel(new BorderLayout());<br>
+&nbsp;&nbsp;&nbsp;&nbsp; p.add("Center", chart);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; Frame f = new Frame();<br>
+&nbsp;&nbsp;&nbsp;&nbsp; f.add("Center", p);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; f.setSize(300, 210);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; f.show();<br>
+&nbsp;&nbsp; }<br>
+}<br>
+
+<p>
+To run this example your system locale has to be set to Japanese<br>
+and the font.properties file in your jdk home directory has to be<br> 
+replaced with font.properties.ja<br>
+
+
+<font>
+</body>
+</html>

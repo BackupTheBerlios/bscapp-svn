@@ -1,0 +1,64 @@
+<applet archive=chart.ext.jar code="com.objectplanet.chart.ChartApplet"
+width="424" height="280">
+	<!-- sample / series count -->
+	<param name=seriesCount value=3>
+	<param name=sampleCount value=11>
+
+	<!-- range -->
+	<param name=range value=70>
+	<param name=rangeInterval value=10>
+	<param name=rangeColor value=#888888>
+	<param name=font value=Verdana,bold,11>
+
+	<!-- style -->
+	<param name=barType value=behind>
+
+	<!-- value labels -->
+	<param name=valueLabelsOn value=true>
+	<param name=valueLabelStyle value=outside>
+
+	<!-- 3D params -->
+	<param name=3DModeOn value=true>
+	<param name=3DDepth value=50>
+
+	<!-- overlay 0 -->
+	<param name=overlay0 value=bar>
+	<param name=overlay0_3DModeOn value=true>
+	<param name=overlay0_sampleValues_0 value=15,25,30,15,15>
+	<param name=overlay0_sampleValues_1 value=10,15,40,35,15>
+	<param name=overlay0_seriesCount value=2>
+	<param name=overlay0_sampleColors value=#dc2626df,#267ec2df>
+	<param name=overlay0_barType value=stacked>
+	<param name=overlay0_multiColorOn value=true>
+	<param name=overlay0_barOutlineOff value=true>
+	<param name=overlay0_barWidth value=0.5>
+	<param name=overlay0_barShape value=cylinder>
+
+	<!-- overlay 1 -->
+	<param name=overlay1 value=spline>
+	<param name=overlay1_3DModeOn value=true>
+	<param name=overlay1_sampleValues_0 value=30,35,45,50,45,30,25,28,32>
+	<param name=overlay1_sampleColors value=#35CE35af>
+	<param name=overlay1_line3DDepth value=0.8>
+
+	<!-- overlay 2 -->
+	<param name=overlay2 value=spline>
+	<param name=overlay2_3DModeOn value=true>
+	<param name=overlay2_sampleValues_0 value=20,13,10,15,30,35,30,20,15>
+	<param name=overlay2_sampleColors value=#FE8500bb>
+	<param name=overlay2_stackedOn value=true>
+	<param name=overlay2_line3DDepth value=0.4>
+	<param name=overlay2_outlineOff value=true>
+
+	<!-- grid / value lines -->
+	<param name=defaultGridLinesOn value=true>
+	<param name=defaultGridLinesColor value=#6a9bbd>
+	<param name=valueLinesOn value=true>
+	<param name=valueLinesColor value=#6a9bbd>
+
+	<!-- background / foreground -->
+	<param name=chartBackground value=#B2D8FF|#F5F6F7>
+	<param name=background value=#F5F6F7|#B2D8FF>
+	<param name=chartForeground value=#6a9bbd>
+	<param name=graphInsets value=25,100,60,25>
+</applet>
