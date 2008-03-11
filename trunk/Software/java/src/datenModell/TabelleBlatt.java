@@ -5,6 +5,8 @@ package datenModell;
 import java.awt.geom.Point2D;
 import java.io.Serializable;
 import java.util.List;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.MutableTreeNode;
 
 
 
@@ -21,7 +23,6 @@ public class TabelleBlatt extends Tabelle implements Serializable
 	public TabelleBlatt( String titel )
 	{
 		super( titel );
-		super.tabellen = null;
 	}
 	
 
@@ -62,22 +63,6 @@ public class TabelleBlatt extends Tabelle implements Serializable
 	
 
 	@ Override
-	public final boolean addTabelle( Tabelle tabelle )
-	{
-		return false;
-	}
-	
-
-	@ Override
-	public final boolean removeTabelle( Tabelle tabelle )
-	{
-		return false;
-	}
-	
-
-	@ Override
-	public final List< Tabelle > getTabellen()
-	{
-		return null;
-	}
+	public void add( MutableTreeNode tabelle )
+	{}
 }
