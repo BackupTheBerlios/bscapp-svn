@@ -46,6 +46,7 @@ public class AnmeldeBildschirm extends JFrame
 
 		super.addWindowListener( new WindowAdapter()
 		{
+			@ Override
 			public void windowClosing( WindowEvent e )
 			{
 				System.exit( 0 );
@@ -94,7 +95,7 @@ public class AnmeldeBildschirm extends JFrame
 	private JPanel createNORTH()
 	{
 		JPanel panel = new JPanel( new BorderLayout() );
-		panel.add( this.willkommen );
+		panel.add( willkommen );
 		return panel;
 	}
 	
@@ -130,8 +131,9 @@ public class AnmeldeBildschirm extends JFrame
 		int windowW = super.getSize().width;
 		int windowH = super.getSize().height;
 		
-		return new Point( ( screenW / 2 ) - ( windowW / 2 ),
-		                  ( screenH / 2 ) - ( windowH / 2 ) );
+		return new Point( screenW / 2 - windowW / 2, screenH / 2
+		                                             - windowH
+		                                             / 2 );
 	}
 	
 

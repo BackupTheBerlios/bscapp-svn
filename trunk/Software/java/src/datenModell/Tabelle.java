@@ -3,21 +3,21 @@ package datenModell;
 
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.MutableTreeNode;
 
 
 
-public class Tabelle implements Serializable, Comparable< Tabelle >
+public class Tabelle extends DefaultMutableTreeNode implements
+                                                   Serializable,
+                                                   Comparable< Tabelle >
 {
-
+	
 
 	private static final long serialVersionUID = 1074172988316457301L;
 	
 
 	protected String titel;
-	protected List< Tabelle > tabellen;
 	protected double verdichtung;
 	protected double bewertung;
 	
@@ -28,7 +28,6 @@ public class Tabelle implements Serializable, Comparable< Tabelle >
 		this.titel = titel;
 		verdichtung = 0.0;
 		bewertung = 0.0;
-		tabellen = new ArrayList< Tabelle >();
 	}
 	
 
@@ -38,34 +37,19 @@ public class Tabelle implements Serializable, Comparable< Tabelle >
 	}
 	
 
-	public List< Tabelle > getTabellen()
-	{
-		return tabellen;
-	}
-	
-
 	public void setTitel( String titel )
 	{
 		this.titel = titel;
 	}
 	
 
-	public boolean addTabelle( Tabelle tabelle )
+	@ Override
+	public void add( MutableTreeNode tabelle )
 	{
-		boolean hinzugefügt = tabellen.add( tabelle );
-		
-		if( hinzugefügt )
+		if( tabelle instanceof Tabelle )
 		{
-			Collections.sort( tabellen );
+			super.add( tabelle );
 		}
-		
-		return hinzugefügt;
-	}
-	
-
-	public boolean removeTabelle( Tabelle tabelle )
-	{
-		return tabellen.remove( tabelle );
 	}
 	
 

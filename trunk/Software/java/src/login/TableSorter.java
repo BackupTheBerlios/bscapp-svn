@@ -18,6 +18,7 @@ import java.util.Map;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
@@ -88,7 +89,8 @@ public class TableSorter extends AbstractTableModel
 	public static final int NOT_SORTED = 0;
 	public static final int ASCENDING = 1;
 	
-	private static Directive EMPTY_DIRECTIVE = new Directive( - 1, NOT_SORTED );
+	private static Directive EMPTY_DIRECTIVE = new Directive( - 1,
+	                                                          NOT_SORTED );
 	
 	public static final Comparator COMPARABLE_COMAPRATOR = new Comparator()
 	{
@@ -117,8 +119,8 @@ public class TableSorter extends AbstractTableModel
 	
 	public TableSorter()
 	{
-		this.mouseListener = new MouseHandler();
-		this.tableModelListener = new TableModelHandler();
+		mouseListener = new MouseHandler();
+		tableModelListener = new TableModelHandler();
 	}
 	
 
@@ -129,7 +131,8 @@ public class TableSorter extends AbstractTableModel
 	}
 	
 
-	public TableSorter( TableModel tableModel, JTableHeader tableHeader )
+	public TableSorter( TableModel tableModel,
+	                    JTableHeader tableHeader )
 	{
 		this();
 		setTableHeader( tableHeader );
@@ -342,22 +345,24 @@ public class TableSorter extends AbstractTableModel
 	
 	public int getRowCount()
 	{
-		return ( tableModel == null ) ? 0 : tableModel.getRowCount();
+		return tableModel == null ? 0 : tableModel.getRowCount();
 	}
 	
 
 	public int getColumnCount()
 	{
-		return ( tableModel == null ) ? 0 : tableModel.getColumnCount();
+		return tableModel == null ? 0 : tableModel.getColumnCount();
 	}
 	
 
+	@ Override
 	public String getColumnName( int column )
 	{
 		return tableModel.getColumnName( column );
 	}
 	
 
+	@ Override
 	@ SuppressWarnings( "unchecked" )
 	public Class getColumnClass( int column )
 	{
@@ -365,6 +370,7 @@ public class TableSorter extends AbstractTableModel
 	}
 	
 
+	@ Override
 	public boolean isCellEditable( int row, int column )
 	{
 		return tableModel.isCellEditable( modelIndex( row ), column );
@@ -377,6 +383,7 @@ public class TableSorter extends AbstractTableModel
 	}
 	
 
+	@ Override
 	public void setValueAt( Object aValue, int row, int column )
 	{
 		tableModel.setValueAt( aValue, modelIndex( row ), column );
@@ -391,7 +398,7 @@ public class TableSorter extends AbstractTableModel
 		
 		public Row( int index )
 		{
-			this.modelIndex = index;
+			modelIndex = index;
 		}
 		
 
@@ -424,7 +431,8 @@ public class TableSorter extends AbstractTableModel
 				}
 				else
 				{
-					comparison = getComparator( column ).compare( o1, o2 );
+					comparison = getComparator( column ).compare( o1,
+					                                              o2 );
 				}
 				if( comparison != 0 )
 				{
@@ -519,12 +527,14 @@ public class TableSorter extends AbstractTableModel
 	
 	private class MouseHandler extends MouseAdapter
 	{
+		@ Override
 		public void mouseClicked( MouseEvent e )
 		{
 			JTableHeader h = (JTableHeader)e.getSource();
 			TableColumnModel columnModel = h.getColumnModel();
 			int viewColumn = columnModel.getColumnIndexAtX( e.getX() );
-			int column = columnModel.getColumn( viewColumn ).getModelIndex();
+			int column = columnModel.getColumn( viewColumn )
+			                        .getModelIndex();
 			if( column != - 1 )
 			{
 				int status = getSortingStatus( column );
@@ -540,8 +550,8 @@ public class TableSorter extends AbstractTableModel
 				// shift is pressed.
 				status = status + ( e.isShiftDown() ? - 1 : 1 );
 				status = ( status + 4 ) % 3 - 1; // signed mod,
-													// returning {-1,
-													// 0,
+				// returning {-1,
+				// 0,
 				// 1}
 				setSortingStatus( column, status );
 			}
@@ -640,10 +650,11 @@ public class TableSorter extends AbstractTableModel
 			if( c instanceof JLabel )
 			{
 				JLabel l = (JLabel)c;
-				l.setHorizontalTextPosition( JLabel.LEFT );
+				l.setHorizontalTextPosition( SwingConstants.LEFT );
 				int modelColumn = table.convertColumnIndexToModel( column );
-				l.setIcon( getHeaderRendererIcon( modelColumn, l.getFont()
-				                                                .getSize() ) );
+				l.setIcon( getHeaderRendererIcon( modelColumn,
+				                                  l.getFont()
+				                                   .getSize() ) );
 			}
 			return c;
 		}

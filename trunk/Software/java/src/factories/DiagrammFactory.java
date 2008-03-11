@@ -4,7 +4,7 @@ package factories;
 
 import java.awt.Color;
 import javax.swing.JPanel;
-import com.objectplanet.chart.*;
+import com.objectplanet.chart.BarChart;
 
 
 

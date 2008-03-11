@@ -5,7 +5,7 @@ package benutzerModell;
 public class Administrator extends Schreiber
 {
 	
-	
+
 	public void erstelleUser()
 	{
 

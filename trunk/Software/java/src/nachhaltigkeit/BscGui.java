@@ -255,7 +255,8 @@ public class BscGui extends JFrame implements TreeSelectionListener
 	}
 	
 
-	private JMenuBar getJMenuBar2()
+	@SuppressWarnings("unused")
+    private JMenuBar getJMenuBar2()
 	{
 		JMenuBar bar = new JMenuBar();
 		JMenu admin = new JMenu( "Administrator" );

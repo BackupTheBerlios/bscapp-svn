@@ -34,20 +34,24 @@ public class AnzahlSchueler extends Kennzahl
 	}
 	
 
+	@ Override
 	public JPanel gibDiagramm()
 	{
 		JPanel p = new JPanel();
 		
 		double[] beispielWerte =
-		{ 40, 34, 12, 12, 31, 6
+		{
+		        40, 34, 12, 12, 31, 6
 		};
 		
 		Color[] beispielFarben =
-		{ Color.red
+		{
+			Color.red
 		};
 		
 		String[] beispielBeschriftung =
-		{ "Anzahl der Schüler"
+		{
+			"Anzahl der Schüler"
 		};
 		
 		LineChart chart = new LineChart();

@@ -3,26 +3,25 @@ package datenModell;
 
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.MutableTreeNode;
 
 
 
-public class Bereich implements Serializable, Comparable< Bereich >
+public class Bereich extends DefaultMutableTreeNode implements
+                                                   Serializable,
+                                                   Comparable< Bereich >
 {
 	private static final long serialVersionUID = 1237738469520669948L;
 	
 
 	private String titel;
-	private List< Tabelle > tabellen;
 	
 	
 	public Bereich( String titel )
 	{
 		super();
 		this.titel = titel;
-		tabellen = new ArrayList< Tabelle >();
 	}
 	
 
@@ -32,34 +31,26 @@ public class Bereich implements Serializable, Comparable< Bereich >
 	}
 	
 
-	public List< Tabelle > getTabellen()
-	{
-		return tabellen;
-	}
-	
-
 	public void setTitel( String titel )
 	{
 		this.titel = titel;
 	}
 	
 
-	public boolean addTabelle( Tabelle tabelle )
+	@ Override
+	public void add( MutableTreeNode tabelle )
 	{
-		boolean hinzugefügt = tabellen.add( tabelle );
-		
-		if( hinzugefügt )
+		if( tabelle instanceof Tabelle )
 		{
-			Collections.sort( tabellen );
+			super.add( tabelle );
 		}
-		
-		return hinzugefügt;
 	}
 	
 
-	public boolean removeTabelle( Tabelle tabelle )
+	@ Override
+	public void remove( MutableTreeNode tabelle )
 	{
-		return tabellen.remove( tabelle );
+		super.remove( tabelle );
 	}
 	
 

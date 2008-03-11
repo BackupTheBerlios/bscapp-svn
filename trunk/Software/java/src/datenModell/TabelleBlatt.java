@@ -4,8 +4,6 @@ package datenModell;
 
 import java.awt.geom.Point2D;
 import java.io.Serializable;
-import java.util.List;
-import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.MutableTreeNode;
 
 

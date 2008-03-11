@@ -3,23 +3,17 @@ package datenModell;
 
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
-import javax.swing.tree.TreeModel;
-import javax.swing.tree.TreeNode;
 
 
 
-public class Auswertung implements Serializable
+public class Auswertung extends DefaultMutableTreeNode implements
+                                                      Serializable
 {
 	private static final long serialVersionUID = - 208812670706157608L;
 	
 
 	private String titel;
-	private List< Bereich > bereiche;
 	
 
 	private static Auswertung INSTANZ;
@@ -42,7 +36,6 @@ public class Auswertung implements Serializable
 	{
 		super();
 		titel = "Auswertung";
-		bereiche = new ArrayList< Bereich >();
 	}
 	
 
@@ -65,50 +58,21 @@ public class Auswertung implements Serializable
 	
 
 	/**
-	 * @return
+	 * @param bereich
 	 */
-	public static List< Bereich > getBereiche()
+	public static void addBereich( Bereich bereich )
 	{
-		return getInstanz().bereiche;
+		DefaultMutableTreeNode thisNode = getInstanz();
+		thisNode.add( bereich );
 	}
 	
 
 	/**
 	 * @param bereich
-	 * @return
 	 */
-	public static boolean addBereich( Bereich bereich )
+	public static void removeBereich( Bereich bereich )
 	{
-		boolean hinzugefügt = getInstanz().bereiche.add( bereich );
-		
-		if( hinzugefügt )
-		{
-			Collections.sort( getInstanz().bereiche );
-		}
-		
-		return hinzugefügt;
-	}
-	
-
-	/**
-	 * @param bereich
-	 * @return
-	 */
-	public static boolean removeBereich( Bereich bereich )
-	{
-		return getInstanz().bereiche.remove( bereich );
-	}
-	
-
-	public static MutableTreeNode getTree()
-	{
-		DefaultMutableTreeNode root = new DefaultMutableTreeNode( getInstanz() );
-		
-		for( Bereich b : getInstanz().bereiche )
-		{	
-
-		}
-		
-		return root;
+		DefaultMutableTreeNode thisNode = getInstanz();
+		thisNode.remove( bereich );
 	}
 }

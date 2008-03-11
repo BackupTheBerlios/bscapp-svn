@@ -33,6 +33,7 @@ public class BenutzerBearbeiten extends JFrame
 	private JTable table;
 	private JLabel überschrift = new JLabel( "Hier werden Benutzerkonten angelegt und bearbeitet." );
 	private JButton löschen, ändernPasswort, neu, gruppeÄndern;
+	@ SuppressWarnings( "unused" )
 	private JTextField statusLeiste = new JTextField( "Status: " );
 	
 	
@@ -44,6 +45,7 @@ public class BenutzerBearbeiten extends JFrame
 		super( "Benutzer bearbeiten" );
 		super.addWindowListener( new WindowAdapter()
 		{
+			@ Override
 			public void windowClosing( WindowEvent e )
 			{
 				System.exit( 0 );
@@ -138,16 +140,18 @@ public class BenutzerBearbeiten extends JFrame
 		int windowW = super.getSize().width;
 		int windowH = super.getSize().height;
 		
-		return new Point( ( screenW / 2 ) - ( windowW / 2 ),
-		                  ( screenH / 2 ) - ( windowH / 2 ) );
+		return new Point( screenW / 2 - windowW / 2, screenH / 2
+		                                             - windowH
+		                                             / 2 );
 	}
 	
 	@ SuppressWarnings( "serial" )
 	private class MyTableModel extends AbstractTableModel
 	{
 		private String[] colNames =
-		{ "Benutzername", "Benuzergruppe" };
-		private String classID;
+		{
+		        "Benutzername", "Benuzergruppe"
+		};
 		
 		
 		public MyTableModel()
@@ -160,6 +164,7 @@ public class BenutzerBearbeiten extends JFrame
 		}
 		
 
+		@ Override
 		public String getColumnName( int col )
 		{
 			return colNames[ col ];
@@ -178,12 +183,14 @@ public class BenutzerBearbeiten extends JFrame
 		}
 		
 
+		@ Override
 		public Class< ? > getColumnClass( int col )
 		{
 			return Object.class;
 		}
 		
 
+		@ Override
 		public boolean isCellEditable( int rowIndex, int columnIndex )
 		{
 			return false;
