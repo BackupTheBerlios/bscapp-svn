@@ -47,7 +47,7 @@ import javax.swing.table.TableModel;
  * requested. <p/> When the tableHeader property is set, either by
  * using the setTableHeader() method or the two argument constructor,
  * the table header may be used as a complete UI for TableSorter. The
- * default renderer of the tableHeader is decorated with a renderer
+ * default factories of the tableHeader is decorated with a factories
  * that indicates the sorting status of each column. In addition, a
  * mouse listener is installed with the following behavior:
  * <ul>

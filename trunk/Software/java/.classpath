@@ -4,6 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="library/jcommon-1.0.12.jar"/>
 	<classpathentry kind="lib" path="library/jfreechart-1.0.9.jar"/>
-	<classpathentry kind="lib" path="library/easychart.jar"/>
+	<classpathentry kind="lib" path="C:/usb/dev/workspace java/20_projects_pre2/library/easychart.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

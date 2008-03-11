@@ -12,6 +12,9 @@ import org.jfree.data.time.Day;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.xy.XYDataset;
+import com.objectplanet.chart.Chart;
+import com.objectplanet.chart.LineChart;
+import com.objectplanet.chart.NonFlickerPanel;
 
 
 
@@ -31,12 +34,12 @@ public class AnzahlSchueler extends Kennzahl
 	}
 	
 
-	public JPanel gibDiagramm2()
+	public JPanel gibDiagramm()
 	{
 		JPanel p = new JPanel();
 		
 		double[] beispielWerte =
-		{ 123, 345, 12, 124, 31, 222
+		{ 40, 34, 12, 12, 31, 6
 		};
 		
 		Color[] beispielFarben =
@@ -47,17 +50,28 @@ public class AnzahlSchueler extends Kennzahl
 		{ "Anzahl der Schüler"
 		};
 		
-//		LineChart chart = new LineChart();
+		LineChart chart = new LineChart();
+		chart.setSeriesCount( 1 );
+		chart.setSampleCount( beispielWerte.length );
+		chart.setSampleValues( 0, beispielWerte );
+		chart.setSampleColors( beispielFarben );
+		chart.setSampleLabels( beispielBeschriftung );
 		
-
-
-
+		chart.setSampleLabelsOn( true );
+		chart.setSampleLabelStyle( Chart.BELOW );
+		chart.setValueLabelsOn( true );
+		chart.setLegendOn( true );
+		
+		NonFlickerPanel nfp = new NonFlickerPanel( new BorderLayout() );
+		nfp.add( "Center", chart );
+		
+		p.add( nfp );
+		
 		return p;
 	}
 	
 
-	@ Override
-	public JPanel gibDiagramm()
+	public JPanel gibDiagramm4()
 	{
 		JFreeChart chart = ChartFactory.createTimeSeriesChart( "Anzahl Schüler",
 		                                                       "Jahr",
