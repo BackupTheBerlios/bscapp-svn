@@ -1,0 +1,111 @@
+<html>
+<body>
+<table width=600>
+<tr><td>
+<font face="verdana, arial, helvetica" size=-1>
+
+<b>Zooming and Scrolling the Chart</b>
+<hr>
+<APPLET code=com.objectplanet.chart.ChartApplet 
+ width=450 height=300 archive=chart.jar>
+<PARAM NAME="chart" VALUE="bar">
+<PARAM NAME="seriescount" VALUE="2">
+<PARAM NAME="samplevalues_0" VALUE="571,205,187,399,801">
+<PARAM NAME="samplevalues_1" VALUE="3031,1031,3045,5834,7934">
+<PARAM NAME="rangeon_2" VALUE="true">
+<PARAM NAME="rangestep_2" VALUE="100">
+<PARAM NAME="rangestep" VALUE="100">
+<PARAM NAME="rangeadjusteron" VALUE="true">
+<PARAM NAME="rangeadjusterposition" VALUE="left">
+<PARAM NAME="rangeadjusteron_2" VALUE="true">
+<PARAM NAME="seriesrange_1" VALUE="2">
+<PARAM NAME="samplecolors" VALUE="red, #ffa000">
+<PARAM NAME="multicoloron" VALUE="true">
+<PARAM NAME="valuelineson" VALUE="true">
+<PARAM NAME="defaultGridLinesOn" VALUE="true">
+<PARAM NAME="samplescrolleron" VALUE="true">
+<PARAM NAME="barwidth" VALUE="0.6">
+<PARAM NAME="zoomon" VALUE="true">
+<PARAM NAME="background" VALUE="white">
+</APPLET>
+
+<pre>
+<font face="verdana, arial, helvetica" size=-1>
+<hr>
+<b>Applet code:</b>
+&lt;applet code=com.objectplanet.chart.ChartApplet
+&nbsp;archive=chart.jar width=450 height=300>
+&lt;PARAM NAME="chart" VALUE="bar">
+&lt;PARAM NAME="seriescount" VALUE="2">
+&lt;PARAM NAME="samplevalues_0" VALUE="571,205,187,399,801">
+&lt;PARAM NAME="samplevalues_1" VALUE="3031,1031,3045,5834,7934">
+&lt;PARAM NAME="rangeon_2" VALUE="true">
+&lt;PARAM NAME="rangestep_2" VALUE="100">
+&lt;PARAM NAME="rangestep" VALUE="100">
+&lt;PARAM NAME="rangeadjusteron" VALUE="true">
+&lt;PARAM NAME="rangeadjusterposition" VALUE="left">
+&lt;PARAM NAME="rangeadjusteron_2" VALUE="true">
+&lt;PARAM NAME="seriesrange_1" VALUE="2">
+&lt;PARAM NAME="samplecolors" VALUE="red, #ffa000">
+&lt;PARAM NAME="multicoloron" VALUE="true">
+&lt;PARAM NAME="valuelineson" VALUE="true">
+&lt;PARAM NAME="defaultGridLinesOn" VALUE="true">
+&lt;PARAM NAME="samplescrolleron" VALUE="true">
+&lt;PARAM NAME="barwidth" VALUE="0.6">
+&lt;PARAM NAME="zoomon" VALUE="true">
+&lt;PARAM NAME="background" VALUE="white">
+&lt;/applet>
+
+
+<hr>
+<b>Application code:</b>
+package com.objectplanet.chart.testing; 
+ 
+import com.objectplanet.chart.*; 
+import java.awt.*; 
+ 
+public class Bar { 
+ 
+    public static void main(String[] argv) { 
+        double[] sampleValues_0 = new double[] {571,205,187,399,801};
+        double[] sampleValues_1 = new double[] {3031,1031,3045,5834,7934};
+        Color[] sampleColors = new Color[] {Color.red,new Color(0xffa000)};
+        
+        BarChart chart = new BarChart();
+        chart.setSeriesCount(2);
+        chart.setSampleCount(sampleValues_0.length);
+        chart.setSampleValues(0, sampleValues_0);
+        chart.setSampleValues(1, sampleValues_1);
+        chart.setSampleColors(sampleColors);
+        chart.setMultiColorOn(true);
+        
+        chart.setRangeOn(1, true);
+        chart.setSeriesRange(0, 0);
+        chart.setSeriesRange(1, 1);
+        chart.setRelativeRange(0, 1.0, 100);
+        chart.setRelativeRange(1, 1.0, 1000);
+        chart.setRangeAdjusterOn(0, true);
+        chart.setRangeAdjusterPosition(0, Chart.LEFT);
+        chart.setRangeAdjusterOn(1, true);
+        chart.setBarWidth(0.6);
+        chart.setSampleScrollerOn(true);
+        chart.setValueLinesOn(true);
+        chart.setDefaultGridLinesOn(true);
+        chart.setBackground(Color.white);
+        
+        com.objectplanet.chart.NonFlickerPanel p = new com.objectplanet.chart.NonFlickerPanel(new BorderLayout());
+        p.add("Center", chart);
+        Frame f = new Frame();
+        f.add("Center", p);
+        f.setSize(450,320);
+        f.show();
+    }
+} 
+<hr>
+</font>
+</pre>
+    
+</td></tr>
+</table>
+</body>
+</html>

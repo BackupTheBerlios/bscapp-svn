@@ -1,0 +1,180 @@
+<html>
+<body>
+<table width=600>
+<tr><td>
+<font face="verdana, arial, helvetica" size=-1>
+
+<b>Smooth Point Line Chart</b>
+<hr>
+
+<applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.ext.jar width=450 height=300>
+<param name=chart value="spline">
+<param name=sampleValues_0 value="82,53,42,39,25,70,55,60,80,54">
+<param name=sampleColors value="#0039AD">
+<param name=rangeOn_2 value=true>
+<param name=range value=100>
+<param name=range_2 value=20>
+<param name=rangeAdjusterOn value=true>
+<param name=rangeAdjusterPosition value=left>
+<param name=rangeAdjusterOn_2 value=true>
+<param name=valueLabelsOn value=true>
+<param name=valueLabelStyle value=outside>
+<param name=valueLabelFont value="Arial,plain,14">
+<param name=3dModeOn value=true>
+<param name=background value=white>
+<param name=overlay0 value=spline>
+<param name=overlay0_sampleValues_0 value=19,17,12,11,19,16,17,19,10,10>
+<param name=overlay0_sampleColors value=#F2A808>
+<param name=overlay0_lineWidth value=3>
+<param name=overlay0_seriesRange_0 value=2>
+<param name=overlay0_sampleHighlightOn value=true>
+<param name=overlay0_sampleHighlightStyle value=circle_opaque>
+<param name=overlay0_sampleHighlightSize value=10>
+<param name=overlay1 value=spline>
+<param name=overlay1_sampleValues_0 value=x,x,3,7,6,4,3,x,x,3,2,5,4,3,8>
+<param name=overlay1_sampleColors value=#E7185A>
+<param name=overlay1_lineWidth value=3>
+<param name=overlay1_sampleHighlightOn value=true>
+<param name=overlay1_sampleHighlightStyle value=square_opaque>
+<param name=overlay1_sampleHighlightSize value=10>
+<param name=overlay1_seriesRange_0 value=2>
+</applet>
+
+<pre>
+<font face="verdana, arial, helvetica" size=-1>
+<hr>
+<b>Applet code:</b>
+&lt;applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.ext.jar width=450 height=300>
+&lt;param name=chart value="spline">
+&lt;param name=sampleValues_0 value="82,53,42,39,25,70,55,60,80,54">
+&lt;param name=sampleColors value="#0039AD">
+&lt;param name=rangeOn_2 value=true>
+&lt;param name=range value=100>
+&lt;param name=range_2 value=20>
+&lt;param name=rangeAdjusterOn value=true>
+&lt;param name=rangeAdjusterPosition value=left>
+&lt;param name=rangeAdjusterOn_2 value=true>
+&lt;param name=valueLabelsOn value=true>
+&lt;param name=valueLabelStyle value=outside>
+&lt;param name=valueLabelFont value="Arial,plain,14">
+&lt;param name=3dModeOn value=true>
+&lt;param name=background value=white>
+&lt;param name=overlay0 value=spline>
+&lt;param name=overlay0_sampleValues_0 value=19,17,12,11,19,16,17,19,10,10>
+&lt;param name=overlay0_sampleColors value=#F2A808>
+&lt;param name=overlay0_lineWidth value=3>
+&lt;param name=overlay0_seriesRange_0 value=2>
+&lt;param name=overlay0_sampleHighlightOn value=true>
+&lt;param name=overlay0_sampleHighlightStyle value=circle_opaque>
+&lt;param name=overlay0_sampleHighlightSize value=10>
+&lt;param name=overlay1 value=spline>
+&lt;param name=overlay1_sampleValues_0 value=x,x,3,7,6,4,3,x,x,3,2,5,4,3,8>
+&lt;param name=overlay1_sampleColors value=#E7185A>
+&lt;param name=overlay1_lineWidth value=3>
+&lt;param name=overlay1_sampleHighlightOn value=true>
+&lt;param name=overlay1_sampleHighlightStyle value=square_opaque>
+&lt;param name=overlay1_sampleHighlightSize value=10>
+&lt;param name=overlay1_seriesRange_0 value=2>
+&lt;/applet>
+
+
+<hr>
+<b>Servlet code:</b>
+&lt;img src="http://localhost:8080/servlet/com.objectplanet.chart.ChartServlet?
+width=450&
+height=300&
+chart=spline&
+sampleValues_0=82,53,42,39,25,70,55,60,80,54&
+sampleColors=%230039AD&
+rangeOn_2=true&
+range=100&
+range_2=20&
+valueLabelsOn=true&
+valueLabelStyle=outside&
+valueLabelFont=Arial,plain,14&
+3dModeOn=true&
+background=white&
+overlay0=spline&
+overlay0_sampleValues_0=19,17,12,11,19,16,17,19,10,10&
+overlay0_sampleColors=%23F2A808&
+overlay0_lineWidth=3&
+overlay0_seriesRange_0=2&
+overlay0_sampleHighlightOn=true&
+overlay0_sampleHighlightStyle=circle_opaque&
+overlay0_sampleHighlightSize=10&
+overlay1=spline&
+overlay1_sampleValues_0=x,x,3,7,6,4,3,x,x,3,2,5,4,3,8&
+overlay1_sampleColors=%23E7185A&
+overlay1_lineWidth=3&
+overlay1_sampleHighlightOn=true&
+overlay1_sampleHighlightStyle=square_opaque&
+overlay1_sampleHighlightSize=10&
+overlay1_seriesRange_0=2"&gt;
+
+<hr>
+<b>Application code:</b>
+package com.objectplanet.chart.testing; 
+ 
+import com.objectplanet.chart.*; 
+import com.objectplanet.chart.ext.*; 
+import java.awt.*; 
+ 
+public class Line { 
+ 
+    public static void main(String[] argv) { 
+        double[] sampleValues = new double[] {82,53,42,39,25,70,55,60,80,54};
+        double[] overlay0_values = new double[] {19,17,12,11,19,16,17,19,10,10};
+        double[] overlay1_values = new double[] {Double.NaN,Double.NaN,3,7,6,4,3,Double.NaN,Double.NaN,3,2,5,4,3,8};
+        
+        LineChart chart = new SplineChart();
+        chart.setSampleCount(sampleValues.length);
+        chart.setSampleValues(0, sampleValues);
+        chart.setSampleColor(0, new Color(0x0039AD));
+        chart.setRange(0, 100);
+        chart.setRangeOn(1, true);
+        chart.setRange(1, 20);
+        chart.setRangeAdjusterOn(0, true);
+        chart.setRangeAdjusterPosition(0, Chart.LEFT);
+        chart.setRangeAdjusterOn(1, true);
+        chart.setValueLabelsOn(true);
+        chart.set3DModeOn(true);
+        chart.setFont("valueLabelFont", new Font("Arial", Font.PLAIN, 13));
+        chart.setBackground(Color.white);
+        
+        LineChart overlay0 = new SplineChart();
+        overlay0.setSampleCount(overlay0_values.length);
+        overlay0.setSampleValues(0, overlay0_values);
+        overlay0.setSampleColor(0, new Color(0xF2A808));
+        overlay0.setSeriesRange(0, 1);
+        overlay0.setSampleHighlightOn(true);
+        overlay0.setSampleHighlightStyle(0, LineChart.SAMPLE_HIGHLIGHT_CIRCLE_OPAQUE, 10);
+        chart.addOverlayChart(overlay0);
+
+        LineChart overlay1 = new SplineChart();
+        overlay1.setSampleCount(overlay1_values.length);
+        overlay1.setSampleValues(0, overlay1_values);
+        overlay1.setRange(0, 20);
+        overlay1.setSampleColor(0, new Color(0xE7185A));
+        overlay1.setSeriesRange(0, 1);
+        overlay1.setSampleHighlightOn(true);
+        overlay1.setSampleHighlightStyle(0, LineChart.SAMPLE_HIGHLIGHT_SQUARE_OPAQUE, 10);
+        chart.addOverlayChart(overlay1);
+
+        com.objectplanet.chart.NonFlickerPanel p = new com.objectplanet.chart.NonFlickerPanel(new BorderLayout());
+        p.add("Center", chart);
+        Frame f = new Frame();
+        f.add("Center", p);
+        f.setSize(450,320);
+        f.show();
+    }
+} 
+<hr>
+</font>
+</pre>
+    
+</td></tr>
+</table>
+</body>
+</html>

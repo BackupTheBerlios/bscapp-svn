@@ -1,0 +1,118 @@
+<html>
+<body>
+<table width=600>
+<tr><td>
+<font face="verdana, arial, helvetica" size=-1>
+
+<b>180 Degrees Gauge</b>
+<hr>
+<applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.ext.jar width=350 height=220>
+<param name=chart value=gauge>
+<param name=chartTitle value="Km/h">
+<param name=titleFont value="Verdana,bold,20">
+<param name=startAngle value=90>
+<param name=endAngle value=270>
+<param name=range value=200>
+<param name=lowerRange value=0>
+<param name=pointer value=55,#fe2d0c>
+<param name=sectorHighlight value=160,200,#fe2d0c>
+<param name=rangeLabelsOn value=true>
+<param name=rangeLabelFont value=Verdana,bolditalic,18>
+<param name=chartBackground value="gray">
+<param name=background value="gray">
+<param name=foreground value="#fe2d0c">
+<param name=chartForeground value="#32fe01">
+</applet>
+
+
+<pre>
+<font face="verdana, arial, helvetica" size=-1>
+<hr>
+<b>Applet code:</b>
+&lt;applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.ext.jar width=350 height=220>
+&lt;param name=chart value=gauge>
+&lt;param name=chartTitle value="Km/h">
+&lt;param name=titleFont value="Verdana,bold,20">
+&lt;param name=startAngle value=90>
+&lt;param name=endAngle value=270>
+&lt;param name=range value=200>
+&lt;param name=lowerRange value=0>
+&lt;param name=pointer value=55,#fe2d0c>
+&lt;param name=sectorHighlight value=160,200,#fe2d0c>
+&lt;param name=rangeLabelsOn value=true>
+&lt;param name=rangeLabelFont value=Verdana,bolditalic,18>
+&lt;param name=chartBackground value="gray">
+&lt;param name=background value="gray">
+&lt;param name=foreground value="#fe2d0c">
+&lt;param name=chartForeground value="#32fe01">
+&lt;/applet>
+
+
+<hr>
+<b>Servlet code:</b>
+&lt;img src="http://localhost:8080/servlet/com.objectplanet.chart.ChartServlet?
+width=350&
+height=220&
+chart=gauge&
+chartTitle=Km/h&
+titleFont=Verdana,bold,20&
+startAngle=90&
+endAngle=270&
+range=200&
+lowerRange=0&
+pointer=55,%23fe2d0c&
+sectorHighlight=160,200,%23fe2d0c&
+rangeLabelsOn=true&
+rangeLabelFont=Verdana,bolditalic,18&
+chartBackground=gray&
+background=gray&
+foreground=%23fe2d0c&
+chartForeground=%2332fe01"&gt;
+
+<hr>
+<b>Application code:</b>
+package com.objectplanet.chart.testing;
+
+import com.objectplanet.chart.ext.*;
+import java.awt.*;
+
+public class Gauge  {
+
+    public static void main(String[] argv) {
+	GaugeChart chart = new GaugeChart();
+	chart.setTitleOn(true);
+	chart.setTitle("Km/h");
+	chart.setFont("titleFont", new Font("Verdana", Font.BOLD, 20));
+	chart.setStartAngle(90);
+	chart.setEndAngle(270);
+	chart.setRange(200);
+	chart.setLowerRange(0);
+	chart.setRangeLabelsOn(0, true);
+	chart.setFont("rangeLabelFont", new Font("Verdana", Font.BOLD|Font.ITALIC, 18));
+	chart.setPointer(0, 55);
+	chart.setPointerColor(0, new Color(0xfe2d0c));
+	chart.setSectorHighlight(0, 160, 200);
+	chart.setSectorColor(0, new Color(0xfe2d0c));
+	chart.setChartBackground(Color.gray);
+	chart.setChartForeground(new Color(0x32fe01));
+	chart.setBackground(Color.gray);
+	chart.setForeground(new Color(0xfe2d0c));
+
+	com.objectplanet.chart.NonFlickerPanel p = new com.objectplanet.chart.NonFlickerPanel(new BorderLayout());
+	p.add("Center", chart);
+	Frame f = new Frame();
+	f.add("Center", p);
+	f.setSize(350, 240);
+	f.show();
+    }
+}
+<hr>
+</font>
+</pre>
+    
+</td></tr>
+</table>
+</body>
+</html>

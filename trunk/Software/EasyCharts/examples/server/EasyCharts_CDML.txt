@@ -1,0 +1,25 @@
+The way you integrate EasyCharts with CDML documents is quite simple. 
+When you insert f.ex. a BarChart applet into a web page, you use an <applet> tag in such a way:
+<applet code=com.objectplanet.chart.BarChartApplet
+ archive=chart.jar width=300 height=200>
+<param name=sampleValues value="10,20,30,40,50">
+</applet>
+
+where "10,20,30,40,50" are values which bars on the applet should visualize. 
+In case of CDML document I suggest to try to use CDML fields instead of these values like this:
+[FMP-records]
+<applet code=com.objectplanet.chart.BarChartApplet
+ archive=chart.jar width=300 height=200>
+<param name=sampleValues value="[FMP-FIELD: White],[FMP-FIELD: Black],[FMP-FIELD: American_Indian],[FMP-FIELD: Asian],[FMP-FIELD: Other]">
+</applet>
+[/FMP-records]
+
+We have made an example that includes a very simple database and two html files (default.htm and results.html) that you can use to see how it works. You need to have chart.jar in same directory with these html files.
+
+Best regards,
+Philipp Kolibaba
+ObjectPlanet Inc.
+
+
+
+

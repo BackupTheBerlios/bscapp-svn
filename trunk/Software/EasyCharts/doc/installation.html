@@ -1,0 +1,281 @@
+<HTML>
+<body bgcolor="#ffffff" topmargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0">	
+
+<table cellspacing=0 cellpadding=5 border=0 width=100%>
+<tr bgcolor="#c6d3f7"><td>
+<font face="Arial,Verdana,Helvetica" size=-2>
+<b>&nbsp;
+<a href="../index.html">main</a> |
+<a href="index.html">documentation</a> |
+<a href="../examples/index.html">examples</a> |
+<a href="../presales_questions.html">common questions</a> |
+<a href="../changes.html">changes</a> |
+<a href="http://objectplanet.com/EasyCharts/license_details.html">licensing</a>
+</b>
+</font>
+</td>
+</tr>
+</table>
+
+<table border=0 cellspacing=0 cellpadding=10 width=600>
+<tr>
+<td colspan=3>
+<font face="Arial,Verdana,Helvetica" size=-1 color="#333333">
+
+<p><br>
+<font size=-0>
+<b>EASYCHARTS DOCUMENTATION&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;INSTALLATION</b>
+</font>
+
+
+<p><br>
+<a name="applet"></a>
+<b>Java Applets</b>
+<br>
+Applets are small java programs embedded and executed in web pages. An applet
+tag tells the web browser to download a set of java classes from the web 
+server and execute the applet. To run applets, do the following:
+
+<ol>
+<li>copy the chart.jar file found in the EasyCharts distribution to your
+    web server, preferrably to the directory where your applet page is.
+<p>
+<li>set your applet tag to
+<p>
+	<font face="courier" size=-2>
+	&lt;applet code="com.objectplanet.chart.ChartApplet"<br>
+	&nbsp;archive="chart.jar" width=300 height=200&gt;<br>
+	&lt;param name="chart" value="bar"&gt;<br>
+	&lt;param name="sampleValues" value="10,20,30,40,50"&gt;<br>
+	&lt;/applet&gt;
+	</font>
+</ol>
+
+Then the client browser can access your applet and the chart.jar file is
+loaded from the web server to the client and started automatically.
+
+<p>
+All the chart parameters are defined using the applet param tag
+<p>
+<code><font size=-0>
+&lt;param name="parameter" value="parameter value"&gt;
+</font></code>
+<p>
+See the parameter list for details.<br>
+<a href="barchart.html">BarChart parameters</a><br>
+<a href="linechart.html">LineChart parameters</a><br>
+<a href="piechart.html">PieChart parameters</a><br>
+
+<p>
+The default image format generated is a 256 color PNG image. This is very similar to gif
+images, but has no patent restrictions with it. You can also have truecolor PNG images
+and jpeg images.
+<p>
+format=png24<br>
+format=jpg
+
+<p>
+If you can not or do not want to have the chart.jar file in the same
+directory as your applet files you can put them in another directory
+on your web server (needs to be accessible to the clients) and use
+a relative (or absolute) path in your archive tag.
+<p>
+
+<font face="courier" size=-2>
+&nbsp;archive="../../classes/chart.jar"<br>
+&nbsp;archive="/EasyCharts/chart.jar"
+</font>
+
+<p><br>
+<a name="java"></a>
+<b>Java Applications</b>
+<br>
+
+When you compile and run a java application the compiler or java runtime
+needs to know where the EasyCharts java classes are.
+
+<p>
+If you are using the Java Developers Kit (JDK) version 1.1 add the
+chart.jar file to your CLASSPATH.
+<p>
+set CLASSPATH=%CLASSPATH%;c:\EasyChars\chart.jar
+
+<p>
+If you are using JDK 1.2 or newer place the chart.jar file in the jre\lib\ext
+directory of the JDK directory.
+
+<p>
+If you are using Microsoft Visual J++ or any other development environment,
+import the chart.jar file into the environment so the compiler
+and runtime will find it.
+
+<p>
+Then you need to import the chart package in your java application.
+
+<p>
+<font size=-0>
+<pre>
+// file: Bar.java
+import com.objectplanet.chart.*;
+import java.awt.*;
+public class Bar {
+
+   public static void main(String[] argv) {
+      BarChart chart = new BarChart();
+      double[] values = new double[] {10,20,30,40,50};
+      chart.setSampleCount(values.length);
+      chart.setSampleValues(0, values);
+
+      Frame f = new Frame();
+      f.add("Center", chart);
+      f.setSize(200,200);
+      f.show();
+   }
+}
+</pre>
+</font>
+
+<p>
+Now compile the java program and run it (JDK).
+<p>
+<code><font size=-0>
+javac Bar.java<br>
+java Bar
+</font></code>
+
+<p>
+All the chart parameters are accessed using setter and getter
+methods pairs in the following general format
+<p>
+<code><font size=-0>
+chart.setParameterName(parameterValue);<br>
+parameterValue = chart.getParameterName();
+</font></code>
+<p>
+See the parameter list for details.<br>
+<a href="barchart.html">BarChart parameters</a><br>
+<a href="linechart.html">LineChart parameters</a><br>
+<a href="piechart.html">PieChart parameters</a><br>
+
+
+<p><br>
+<a name="servlet"></a>
+<b>Java Servlets</b>
+<br>
+
+To avoid some of the problems with downloading and running applets in
+web browsers such as missing java virtual machines, compatibility,
+and printing issues, you can instead generate the charts as jpeg or
+gif images on the server and send the image to the web browser.
+
+<p>
+To do this you need to install an application server that supports Java(tm) 
+Servlets or JavaServer Pages(tm). One such application server is the 
+Tomcat server which you can download
+<a href="http://www.javasoft.com/products/jsp/tomcat/">here</a>. Follow the
+installation instructions that comes with the package.
+<p>
+Then add the chartServer.jar file to your CLASSPATH or application
+server according to its instructions. Then start the application server.
+<p>
+You can now access the servlet using a standard html image tag:
+
+<p><tt><font size=-0>
+&lt;img src="http://server_name:8080/servlet/com.objectplanet.chart.ChartServlet?<br>
+chart=bar&<br>
+width=200&height=100&<br>
+rangeStep=10&<br>
+sampleValues=32,87,46,29,36,45,92,76,34,59,27,63,45"&gt;<br>
+
+<p>
+&lt;img src="http://server_name:8080/servlet/com.objectplanet.chart.ChartServlet?<br>
+chart=line&<br>
+width=200&height=100&<br>
+sampleValues=32,87,46,29,36,45,92,76,34,59,27,63,45"&gt;<br>
+
+<p>
+&lt;img src="http://server_name:8080/servlet/com.objectplanet.chart.ChartServlet?<br>
+chart=pie&<br>
+width=200&height=100&<br>
+3dModeOn=true&<br>
+sampleValues=32,87,46,29,36,45,92,76,34,59,27,63,45"&gt;<br>
+</font></tt>
+
+<p>
+This will generate the chart on the server, and return it to the client
+as a standard jpeg image. This image can then be saved to the disk, it
+also prints fine using any web browser that supports jpeg images.
+
+<p>
+All the chart servlet parameters are set using parameter=value pairs
+with an & sign used as a parameter delimiter
+<p>
+<code><font size=-0>
+parameterName=value&anotherParameterName=another value
+</font></code>
+
+<p>
+The servlet can also load it's data from a URL, using the data parameter.
+
+<p><tt><font size=-0>
+&lt;img src="http://server_name:8080/servlet/com.objectplanet.chart.ChartServlet?<br>
+data=http://objectplanet.com/mydata/myscript.asp"&gt;<br>
+</font></tt>
+
+<p>
+See the parameter list for details.<br>
+<a href="barchart.html">BarChart parameters</a><br>
+<a href="linechart.html">LineChart parameters</a><br>
+<a href="piechart.html">PieChart parameters</a><br>
+
+<p>
+If you want to generate other image formats you can use another image
+encoder by extending the ChartServlet class and overriding the 
+encodeChartImage() method.
+<p>
+If you want to use the GifEncoder from ACME, do the following:
+<ol>
+<li><a href="http://www.acme.com/java/software/Acme.JPM.Encoders.GifEncoder.html">Download</a> the ACME GifEncoder
+<li>Add the ACME packages to your CLASSPATH or java runtime environment
+<li>Extend the ChartServlet class and override the encodeChartImage() method
+<p><font size=-0><code>
+import com.objectplanet.chart.*;<br>
+import Acme.JPM.Encoders.*;<br>
+import javax.servlet.*;<br>
+import java.io.*;<br>
+import java.awt.*;<br>
+<br>
+public class GifChartServlet extends ChartServlet<br>
+{<br>
+&nbsp;&nbsp;&nbsp;public void encodeChartImage(Image image, OutputStream out,<br>
+&nbsp;&nbsp;&nbsp;ServletResponse res) throws IOException<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// set the response type to a gif image<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.setContentType("image/gif");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// create a gif image and send it to the client<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GifEncoder encoder = new GifEncoder(image, out);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;encoder.encode();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out.flush();<br>
+&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+</code>
+</font>
+<li>Compile and make sure the class is available to your java runtime
+<li>Call the servlet:<br> &lt;img src="http://server:8080/servlet/GifChartServlet?sampleValues=10,20,30,40,50"&gt;
+</ol>
+
+</td>
+</tr>
+</table>
+
+<p>
+<hr size=1 color="#c0c0c0">
+<font face="verdana,arial,helvetica" size=-2><center>
+Copyright (C) 1998-2008 ObjectPlanet, Inc.<br>
+phone (+47) 2233 3360 fax (+47) 2233 3361<br>
+</center>
+</font>
+
+</font>
+</BODY>
+</HTML>

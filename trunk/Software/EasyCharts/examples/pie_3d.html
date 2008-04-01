@@ -1,0 +1,122 @@
+<html>
+<body>
+<table width=600>
+<tr><td>
+<font face="verdana, arial, helvetica" size=-1>
+
+<b>3D Pie Chart with Outside Labels</b>
+<hr>
+<applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.jar width=450 height=300>
+<param name=chart value=pie>
+<param name=sampleValues value="643,557,825,829,376">
+<param name=sampleLabels value="Monday\n,Tuesday\n,Wednesday\n,Thursday\n,Friday\n">
+<param name=sampleLabelsOn value=true>
+<param name=sampleLabelStyle value=outside>
+<param name=percentLabelsOn value=true>
+<param name=percentLabelStyle value=outside>
+<param name=outsideLabelFont value="Arial,bold,12">
+<param name=sampleColors value="#CEAD9C,#9C8400,#ADC694,#CECECE,#E7CE6B">
+<param name=sliceSeperatorColor value=white>
+<param name=selectionStyle value=detached>
+<param name=3dModeOn value=true>
+<param name=depth value=0.12>
+<param name=angle value=55>
+<param name=pieRotationOn value=true>
+<param name=background value=white>
+</applet>
+
+
+<pre>
+<font face="verdana, arial, helvetica" size=-1>
+<hr>
+<b>Applet code:</b>
+&ltapplet code=com.objectplanet.chart.ChartApplet
+ archive=chart.jar width=450 height=300>
+&ltparam name=chart value=pie>
+&ltparam name=sampleValues value="643,557,825,829,376">
+&ltparam name=sampleLabels value="Monday\n,Tuesday\n,Wednesday\n,Thursday\n,Friday\n">
+&ltparam name=sampleLabelsOn value=true>
+&ltparam name=sampleLabelStyle value=outside>
+&ltparam name=percentLabelsOn value=true>
+&ltparam name=percentLabelStyle value=outside>
+&ltparam name=outsideLabelFont value="Arial,bold,11">
+&ltparam name=sampleColors value="#CEAD9C,#9C8400,#ADC694,#CECECE,#E7CE6B">
+&ltparam name=sliceSeperatorColor value=white>
+&ltparam name=selectionStyle value=detached>
+&ltparam name=3dModeOn value=true>
+&ltparam name=depth value=0.12>
+&ltparam name=angle value=55>
+&ltparam name=pieRotationOn value=true>
+&ltparam name=background value=white>
+&lt/applet>
+
+
+<hr>
+<b>Servlet code:</b>
+&lt;img src="http://localhost:8080/servlet/com.objectplanet.chart.ChartServlet?
+chart=pie&
+width=450&
+height=300&
+sampleValues=643,557,825,829,376&
+sampleLabels=Monday\n,Tuesday\n,Wednesday\n,Thursday\n,Friday\n&
+sampleLabelsOn=true&
+sampleLabelStyle=outside&
+percentLabelsOn=true&
+percentLabelStyle=outside&
+outsideLabelFont=Arial,bold,11&
+sampleColors=%23CEAD9C,%239C8400,%23ADC694,%23CECECE,%23E7CE6B&
+sliceSeperatorColor=white&
+selectionStyle=detached&
+3dModeOn=true&
+depth=0.12&
+angle=55&
+pieRotationOn=true&
+background=white"&gt;
+
+<hr>
+<b>Application code:</b>
+package com.objectplanet.chart.testing; 
+ 
+import com.objectplanet.chart.*; 
+import java.awt.*; 
+ 
+public class Pie { 
+ 
+    public static void main(String[] argv) { 
+        double[] sampleValues = new double[] {643,557,825,829,376};
+        Color[] sampleColors = new Color[] {new Color(0xcead9c), new Color(0x9c8400), new Color(0xadc694), new Color(0xcecece), new Color(0xe7ce6b)};
+        
+        PieChart chart = new PieChart();
+        chart.setSampleCount(5);
+        chart.setSampleValues(0, sampleValues);
+        chart.setSampleLabels(new String[] {"Monday\n","Tuesday\n","Wednesday\n","Thursday\n","Friday\n"});
+        chart.setSampleLabelsOn(true);
+        chart.setSampleLabelStyle(Chart.OUTSIDE);
+        chart.setPercentLabelsOn(true);
+        chart.setPercentLabelStyle(Chart.OUTSIDE);
+        chart.setFont("outsideLabelFont", new Font("Arial", Font.BOLD, 11));
+        chart.setSampleColors(sampleColors);
+        chart.setSliceSeperatorColor(Color.white);
+        chart.set3DModeOn(true);
+        chart.setDepth(0.12);
+        chart.setAngle(55);
+        chart.setPieRotationOn(true);
+        chart.setBackground(Color.white);
+        
+        com.objectplanet.chart.NonFlickerPanel p = new com.objectplanet.chart.NonFlickerPanel(new BorderLayout());
+        p.add("Center", chart);
+        Frame f = new Frame();
+        f.add("Center", p);
+        f.setSize(450,320);
+        f.show();
+    }
+} 
+<hr>
+</font>
+</pre>
+    
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,980 @@
+<HTML>
+<body bgcolor="#ffffff" topmargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0">
+
+<table cellspacing=0 cellpadding=5 border=0 width=100%>
+<tr bgcolor="#c6d3f7"><td>
+<font face="Arial,Verdana,Helvetica" size=-2>
+<b>&nbsp;
+<a href="../index.html">main</a> |
+<a href="index.html">documentation</a> |
+<a href="../examples/index.html">examples</a> |
+<a href="../presales_questions.html">common questions</a> |
+<a href="../changes.html">changes</a> |
+<a href="http://objectplanet.com/EasyCharts/license_details.html">licensing</a>
+</b>
+</font>
+</td>
+</tr>
+</table>
+
+<table BORDER=0 CELLSPACING=0 CELLPADDING=10 WIDTH=700>
+<tr>
+<td colspan=3>
+<font face="Arial,Verdana,Helvetica" size=-1 color="#333333">
+
+<p><br>
+<font size=-0>
+<b>EASYCHARTS DOCUMENTATION&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;GAUGECHART</b>
+</font>
+</p>
+</font>
+</td>
+</tr>
+
+<tr><td valign=top>
+<font face="verdana,arial,helvetica" size=-1>
+<b><a href="#angles_and_ranges">1. Angles and Ranges</a></b><br>
+&nbsp;&nbsp;<a href="#start_end_angles">1.1 start and end angles </a><br>
+&nbsp;&nbsp;<a href="#using_range_labels">1.2 using range labels </a><br>
+&nbsp;&nbsp;<a href="#setting_ranges">1.3 setting ranges</a><br>
+&nbsp;&nbsp;<a href="#highlighting_range">1.4 highlighting the range</a><br>
+&nbsp;&nbsp;<a href="#range_color">1.4 range color</a><br>
+
+<p>
+<b>
+<a href="#labels_and_fonts">2. Labels and Fonts</a></b><br>
+&nbsp;&nbsp;<a href="#range_labels_font">2.1 range labels font</a><br>
+&nbsp;&nbsp;<a href="#range_labels_color">2.2 range labels color</a><br>
+</p>
+</font>
+</td>
+
+<td valign=top>
+<font face="verdana,arial,helvetica" size=-1>
+<b><a href="#chart_colors">3. Chart Colors</a></b><br>
+&nbsp;&nbsp;<a href="#background_color">3.1 background color</a><br>
+&nbsp;&nbsp;<a href="#chart_background_color">3.2 chart background color</a><br>
+&nbsp;&nbsp;<a href="#foreground_color">3.3 foreground color</a><br>
+&nbsp;&nbsp;<a href="#chart_foreground_color">3.4 chart foreground color</a><br>
+</font>
+</td>
+
+<td valign=top>
+<font face="verdana,arial,helvetica" size=-1>
+<b><a href="#pointers">4. Pointers</a></b><br>
+&nbsp;&nbsp;<a href="#setting_pointers">4.1 setting pointers</a><br>
+
+<p>
+<b><a href="#sector_highlights">5. Sector Highlights</a></b><br>
+&nbsp;&nbsp;<a href="#setting_sector_highlights">5.1 setting sector highlights</a><br>
+
+<p>
+<b><a href="#borders">6. Borders</a></b><br>
+&nbsp;&nbsp;<a href="#setting_gauge_borders">6.1 Setting gauge borders</a><br>
+</p>
+</font>
+</td>
+</tr>
+</table>
+
+<p>
+<a name="parameters"></a>
+<table BORDER=0 CELLSPACING=10 CELLPADDING=0 WIDTH=700>
+<tr>
+<td colspan=6>
+<font face="Verdana,Arial,Helvetica" size=-1>
+<b>CHART PARAMETERS</b>
+</font>
+</td>
+</tr>
+<tr>
+<td valign=top><font face="arial,verdana,helvetica" size=-2>
+<a href="#background">background</a>
+<br><a href="#border">border</a>
+<br><a href="#chartBackground">chartBackground</a>
+<br><a href="#chartForeground">chartForeground</a>
+<br><a href="#chartTitle">chartTitle</a>
+<br><a href="#endAngle">endAngle</a>
+<br><a href="#foreground">foreground</a>
+<br><a href="#legendColors">legendColors</a>
+<br><a href="#legendColumns">legendColumns</a>
+<br><a href="#legendFont">legendFont</a>
+</font></td>
+<td valign=top><font face="arial,verdana,helvetica" size=-2>
+<a href="#legendImage">legendImage</a>
+<br><a href="#legendLabels">legendLabels</a>
+<br><a href="#legendOn">legendOn</a>
+<br><a href="#legendPosition">legendPosition</a>
+<br><a href="#legendReverseOn">legendReverseOn</a>
+<br><a href="#lowerRange">lowerRange</a>
+<br><a href="#pointer">pointer</a>
+<br><a href="#range">range</a>
+<br><a href="#rangeColor">rangeColor</a>
+<br><a href="#rangeDecimalCount">rangeDecimalCount</a>
+</font></td>
+<td valign=top><font face="arial,verdana,helvetica" size=-2>
+<a href="#rangeHighlight">rangeHighlight</a>
+<br><a href="#rangeInterval">rangeInterval</a>
+<br><a href="#rangeLabelColor">rangeLabelColor</a>
+<br><a href="#rangeLabelFont">rangeLabelFont</a>
+<br><a href="#rangeLabelPrefix">rangeLabelPrefix</a>
+<br><a href="#rangeLabelPostfix">rangeLabelPostfix</a>
+<br><a href="#rangeLabelsOn">rangeLabelsOn</a>
+<br><a href="#rangeLabelStyle">rangeLabelStyle</a>
+<br><a href="#sectorHighlight">sectorHighlight</a>
+<br><a href="#startAngle">startAngle</a>
+</font></td>
+</tr>
+</table>
+
+<p>
+<table BORDER=0 CELLSPACING=8 CELLPADDING=2 WIDTH=700>
+<tr>
+<td colspan=3>
+<font face="verdana, arial" size=-1><b>PARAMETERS TO SET CHART VALUES</b></font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="startAngle"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>startAngle</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the start angle of the gauge. The 0 angle corresponds to the lowest point of the gauge, 90 to the leftmost, 
+180 - uppermost, 270 - rightmost.<br>
+</font></td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="startAngle" value="90"&gt;<hr size=1 color="#c0c0c0">
+setStartAngle(90);<hr size=1 color="#c0c0c0">
+startAngle=90
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="endAngle"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>endAngle</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the end angle of the gauge. The 0 angle corresponds to the lowest point of the gauge, 90 to the leftmost, 
+180 - uppermost, 270 - rightmost.<br>
+</font></td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="endAngle" value="270"&gt;<hr size=1 color="#c0c0c0">
+setEndAngle(270);<hr size=1 color="#c0c0c0">
+endAngle=270
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="range"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>range</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the highest value of the range.<br>
+</font></td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="range" value="200"&gt;<hr size=1 color="#c0c0c0">
+setRange(200);<hr size=1 color="#c0c0c0">
+range=200
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="lowerRange"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>lowerRange</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the lowest value of the range.<br>
+</font></td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="lowerRange" value="200"&gt;<hr size=1 color="#c0c0c0">
+setLowerRange(200);<hr size=1 color="#c0c0c0">
+lowerRange=200
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="rangeInterval"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>rangeInterval</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets interval between the ticks.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="rangeInterval" value=20&gt;<hr size=1 color="#c0c0c0">
+setRangeInterval(20);<hr size=1 color="#c0c0c0">
+rangeInterval=20
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="rangeColor"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>rangeColor</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the color of the range value labels and tick marks.
+</font></td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="rangeColor" value=white&gt;<hr size=1 color="#c0c0c0">
+setRangeColor(0, Color.white);<hr size=1 color="#c0c0c0">
+rangeColor=white
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="rangeHighlight"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>rangeHighlight</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+This is the highlight color of the range.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="rangeHighlight" value="cyan"&gt;<hr size=1 color="#c0c0c0">
+setRangeHighlight(Color.cyan);<hr size=1 color="#c0c0c0">
+rangeHighlight=cyan
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="rangeLabelsOn"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>rangeLabelsOn</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Turns on the range labels.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="rangeLabelsOn" value=true&gt;<br>
+<hr size=1 color="#c0c0c0">
+setRangeLabelsOn(0, true);<hr size=1 color="#c0c0c0">
+rangeLabelsOn=true
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="rangeLabelFont"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>rangeLabelFont</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the font for the range labels.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="rangeLabelFont" value="Dialog, plain, 12"&gt;<hr size=1 color="#c0c0c0">
+setFont("rangeLabelFont", new Font("Dialog", Font.PLAIN, 12));<hr size=1 color="#c0c0c0">
+rangeLabelFont=Dialog, plain, 12
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="rangeLabelStyle"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>rangeLabelStyle</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the style for the range labels. The labels can be displayed inside or outside the gauge 
+(RANGE_LABEL_INSIDE | RANGE_LABEL_OUTSIDE). By default the range labels are displayed inside the gauge.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="rangeLabelStyle" value="outside"&gt;<hr size=1 color="#c0c0c0">
+setRangeLabelStyle(GaugeChart.RANGE_LABEL_OUTSIDE);<hr size=1 color="#c0c0c0">
+rangeLabelStyle=outside
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="rangeLabelColor"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>rangeLabelColor</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the color of the range value labels. Overrides rangeColor parameter.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="rangeLabelColor" value=lighGray&gt;<hr size=1 color="#c0c0c0">
+setRangeLabelColor(0, Color.lightGray);<hr size=1 color="#c0c0c0">
+rangeLabelColor=lightGray
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="rangeDecimalCount"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>rangeDecimalCount</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the number of fixed decimals to use for the range labels.<br>
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="rangeDecimalCount" value=1&gt;<hr size=1 color="#c0c0c0">
+setRangeDecimalCount(0, 1); // first parameter is rangen index<hr size=1 color="#c0c0c0">
+rangeDecimalCount=1
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="foreground"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>foreground</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+This is the color of the title, legend labels, range labels.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="foreground" value="blue"&gt;<hr size=1 color="#c0c0c0">
+setForeground(Color.blue);<hr size=1 color="#c0c0c0">
+foreground=blue
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="background"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>background</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+This is the background color of the area around the chart grid. The background can be solid or gradient.
+In order to use gradient background, specify two colors separated by |.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="background" value="red"&gt;<br>
+&lt;param name="background" value="gray|lightGray"&gt;<hr size=1 color="#c0c0c0">
+setBackground(Color.red);<br>
+setBackground2(Color.black);<hr size=1 color="#c0c0c0">
+background=red<br>
+background=gray|lightGray
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="chartBackground"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>chartBackground</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+This is the color of the area inside the gauge.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="chartBackground" value="red"&gt;<hr size=1 color="#c0c0c0">
+setChartBackground(Color.yellow);<hr size=1 color="#c0c0c0">
+chartBackground=orange
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="chartForeground"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>chartForeground</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+This is the default color of elements inside the gauge.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="chartForeground" value="red"&gt;<hr size=1 color="#c0c0c0">
+setChartForeground(Color.red);<hr size=1 color="#c0c0c0">
+chartForeground=red
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="pointer"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>pointer</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Adds a pointer with specified index (0-based) and sets it's value and color.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="pointer" value="60,blue"&gt;<br>
+&lt;param name="pointer_1" value="-30,green"&gt;<hr size=1 color="#c0c0c0">
+setPointer(0, 60);<br>
+setPointerColor(0, Color.blue);<br>
+setPointer(1, -30);<br>
+setPointerColor(1, Color.green);<hr size=1 color="#c0c0c0">
+pointer=60,blue<br>
+pointer_1=-30,green
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="sectorHighlight"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>sectorHighlight</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets a highlighted sector with the specified start, end values and color in the gauge's range.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="sectorHighlight" value="90,135,pink"&gt;<br>
+&lt;param name="sectorHighlight_1" value="135,160,red"&gt;<hr size=1 color="#c0c0c0">
+setSectorHighlight(0, 90, 135);<br>
+setSectorHighlight(0, Color.pink);<br>
+setSectorHighlight(1, 135, 160);<br>
+setSectorHighlight(1, 135, 160, Color.red);<hr size=1 color="#c0c0c0">
+sectorHighlight=90,135,pink<br>
+sectorHighlight=135,160,red
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="border"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>border</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Adds a border with specified index to the gauge (0-based) and sets it's width and color.
+The border with higher index is displayed closer to the center of the gauge.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="border" value="3,black"&gt;<br>
+&lt;param name="border_1" value="7, white"&gt;<hr size=1 color="#c0c0c0">
+setBorder(0, 3);<br>
+setBorderColor(0, Color.black);<br>
+setBorder(1, 7);<br>
+setBorderColor(1, Color.white);<hr size=1 color="#c0c0c0">
+border=3,black<br>
+border_1=7,white
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="chartTitle"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>chartTitle</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the title of the chart. The title will be displayed at the
+top of the chart. To set the title font use the titleFont parameter.
+Use \n for line breaks.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="chartTitle" value="This is my title"&gt;<br>
+&lt;param name="chartTitle" value="Linebreak\nin title"&gt;<hr size=1 color="#c0c0c0">
+setTitle("This is my title");<br>
+setTitle("Linebreak\\nin title");<hr size=1 color="#c0c0c0">
+chartTitle=This is my title
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="rangeLabelPrefix"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>rangeLabelPrefix</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Adds a prefix before the range labels.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="rangeLabelPrefix" value="#"&gt;<br>
+&lt;param name="rangeLabelPrefix_5" value="$"&gt;<hr size=1 color="#c0c0c0">
+setLabel("rangeLabelPrefix", "#");<br>
+setLabel("rangeLabelPrefix_5", "$");<hr size=1 color="#c0c0c0">
+rangeLabelPrefix=#<br>
+rangeLabelPrefix_5=$
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="rangeLabelPostfix"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>rangeLabelPostfix</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Adds a postfix after the range labels.<br>
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="rangeLabelPostfix" value="%"&gt;<br>
+&lt;param name="rangeLabelPostfix_5" value="@"&gt;<hr size=1 color="#c0c0c0">
+setLabel("rangeLabelPostfix", "%");<br>
+setLabel("rangeLabelPostfix_5", "@");<hr size=1 color="#c0c0c0">
+rangeLabelPostfix=%<br>
+rangeLabelPostfix_5=@
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="legendOn"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>legendOn</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Turns on the legend placing it at the default right position.
+Use the legendPosition parameter to control the placement of the legend.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="legendOn" value=true&gt;<hr size=1 color="#c0c0c0">
+setLegendOn(true);<hr size=1 color="#c0c0c0">
+legendOn=true
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="legendLabels"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>legendLabels</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets labels in the legend.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="legendLabels" value="2000, 2001, 2002"&gt;<br>
+<hr size=1 color="#c0c0c0">
+setLegendLabels(new String[] {"2000","2001","2002"});<hr size=1 color="#c0c0c0">
+legendLabels=2000,2001,2002
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="legendPosition"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>legendPosition</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the legend position. Possible positions are right, left, top,
+and bottom.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="legendPosition" value="left"&gt;<hr size=1 color="#c0c0c0">
+setLegendPosition(BarChart.LEFT);<br>
+setLegendPosition(BarChart.RIGHT);<br>
+setLegendPosition(BarChart.TOP);<br>
+setLegendPosition(BarChart.BOTTOM);<hr size=1 color="#c0c0c0">
+legendPosition=bottom
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="legendColumns"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>legendColumns</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the number of columns that should be used to display legend labels.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="legendColumns" value=4&gt;<hr size=1 color="#c0c0c0">
+setLegendColumns(3);<hr size=1 color="#c0c0c0">
+legendColumns=5
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="legendReverseOn"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>legendReverseOn</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Set on or off the inverted legend. Default legend entry order is from top
+to bottom and from left to right.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="legendReverseOn" value=true&gt;<hr size=1 color="#c0c0c0">
+setLegendReverseOn(true);<hr size=1 color="#c0c0c0">
+legendReverseOn=true
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="legendFont"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>legendFont</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the font for the labels in the legend.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="legendFont" value="Dialog, plain, 12"&gt;<hr size=1 color="#c0c0c0">
+setFont("legendFont", new Font("Dialog", Font.PLAIN, 12));<hr size=1 color="#c0c0c0">
+legendFont=Dialog,plain,12
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="legendColors"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>legendColors</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets the colors for the default legend boxes.<br>
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="legendColors" value="red, blue, green"&gt;<hr size=1 color="#c0c0c0">
+setLegendColors(new Color[] {Color.red, Color.blue, Color.green});<hr size=1 color="#c0c0c0">
+legendColors=red,blue,green
+</font>
+</td>
+</tr>
+
+<tr bgcolor="#e0e0e0">
+<a name="legendImage"></a>
+<td colspan=2><font face="verdana,arial,helvetica" size=-1><b>legendImage</b></font></td></tr>
+<tr><td valign=top width=40%><font face="verdana, arial" size=-1>
+Sets an image to be used in front of the legend label instead of the
+default legend box. For the applet the image is specified as a relative URL.
+This only works if the applet is allowed to connect back to the web server.
+</font>
+</td>
+<td valign=top width=60%><font face="verdana, arial" size=-2>
+&lt;param name="legendImage_0" value="blue_ball.gif"&gt;<br>
+&lt;param name="legendImage_1" value="images/red_ball.gif"&gt;<hr size=1 color="#c0c0c0">
+Image image = ... load image blue_ball.gif from disk<br>
+addImage("legendImage_0", image);<br>
+setLegendImage(0, "legendImage_0");
+</font>
+</td>
+</tr>
+
+</table>
+
+<a name="userguide"></a>
+<p>
+<table cellspacing=10 border=0 cellpadding=0 width=100%>
+<tr>
+<td>
+<font face="Arial,Verdana,Helvetica" size=-1>
+<b>CHART USER GUIDE</b>
+</font>
+</td>
+</tr>
+
+<tr>
+<td>
+<font face="Arial,Verdana,Helvetica" size=-1>
+
+<a name="angles_and_ranges"></a>
+<p><br>
+<font size=+1>
+1. Angles and Ranges
+</font>
+
+<P><a name="start_end_angles"></a>
+<b>1.1 Start and end angles.</b>
+<p>
+Use startAngle and endAngle parameter to define where the start
+and end agles of the gauge.
+
+<P>
+&lt;applet code=com.objectplanet.chart.ChartApplet<BR>
+&nbsp;archive=chart.jar width=250 height=175&gt;<BR>
+&lt;param name=chart value="gauge"&gt;<BR>
+&lt;param name=<b>startAngle</b> value=90&gt;<br>
+&lt;param name=<b>endAngle</b> value=270&gt;<br>
+&lt;/applet&gt;
+
+<P><IMG width=250 height=175 src="images/gauge/angles.gif">
+
+
+<P><a name="using_range_labels"></a>
+<b>1.2 Using range labels.</b>
+<p>
+Use rangeLabelsOn parameter to turn on the range labels.
+
+<P>
+&lt;applet code=com.objectplanet.chart.ChartApplet<BR>
+&nbsp;archive=chart.jar width=250 height=175&gt;<BR>
+&lt;param name=chart value="gauge"&gt;<BR>
+&lt;param name=startAngle value=90&gt;<br>
+&lt;param name=endAngle value=270&gt;<br>
+&lt;param name=<b>rangeLabelsOn</b> value=true&gt;<br>
+&lt;/applet&gt;
+
+<P><IMG width=250 height=175 src="images/gauge/range_rangelabels.png">
+
+<p>
+The style of the range labels can be <i>inside</i> or <i>outside</i>.
+Use rangeLabelStyle parameter.
+
+<P>
+&lt;applet code=com.objectplanet.chart.ChartApplet<BR>
+&nbsp;archive=chart.jar width=250 height=175&gt;<BR>
+&lt;param name=chart value="gauge"&gt;<BR>
+&lt;param name=startAngle value=90&gt;<br>
+&lt;param name=endAngle value=270&gt;<br>
+&lt;param name=rangeLabelsOnvalue=true&gt;<br>
+&lt;param name=<b>rangeLabelStyle</b> value=outside&gt;<br>
+&lt;/applet&gt;
+
+<P><IMG width=250 height=175 src="images/gauge/range_rangelabels_outside.png">
+
+<P><a name="setting_ranges"></a>
+<b>1.3 Setting ranges.</b>
+<p>
+Use range and lowerRange parameters to explicitly set upper and lower ranges.
+
+<P>
+&lt;applet code=com.objectplanet.chart.ChartApplet<BR>
+&nbsp;archive=chart.jar width=250 height=150&gt;<BR>
+&lt;param name=chart value="gauge"&gt;<BR>
+&lt;param name=startAngle value=90&gt;<br>
+&lt;param name=endAngle value=270&gt;<br>
+&lt;param name=rangeLabelsOn value=true&gt;<br>
+&lt;param name=<b>range</b> value=150&gt;<br>
+&lt;param name=<b>lowerRange</b> value=30&gt;<br>
+&lt;param name=rangeDecimalCount value=1&gt;<br>
+&lt;/applet&gt;
+
+<P><IMG width=250 height=150 src="images/gauge/range_rangelabels_ranges.png">
+
+
+<P><a name="highlighting_range"></a>
+<b>1.4 Highlighting the range.</b>
+<p>
+Use rangeHighlight parameter to highligh the range with specific color.
+
+<P>
+&lt;applet code=com.objectplanet.chart.ChartApplet<BR>
+&nbsp;archive=chart.jar width=250 height=150&gt;<BR>
+&lt;param name=chart value="gauge"&gt;<BR>
+&lt;param name=startAngle value=90&gt;<br>
+&lt;param name=endAngle value=270&gt;<br>
+&lt;param name=rangeLabelsOn value=true&gt;<br>
+&lt;param name=<b>rangeHighlight</b> value=#208cf0&gt;<br>
+&lt;/applet&gt;
+
+<P><IMG width=250 height=150 src="images/gauge/range_highlight.png">
+
+<P><a name="range_color"></a>
+<b>1.5 Range Color.</b>
+<p>
+Use rangeColor parameter to set color of the range. By default color of the
+range is the same as chartBackground color.
+
+<P>
+&lt;applet code=com.objectplanet.chart.ChartApplet<BR>
+&nbsp;archive=chart.jar width=250 height=150&gt;<BR>
+&lt;param name=chart value=gauge&gt;<BR>
+&lt;param name=startAngle value=90&gt;<br>
+&lt;param name=endAngle value=270&gt;<br>
+&lt;param name=rangeLabelsOn value=true&gt;<br>
+&lt;param name=<b>rangeColor</b> value=gray&gt;<br>
+&lt;/applet&gt;
+
+<P><IMG width=250 height=150 src="images/gauge/range_color.png">
+
+<a name="labels_and_fonts"></a>
+<p><br>
+<font size=+1>
+2. Labels and Fonts.
+</font>
+
+<P><a name="range_labels_font"></a>
+<b>2.1 Range labels font.</b>
+<p>
+Use rangeLabelFont parameter to set font of the range labels.
+
+<P>
+&lt;applet code=com.objectplanet.chart.ChartApplet<BR>
+&nbsp;archive=chart.jar width=250 height=150&gt;<BR>
+&lt;param name=chart value=gauge&gt;<BR>
+&lt;param name=startAngle value=90&gt;<br>
+&lt;param name=endAngle value=270&gt;<br>
+&lt;param name=rangeLabelsOn value=true&gt;<br>
+&lt;param name=<b>rangeLabelFont</b> value=Times,italic,10&gt;<br>
+&lt;/applet&gt;
+
+<P><IMG width=250 height=150 src="images/gauge/range_rangelabels_font.png">
+
+<P><a name="range_labels_color"></a>
+<b>2.2 Range labels color.</b>
+<p>
+Use rangeLabelColor parameter to set color of the range labels. By default color
+of the range labels is the same as rangeColor.
+
+<P>
+&lt;applet code=com.objectplanet.chart.ChartApplet<BR>
+&nbsp;archive=chart.jar width=250 height=150&gt;<BR>
+&lt;param name=chart value=gauge&gt;<BR>
+&lt;param name=startAngle value=90&gt;<br>
+&lt;param name=endAngle value=270&gt;<br>
+&lt;param name=rangeLabelsOn value=true&gt;<br>
+&lt;param name=rangeColor value=red&gt;<br>
+&lt;param name=<b>rangeLabelColor</b> value=gray&gt;<br>
+&lt;/applet&gt;
+
+<P><IMG width=250 height=150 src="images/gauge/range_rangelabels_color.png">
+
+
+<p>
+<a name="chart_colors"></a>
+<br>
+<font size=+1>
+3. Chart Colors
+</font>
+
+<P><a name="background_color"></a>
+<br><b>3.1 Background color</b>
+<p>
+Set the background color outside the gauge itself using the background parameter.
+This does not include the gauge inside background.
+
+<p>
+&lt;applet code=com.objectplanet.chart.ChartApplet<BR>
+&nbsp;archive=chart.jar width=250 height=220&gt;<BR>
+&lt;param name=chart value=gauge&gt;<BR>
+&lt;param name=range value=120&gt;<br>
+&lt;param name=rangeLabelsOn value=true&gt;<br>
+&lt;param name=<b>background</b> value=#305b92&gt;<br>
+&lt;/applet&gt;
+
+<p><IMG width=250 height=220 src="images/gauge/colors_background.png">
+
+<P><a name="chart_background_color"></a>
+<br><b>3.2 Chart background color</b>
+<p>
+Set the background color inside the gauge using the background parameter.
+
+<p>
+&lt;applet code=com.objectplanet.chart.ChartApplet<BR>
+&nbsp;archive=chart.jar width=250 height=220&gt;<BR>
+&lt;param name=chart value=gauge&gt;<BR>
+&lt;param name=range value=120&gt;<br>
+&lt;param name=rangeLabelsOn value=true&gt;<br>
+&lt;param name=rangeLabelStyle value=outside&gt;<br>
+&lt;param name=<b>chartBackground</b> value=#305b92&gt;<br>
+&lt;/applet&gt;
+
+
+<p><IMG width=250 height=220 src="images/gauge/colors_chartbackground.png">
+
+
+<P><a name="foreground_color"></a>
+<br><b>3.3 Foreground color</b>
+<p>
+Set the chart component foreground color using the foreground parameter.
+
+<p>
+&lt;applet code=com.objectplanet.chart.ChartApplet<BR>
+&nbsp;archive=chart.jar width=250 height=175&gt;<BR>
+&lt;param name=chart value=gauge&gt;<BR>
+&lt;param name=chartTitle value="foreground color set"&gt;<BR>
+&lt;param name=startAngle value=90&gt;<br>
+&lt;param name=endAngle value=270&gt;<br>
+&lt;param name=rangeLabelsOn value=true&gt;<br>
+&lt;param name=<b>foreground</b> value=#305b92&gt;<br>
+&lt;/applet&gt;
+
+<p><IMG width=250 height=175 src="images/gauge/colors_foreground.png">
+
+<P><a name="chart_foreground_color"></a>
+<br><b>3.4 Chart foreground color</b>
+<p>
+Set the foreground color of the chart grid elements.
+
+<p>
+&lt;applet code=com.objectplanet.chart.ChartApplet<BR>
+&nbsp;archive=chart.jar width=250 height=180&gt;<BR>
+&lt;param name=chart value=gauge&gt;<BR>
+&lt;param name=range value=120&gt;<br>
+&lt;param name=rangeLabelsOn value=true&gt;<br>
+&lt;param name=chartBackground value=#305b92&gt;<br>
+&lt;param name=<b>chartForeground</b> value=white&gt;<br>
+&lt;/applet&gt;
+
+<p><IMG width=250 height=180 src="images/gauge/colors_chartforeground.png">
+
+
+<p>
+<a name="pointers"></a>
+<br>
+<font size=+1>
+4. Pointers
+</font>
+
+<P><a name="setting_pointers"></a>
+<br><b>4.1 Setting pointers</b>
+<p>
+Use pointer_N parameter to set a new pointers value and color, where N is index of the pointer.
+Use pointer parameter to set value of 0-pointer.
+<p>
+&lt;applet code=com.objectplanet.chart.ChartApplet<BR>
+&nbsp;archive=chart.jar width=250 height=175&gt;<BR>
+&lt;param name=chart value=gauge&gt;<BR>
+&lt;param name=startAngle value=90&gt;<br>
+&lt;param name=endAngle value=270&gt;<br>
+&lt;param name=rangeLabelsOn value=true&gt;<br>
+&lt;param name=rangeDecimalCount value=1&gt;<br>
+&lt;param name=chartForeground value=gray&gt;<br>
+&lt;param name=<b>pointer</b> value=40,green&gt;<br>
+&lt;param name=<b>pointer_1</b> value=15,blue&gt;<br>
+&lt;param name=<b>pointer_2</b> value=75,cyan&gt;<br>
+&lt;/applet&gt;
+
+<p><IMG width=250 height=175 src="images/gauge/pointers_colors.gif">
+
+<p>
+<a name="sector_highlights"></a>
+<br>
+<font size=+1>
+5. Sector Highlights
+</font>
+
+<P><a name="setting_sector_highlights"></a>
+<br><b>5.1 Setting sector highlights</b>
+<p>
+Use sectorHighlight_N parameter highlight sector of the range with the specifiñ color.
+N is index of the highlighted sector. Use sectorHighlight paramter for the sector with index 0.
+<p>
+&lt;applet code=com.objectplanet.chart.ChartApplet<BR>
+&nbsp;archive=chart.jar width=250 height=150&gt;<BR>
+&lt;param name=chart value=gauge&gt;<BR>
+&lt;param name=startAngle value=90&gt;<br>
+&lt;param name=endAngle value=270&gt;<br>
+&lt;param name=pointer value=40&gt;<br>
+&lt;param name=rangeLabelsOn value=true&gt;<br>
+&lt;param name=rangeLabelStyle value=outside&gt;<br>
+&lt;param name=rangeHighlight value=#208cf0&gt;<br>
+&lt;param name=<b>sectorHighlight</b> value=50,69,pink&gt;<br>
+&lt;param name=<b>sectorHighlight_1</b> value=71,100,red&gt;<br>
+&lt;/applet&gt;
+
+<p><IMG width=250 height=150 src="images/gauge/sectorhighlight_color.png">
+
+<p>
+<a name="borders"></a>
+<br>
+<font size=+1>
+6. Borders
+</font>
+
+<P><a name="setting_gauge_borders"></a>
+<br><b>6.1 Setting gauge borders</b>
+<p>
+Use sectorHighlight_N parameter highlight sector of the range with the specifiñ color.
+N is index of the highlighted sector. Use sectorHighlight paramter for the sector with index 0.
+<p>
+&lt;applet code=com.objectplanet.chart.ChartApplet<BR>
+&nbsp;archive=chart.jar width=250 height=220&gt;<BR>
+&lt;param name=chart value=gauge&gt;<BR>
+&lt;param name=rangeLabelsOn value=true&gt;<br>
+&lt;param name=pointer value=40&gt;<br>
+&lt;param name=<b>border</b> value=2,gray&gt;<br>
+&lt;param name=<b>border_1</b> value=5,lightGray&gt;<br>
+&lt;/applet&gt;
+
+<p><IMG width=250 height=220 src="images/gauge/borders.png">
+
+
+<br clear=all>
+<p><br><br>
+<font size=-2>
+<b>Color names:</b>
+<a name="color_names"></a>
+black, blue, cyan, darkGray, gray, green, lightGray, magenta, orange,
+pink, red, white, yellow
+</font>
+
+</td>
+</tr>
+</table>
+
+<p><br>
+<hr size=1 color="#c0c0c0">
+<font face="verdana,arial,helvetica" size=-2><center>
+Copyright (C) 1998-2008 ObjectPlanet, Inc.<br>
+phone (+47) 2233 3360 fax (+47) 2233 3361<br>
+</center>
+</font>
+
+</BODY>
+</HTML>

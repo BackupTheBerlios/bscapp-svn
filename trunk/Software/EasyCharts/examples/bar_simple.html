@@ -1,0 +1,74 @@
+<html>
+<body>
+<table width=600>
+<tr><td>
+<font face="verdana, arial, helvetica" size=-1>
+
+<b>Simple Bar Chart</b>
+<hr>
+<applet code=com.objectplanet.chart.ChartApplet
+archive=chart.jar width=330 height=220>
+<param name=chart value="bar">
+<param name=sampleValues value="10,20,40,65,50">
+<param name=sampleColors value="#FF7310">
+<param name=range value=70>
+<param name=background value="white">
+</applet>
+
+<font face="verdana, arial, helvetica" size=-2>
+<hr>
+<b>Applet code:</b><br>
+&lt;applet code=com.objectplanet.chart.ChartApplet<br>
+&nbsp;archive=chart.jar width=300 height=200&gt;<br>
+&lt;param name=chart value="bar"&gt;<br>
+&lt;param name=sampleValues value="10,20,40,65,50"&gt;<br>
+&lt;param name=sampleColors value="#FF7310"&gt;<br>
+&lt;param name=range value=70&gt;<br>
+&lt;param name=background value="white"&gt;<br>
+&lt;/applet&gt;<br>
+
+<hr>
+<b>Servlet code:</b><br>
+&lt;img 
+src="http://server_name:8080/servlet/com.objectplanet.chart.ChartServlet?<br>
+width=330&<br>
+height=220&<br>
+chart=bar&<br>
+sampleValues=10,20,40,65,50&<br>
+sampleColors=%23FF7310&<br>
+range=70&<br>
+background=white
+"&gt;<br>
+
+<hr>
+<b>Application code:</b><br>
+<font face="verdana, arial, helvetica" size=-2>
+package com.objectplanet.chart.testing;<br>
+<br>
+import com.objectplanet.chart.*;<br>
+import java.awt.*;<br>
+public class Bar {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;			public static void main(String[] argv) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				double[] values = new double[] {10,20,40,65,50};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				Color[] c = new Color[] {new Color(0xFF7310)};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				BarChart chart = new BarChart();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				chart.setSampleCount(5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				chart.setSampleValues(0, values);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				chart.setSampleColors(c);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				chart.setBackground(Color.white);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				chart.setRange(0, 70);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				Frame f = new Frame();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				f.setSize(450,320);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				f.add("Center", chart);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				f.show();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;			}<br>
+}
+<hr>
+</font>
+</td></tr>
+</table>
+</body>
+</html>

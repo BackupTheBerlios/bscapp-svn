@@ -1,0 +1,130 @@
+<html>
+<body>
+<table width=600>
+<tr><td>
+<font face="verdana, arial, helvetica" size=-1>
+
+<b>Bubble Chart</b>
+<hr>
+<applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.ext.jar width=450 height=300>
+<param name=chart value="plotter">
+<param name=seriesCount value=2>
+<param name=plots_0 value="-70|-50|40,-40|0|31,-4|-40|45,10|50|35,40|-60|35,70|00|27">
+<param name=plots_1 value="-80|0|20,-60|40|20,-40|-40|30,10|20|25,40|-40|35,80|50|45">
+<param name=seriesColors value="#5496D1,#FF6666">
+<param name=plotStyle value="circle_opaque, diamond">
+<param name=connectedLinesOn value="false, true">
+<param name=XmaxValueLineCount value=5>
+<param name=YmaxValueLineCount value=5>
+<param name=rangeOn value="top,left,bottom,right">
+<param name=XLowerRange value=-100>
+<param name=YLowerRange value=-100>
+<param name=XValueLabelsOn_0 value=true>
+<param name=YValueLabelsOn_0 value=true>
+<param name=seriesLabelFont value="Arial,bold,9">
+<param name=background value=white>
+</applet>
+
+<pre>
+<font face="verdana, arial, helvetica" size=-1>
+<hr>
+<b>Applet code:</b>
+&lt;applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.ext.jar width=450 height=300>
+&lt;param name=chart value="plotter">
+&lt;param name=seriesCount value=2>
+&lt;param name=plots_0 value="-70|-50|40,-40|0|31,-4|-40|45,10|50|35,40|-60|35,70|00|27">
+&lt;param name=plots_1 value="-80|0|20,-60|40|20,-40|-40|30,10|20|25,40|-40|35,80|50|45">
+&lt;param name=seriesColors value="#5496D1,#FF6666">
+&lt;param name=plotStyle value="circle_opaque, diamond">
+&lt;param name=connectedLinesOn value="false, true">
+&lt;param name=XmaxValueLineCount value=5>
+&lt;param name=YmaxValueLineCount value=5>
+&lt;param name=rangeOn value="top,left,bottom,right">
+&lt;param name=XLowerRange value=-100>
+&lt;param name=YLowerRange value=-100>
+&lt;param name=XValueLabelsOn_0 value=true>
+&lt;param name=YValueLabelsOn_0 value=true>
+&lt;param name=seriesLabelFont value="Arial,bold,9">
+&lt;param name=background value=white>
+&lt;/applet>
+
+
+<hr>
+<b>Servlet code:</b>
+&lt;img SRC="http://localhost:8080/servlet/com.objectplanet.chart.ChartServlet?
+chart=plotter&
+width=450&
+height=300&
+seriesCount=2&
+plots_0=-70|-50|40,-40|0|31,-4|-40|45,10|50|35,40|-60|35,70|00|27&
+plots_1=-80|0|20,-60|40|20,-40|-40|30,10|20|25,40|-40|35,80|50|45&
+seriesColors=%235496D1,%23FF6666&
+plotStyle=circle_opaque,diamond&
+connectedLinesOn=false,true&
+XmaxValueLineCount=5&
+YmaxValueLineCount=5&
+rangeOn=top,left,bottom,right&
+XLowerRange=-100&
+YLowerRange=-100&
+XValueLabelsOn_0=true&
+YValueLabelsOn_0=true&
+seriesLabelFont=Arial,bold,9&
+background=white"&gt;
+
+<hr>
+<b>Application code:</b>
+package com.objectplanet.chart.testing; 
+ 
+import com.objectplanet.chart.ext.*; 
+import java.awt.*; 
+ 
+public class Plotter { 
+ 
+    public static void main(String[] argv) { 
+        double[][] plots_0 = new double[][] {{-70,-50},{-40,0},{-4,-40},{10,50},{40,-60},{70,0}};
+        double[][] plots_1 = new double[][] {{-80,0},{-60,40},{-40,-40},{10,20},{40,-40},{80,50}};
+        int[] plotSize_0 = new int[] {40,31,45,35,35,27};
+        int[] plotSize_1 = new int[] {20,20,30,25,35,45};
+        Color[] seriesColors = new Color[] {new Color(0x5496D1), new Color(0xFF6666)};
+        
+        PlotterChart chart = new PlotterChart();
+        chart.setTitleOn(true);
+        chart.setTitle("Basic Plotter Chart");
+        chart.setFont("titleFont", new Font("Courier", Font.PLAIN, 16));
+        
+        chart.setSeriesCount(2);
+        chart.setPlots(0, plots_0, plotSize_0);
+        chart.setPlots(1, plots_1, plotSize_1);
+        
+        chart.setSeriesColors(seriesColors);
+        chart.setPlotStyle(0, PlotterChart.PLOT_STYLE_CIRCLE_OPAQUE);
+        chart.setPlotStyle(1, PlotterChart.PLOT_STYLE_DIAMOND);
+        chart.setConnectedLinesOn(1, true);
+        chart.setXMaxValueLineCount(5);
+        chart.setYMaxValueLineCount(5);
+        chart.setRangeOn(PlotterChart.RIGHT, true);
+        chart.setRangeOn(PlotterChart.BOTTOM, true);
+        chart.setXLowerRange(-100);
+        chart.setYLowerRange(-100);
+        chart.setXValueLabelsOn(0, true);
+        chart.setYValueLabelsOn(0, true);
+        chart.setFont("seriesLabelFont", new Font("Arial", Font.BOLD, 9));
+        
+        com.objectplanet.chart.NonFlickerPanel p = new com.objectplanet.chart.NonFlickerPanel(new BorderLayout());
+        p.add("Center", chart);
+        Frame f = new Frame();
+        f.add("Center", p);
+        f.setSize(450,320);
+        f.show();
+    }
+} 
+<hr>
+</font>
+</pre>
+    
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<html>
+<body>
+<table width=600>
+<tr><td>
+<font face="verdana, arial, helvetica" size=-1>
+
+<b>Simple Pie Chart</b>
+<hr>
+<applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.jar width=450 height=300>
+<param name=chart value=pie>
+<param name=chartTitle value="Weekly Distribution">
+<param name=titleFont value="Serif, bold, 20">
+<param name=sampleValues value="643,257,825,829,376">
+<param name=sampleColors value="#63639C,#6363FF,#639CFF,#C6C6C6,#31319C">
+<param name=valueLabelsOn value=true>
+<param name=valueLabelStyle value=inside>
+<param name=insideLabelFont value="Serif,bold,14">
+<param name=legendOn value=true>
+<param name=legendLabels value=Monday,Tuesday,Wednesday,Thursday,Friday>
+<param name=legendFont value="Serif,plain,13">
+<param name=sliceSeperatorColor value=white>
+<param name=background value=white>
+</applet>
+
+<pre>
+<font face="verdana, arial, helvetica" size=-1>
+<hr>
+<b>Applet code:</b>
+&lt;applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.jar width=450 height=300>
+&lt;param name=chart value=pie>
+&lt;param name=chartTitle value="Weekly Distribution">
+&lt;param name=titleFont value="Serif, bold, 20">
+&lt;param name=sampleValues value="643,257,825,829,376">
+&lt;param name=sampleColors value="#63639C,#6363FF,#639CFF,#C6C6C6,#31319C">
+&lt;param name=valueLabelsOn value=true>
+&lt;param name=valueLabelStyle value=inside>
+&lt;param name=insideLabelFont value="Serif,bold,14">
+&lt;param name=legendOn value=true>
+&lt;param name=legendLabels value=Monday,Tuesday,Wednesday,Thursday,Friday>
+&lt;param name=legendFont value="Serif,plain,13">
+&lt;param name=sliceSeperatorColor value=white>
+&lt;param name=background value=white>
+&lt;/applet>
+
+
+<hr>
+<b>Servlet code:</b>
+&lt;img src="http://localhost:8080/servlet/com.objectplanet.chart.ChartServlet?
+chart=pie&
+width=450&
+height=300&
+title=Weekly%20Distribution&
+titleFont=Serif,bold,20&
+sampleValues=643,257,825,829,376&
+sampleColors=%2363639C,%236363FF,%23639CFF,%23C6C6C6,%2331319C&
+valueLabelsOn=true&
+valueLabelStyle=inside&
+insideLabelFont=Serif,bold,14&
+legendOn=true&
+legendLabels=Monday,Tuesday,Wednesday,Thursday,Friday&
+legendFont=Serif,plain,13&
+sliceSeperatorColor=white&
+background=white"&gt;
+
+<hr>
+<b>Application code:</b>
+package com.objectplanet.chart.testing; 
+ 
+import com.objectplanet.chart.*; 
+import java.awt.*; 
+ 
+public class Pie { 
+ 
+    public static void main(String[] argv) { 
+        double[] sampleValues = new double[] {643,257,825,829,376};
+        Color[] sampleColors = new Color[] {new Color(0x63639c), new Color(0x6363ff), new Color(0x639cff), new Color(0xc6c6c6), new Color(0x31319c)};
+        String[] legendLabels = new String[] {"Monday","Tuesday","Wednesday","Thursday","Friday"};
+        
+        PieChart chart = new PieChart();
+        chart.setTitleOn(true);
+        chart.setTitle("Weekly Distribution");
+        chart.setFont("titleFont", new Font("Serif", Font.BOLD, 20));
+        chart.setSampleCount(sampleValues.length);
+        chart.setSampleColors(sampleColors);
+        chart.setSampleValues(0, sampleValues);
+        chart.setValueLabelsOn(true);
+        chart.setValueLabelStyle(Chart.INSIDE);
+        chart.setFont("insideLabelFont", new Font("Serif", Font.BOLD, 14));
+        chart.setLegendOn(true);
+        chart.setLegendLabels(legendLabels);
+        chart.setFont("legendFont", new Font("Serif", Font.PLAIN, 13));
+        chart.setSliceSeperatorColor(Color.white);
+        chart.setBackground(Color.white);
+
+        com.objectplanet.chart.NonFlickerPanel p = new com.objectplanet.chart.NonFlickerPanel(new BorderLayout());
+        p.add("Center", chart);
+        Frame f = new Frame();
+        f.add("Center", p);
+        f.setSize(450,320);
+        f.show();
+    }
+} 
+<hr>
+</font>
+</pre>
+    
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<html>
+<body>
+<table width=600>
+<tr><td>
+<font face="verdana, arial, helvetica" size=-1>
+
+<b>Chart Ranges</b>
+<hr>
+<applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.jar width=450 height=300>
+<param name=chart value=bar>
+<param name=sampleValues_0 value=5,15,23,-34,-45,56,28,17,-16,-30>
+<param name=barWidth value=0.3>
+<param name=sampleColors value=red>
+<param name=background value=#F8F7B8>
+<param name=chartBackground value=#FFFFD6>
+<param name=range value=-60>
+<param name=lowerRange value=60>
+<param name=rangeColor value=#A20202>
+<param name=rangeLabelFont value=Arial,plain,10>
+<param name=rangeAdjusterOn value=true>
+<param name=rangeAdjusterPosition value=right>
+<param name=rangeLabelPostfix value=#>
+<param name=rangeDecimalCount value=1>
+<param name=valueLabelsOn value="true">
+</applet>
+
+<font face="verdana, arial, helvetica" size=-2>
+<hr>
+<b>Applet code:</b><br>
+&lt;applet code=com.objectplanet.chart.ChartApplet<br>
+&nbsp;archive=chart.jar width=450 height=300&gt;<br>
+&lt;param name=chart value=bar&gt;<br>
+&lt;param name=sampleValues_0 value=5,15,23,-34,-45,56,28,17,-16,-30&gt;<br>
+&lt;param name=barWidth value=0.3&gt;<br>
+&lt;param name=sampleColors value=red&gt;<br>
+&lt;param name=background value=#F8F7B8&gt;<br>
+&lt;param name=chartBackground value=#FFFFD6&gt;<br>
+&lt;param name=range value=-60&gt;<br>
+&lt;param name=lowerRange value=60&gt;<br>
+&lt;param name=rangeColor value=#A20202&gt;<br>
+&lt;param name=rangeLabelFont value=Arial,plain,10&gt;<br>
+&lt;param name=rangeAdjusterOn value=true&gt;<br>
+&lt;param name=rangeAdjusterPosition value=right&gt;<br>
+&lt;param name=rangeLabelPostfix value=#&gt;<br>
+&lt;param name=rangeDecimalCount value=1&gt;<br>
+&lt;param name=valueLabelsOn value="true"&gt;<br>
+&lt;/applet&gt;<br>
+<hr>
+<b>Servlet code:</b><br>
+&lt;img SRC="http://127.0.0.1:8080/servlet/com.objectplanet.chart.ChartServlet?<br>
+width=450&<br>
+height=300	&<br>
+chart=bar&<br>
+sampleValues_0=5,15,23,-34,-45,56,28,17,-16,-30&<br>
+barWidth=0.3&<br>
+sampleColors=red&<br>
+background=%23F8F7B8&<br>
+chartBackground=%23FFFFD6&<br>
+range=-60&<br>
+lowerRange=60&<br>
+rangeColor=%23A20202&<br>
+rangeLabelFont=Arial,plain,10&<br>
+rangeAdjusterPosition=right&<br>
+rangeLabelPostfix=%23&<br>
+rangeDecimalCount=1&<br>
+valueLabelsOn=true&"&gt;
+
+<hr>
+<b>Application code:</b><br>
+<font face="verdana, arial, helvetica" size=-2>
+package com.objectplanet.chart.testing;<br>
+<br>
+import com.objectplanet.chart.*;<br>
+import java.awt.*;<br>
+<br>
+public class Bar {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;		public static void main(String[] argv) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		double[] values = new double[] {5,15,23,-34,-45,56,28,17,-16,-30};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		Color[] sampleColor = new Color[] {Color.red};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		Color[] rangeColor = new Color[] {new Color(0xA20202)};<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		BarChart chart = new BarChart();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setSampleCount(10);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setSampleValues(0, values);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setSampleColors(sampleColor);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setBackground(new Color(0xF8F7B8));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setChartBackground(new Color(0xFFFFD6));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setBarWidth(0.3);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setRange(0, -60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setLowerRange(0, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setRangeColor(0, new Color(0xA20202));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setLabel("rangeLabelPostfix", "#");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setFont("rangeLabelFont_0", new Font("Arial", Font.PLAIN, 10));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setRangeAdjusterOn(0, true);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setRangeDecimalCount(0, 1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setValueLabelsOn(true);<br>
+<br>		
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		Frame f = new Frame();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		f.setSize(450,320);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		f.add("Center", chart);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp		f.show();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	}<br>
+}
+<hr>
+
+</font>
+</td></tr>
+</table>
+</body>
+</html>

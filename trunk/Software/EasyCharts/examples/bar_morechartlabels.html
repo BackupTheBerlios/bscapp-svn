@@ -1,0 +1,120 @@
+<html>
+<body>
+<table width=600>
+<tr><td>
+<font face="verdana, arial, helvetica" size=-1>
+
+<b>Bar Chart Labels</b>
+<hr>
+<applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.jar width=450 height=300>
+<param name=chart value="bar">
+<param name=sampleValues value="32,55,70,30,20">
+<param name=sampleLabels value="JAN 2003\n, FEB 2003\n, MAR 2003\n, APR 2003\n, MAY 2003\n">
+<param name=sampleLabelsOn value=true>
+<param name=sampleLabelStyle value=floating>
+<param name=sampleColors value="#F6DEB5">
+<param name=range value=100>
+<param name=rangeLabelFont value="Arial,bold,13">
+<param name=sampleAxisLabel value="sampleAxisLabel">
+<param name=sampleAxisLabelFont value="Arial,bold,16">
+<param name=valueLabelsOn value=true>
+<param name=valueLabelStyle value=floating>
+<param name=label_0 value="The label may be set any place you want, 130, 60">
+<param name=label_1 value="APRIL 2003,300,150,3,0">
+<param name=floatingLabelFont value=Arial,bold,13>
+<param name=barWidth value=0.9>
+<param name=background value=white>
+</applet>
+
+<font face="verdana, arial, helvetica" size=-2>
+<hr>
+<b>Applet code:</b><br>
+&lt;applet code=com.objectplanet.chart.ChartApplet<br>
+&nbsp;archive=chart.jar width=450 height=300&gt;<br>
+&lt;param name=chart value="bar"&gt;<br>
+&lt;param name=sampleValues value="32,55,70,30,20"&gt;<br>
+&lt;param name=sampleLabels value="JAN 2003\n, FEB 2003\n, MAR 2003\n, APR 2003\n, MAY 2003\n"&gt;<br>
+&lt;param name=sampleLabelsOn value=true&gt;<br>
+&lt;param name=sampleLabelStyle value=floating&gt;<br>
+&lt;param name=sampleColors value="#F6DEB5"&gt;<br>
+&lt;param name=range value=100&gt;<br>
+&lt;param name=rangeLabelFont value="Arial,bold,13"&gt;<br>
+&lt;param name=sampleAxisLabel value="sampleAxisLabel"&gt;<br>
+&lt;param name=sampleAxisLabelFont value="Arial,bold,16"&gt;<br>
+&lt;param name=valueLabelsOn value=true&gt;<br>
+&lt;param name=valueLabelStyle value=floating&gt;<br>
+&lt;param name=label_0 value="The label may be set any place you want, 130, 60"&gt;<br>
+&lt;param name=label_1 value="APRIL 2003,300,150,3,0"&gt;<br>
+&lt;param name=floatingLabelFont value=Arial,bold,13&gt;<br>
+&lt;param name=barWidth value=0.9&gt;<br>
+&lt;param name=background value=white&gt;<br>
+&lt;/applet&gt;<br>
+<hr>
+<b>Servlet code:</b><br>
+&lt;img SRC="http://127.0.0.1:8080/servlet/com.objectplanet.chart.ChartServlet?<br>
+width=450&<br>
+height=300&<br>
+chart=bar&<br>
+sampleValues=32,55,70,30,20&<br>
+sampleLabels=JAN 2003\n, FEB 2003\n, MAR 2003\n, APR 2003\n, MAY 2003\n&<br>
+sampleLabelsOn=true&<br>
+sampleLabelStyle=floating&<br>
+sampleColors=%23F6DEB5&<br>
+range=100&<br>
+rangeLabelFont=Arial,bold,13&<br>
+sampleAxisLabel=sampleAxisLabel&<br>
+sampleAxisLabelFont=Arial,bold,16&<br>
+valueLabelsOn=true&<br>
+valueLabelStyle=floating&<br>
+label_0=The label may be set any place you want, 130, 60&<br>
+label_1=APRIL 2003,300,150,3,0&<br>
+floatingLabelFont=Arial,bold,13&<br>
+barWidth=0.9&<br>
+background=white"&gt;
+
+<hr>
+<b>Application code:</b><br>
+<font face="verdana, arial, helvetica" size=-2>
+package com.objectplanet.chart.testing;<br>
+<br>
+import com.objectplanet.chart.*;<br>
+import java.awt.*;<br>
+<br>
+public class Bar {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	public static void main(String[] argv) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		BarChart chart = new BarChart();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setSampleCount(5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		double[] values = new double[] {32,55,69,32,22};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		String[] sampleLabels = new String[] {"JAN 2003\n", "FEB 2003\n", "MAR 2003\n", "APR 2003\n", "MAY 2003\n"};<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setSampleValues(0, values);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setSampleColor(0, new Color(0xF6DEB5));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setRange(0, 88);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setFont("rangeLabelFont", new Font("Arial", Font.BOLD, 13));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setSampleLabels(sampleLabels);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setSampleLabelsOn(true);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setSampleLabelStyle(Chart.FLOATING);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setValueLabelsOn(true);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setValueLabelStyle(Chart.FLOATING);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setFont("floatingLabelFont", new Font("Arial", Font.BOLD, 13));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setLabel("sampleAxisLabel", "sampleAxisLabel");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setFont("sampleAxisLabelFont", new Font("Arial", Font.BOLD, 16));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setLabel("label_0", "This label may be set any place you want", 0.4, 0.1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setLabel("label_1", "APRIL 2003", 300, 150, 3, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setBarWidth(0.9);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		chart.setBackground(Color.white);<br>
+<br>	 	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		Frame f = new Frame();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		f.setSize(450,320);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		f.add("Center", chart);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		f.show();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	}<br>
+}<br>
+<hr>
+
+</font>
+</td></tr>
+</table>
+</body>
+</html>

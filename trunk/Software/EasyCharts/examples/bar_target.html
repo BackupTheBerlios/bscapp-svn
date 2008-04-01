@@ -1,0 +1,94 @@
+<html>
+<body>
+<table width=600>
+<tr><td>
+<font face="verdana, arial, helvetica" size=-1>
+
+<b>Target Value Lines</b>
+<hr>
+<applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.jar width=450 height=300>
+<param name=chart value="bar">
+<param name=sampleValues value="100,120,160,200,300,400,500">
+<param name=sampleColors value="#31319C">
+<param name=rangeLabelFont value="Arial,bold,12">
+<param name=targetValueLine_0 value="Target A, 150, #DF0D0D">
+<param name=targetValueLine_1 value="Target B, 350, #31319C">
+<param name=targetValueLine_2 value="Target C, 500, #18A82C, value">
+<param name=barAlignment value=horizontal>
+<param name=background value=white>
+</applet>
+
+<pre>
+<font face="verdana, arial, helvetica" size=-1>
+<hr>
+<b>Applet code:</b>
+&lt;applet code=com.objectplanet.chart.ChartApplet
+ &nbsp;archive=chart.jar idth=450 height=300>
+&lt;param name=chart value="bar">
+&lt;param name=sampleValues value="100,120,160,200,300,400,500">
+&lt;param name=sampleColors value="#31319C">
+&lt;param name=rangeLabelFont value="Arial,bold,12">
+&lt;param name=targetValueLine_0 value="Target A, 150, #DF0D0D">
+&lt;param name=targetValueLine_1 value="Target B, 350, #31319C">
+&lt;param name=targetValueLine_2 value="Target C, 500, #18A82C, value">
+&lt;param name=barAlignment value=horizontal>
+&lt;param name=background value=white>
+&lt;/applet>
+
+
+<hr>
+<b>Servlet code:</b>
+&lt;img src="http://localhost:8080/servlet/com.objectplanet.chart.ChartServlet?
+chart=pie&
+width=450&
+height=300&
+sampleValues=100,120,160,200,300,400,500&
+sampleColors=%2331319C&
+rangeLabelFont=Arial,bold,12&
+targetValueLine_0=Target%20A,%20150,%20%23DF0D0D&
+targetValueLine_1=Target%20B,%20350,%20%2331319C&
+targetValueLine_2=Target%20C,%20500,%20%2318A82C,&
+barAlignment=horizontal&
+background=white"&gt;
+
+<hr>
+<b>Application code:</b>
+package com.objectplanet.chart.testing; 
+ 
+import com.objectplanet.chart.*; 
+import java.awt.*; 
+ 
+public class Bar { 
+ 
+    public static void main(String[] argv) { 
+        double[] sampleValues = new double[] {100,120,160,200,300,400,500};
+        
+        BarChart chart = new BarChart();
+        chart.setSampleCount(sampleValues.length);
+        chart.setSampleValues(0, sampleValues);
+        chart.setSampleColor(0, new Color(0x31319C));
+        chart.setRange(0, 500);
+        chart.setFont("rangeLabelFont", new Font("Arial", Font.BOLD, 13));
+        chart.setTargetValueLine("Target A", 150, new Color(0xDF0D0D), BarChart.TARGET_LINE_ID_AND_VALUE_LABEL);
+        chart.setTargetValueLine("Target B", 350, new Color(0x31319C), BarChart.TARGET_LINE_ID_AND_VALUE_LABEL);
+        chart.setTargetValueLine("Target C", 500, new Color(0x18A82C), BarChart.TARGET_LINE_VALUE_LABEL);
+        chart.setBarAlignment(Chart.HORIZONTAL);
+        chart.setBackground(Color.white);
+        
+        com.objectplanet.chart.NonFlickerPanel p = new com.objectplanet.chart.NonFlickerPanel(new BorderLayout());
+        p.add("Center", chart);
+        Frame f = new Frame();
+        f.add("Center", p);
+        f.setSize(450,320);
+        f.show();
+    }
+} 
+<hr>
+</font>
+</pre>
+    
+</td></tr>
+</table>
+</body>
+</html>

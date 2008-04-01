@@ -1,0 +1,219 @@
+<HTML>
+<BODY>
+
+<font face="verdana, arial, helvetica" size=-1>
+<b>Controlling Chart Parameters Using JavaScript</b>
+<hr>
+<font face="verdana, arial, helvetica" size=-2>
+<b>Type in the parameter name and value and click the set button.</b>
+<br>
+<applet code=com.objectplanet.chart.ChartApplet
+ archive=chart.jar width=350 height=220 name=BarChart>
+<param name=chart value="bar">
+<param name=sampleValues value="5,10,15,25,40,50,65">
+<param name=rangeStep value="10">
+<param name=background value="white">
+<param name=valueLinesOn value="true">
+<param name=sampleColors value="#0587D9">
+</applet>
+
+<form name="input">
+<INPUT NAME="param" value="valueLinesOn" SIZE=18>
+<INPUT NAME="paramvalue" value="true" SIZE=18>
+<INPUT TYPE="BUTTON" NAME="set" VALUE="set" onClick=repaint()>
+</form>
+
+<script LANGUAGE="JavaScript">
+<!--
+function repaint() {
+	document.BarChart.setParameter(document.input.param.value, document.input.paramvalue.value);
+}
+//-->
+</script>
+
+<b>HTML code:</b><br>
+&lt;applet code=com.objectplanet.chart.ChartApplet<br>
+&nbsp;archive=chart.jar width=300 height=200 name=BarChart&gt;<br>
+&lt;param name=chart value="bar"&gt;<br>
+&lt;param name=sampleValues value="10,20,30,40,50"&gt;<br>
+&lt;/applet&gt;<br>
+
+<p>
+&lt;form name="input"&gt;<br>
+&lt;input name="param" value="valueLinesOn" size=18&gt;<br>
+&lt;input name="paramvalue" value="true" size=18&gt;<br>
+&lt;input name="set" type="button" value="set" onClick=repaint()&gt;<br>
+&lt;/form&gt;<br>
+<br>
+&lt;script language="JavaScript"&gt;<br>
+&lt;!--<br>
+function repaint() {<br>
+&nbsp;&nbsp;&nbsp;document.BarChart.setParameter(document.input.param.value, document.input.paramvalue.value);<br>
+}<br>
+//--&gt;<br>
+&lt;/script&gt;
+<hr>
+<b>Select a bar or legend entry and click the button to get the index of the selected sample and series.</b>
+<p>
+<applet code=com.objectplanet.chart.ChartApplet
+archive="chart.jar" width=350 height=250 NAME=MultiSeries VIEWASTEXT id=Applet1>
+<param name=chart value="bar">
+<param name=seriesCount value=3>
+<param name=sampleValues_0 value="10,20,30,40,50">
+<param name=sampleValues_1 value="20,30,40,50,60">
+<param name=sampleValues_2 value="30,40,50,60,70">
+<param name=seriesLabels value="serie 0, serie 1, serie 2">
+<param name=legendOn value=true>
+<param name=multiColorOn value=true>
+<param name=sampleColors value="yellow, orange, red">
+<param name=barOutlineOff value=true>
+<param name=barWidth value=0.6>
+</applet>
+
+
+
+<p>
+<form name="selection">
+<INPUT NAME="lastSelectedSample" SIZE=1> lastSelectedSample<br>
+<INPUT NAME="lastSelectedSeries" SIZE=1> lastSelectedSeries<br>
+<INPUT TYPE="BUTTON" NAME="get selected" VALUE="get selected" onClick=printLastSelectedSample()>
+</form>
+
+<script LANGUAGE="JavaScript">
+<!--
+function printLastSelectedSample() {
+	sample = document.MultiSeries.chart.getLastSelectedSample();
+	document.selection.lastSelectedSample.value = sample;
+	serie = document.MultiSeries.chart.getLastSelectedSeries();
+	document.selection.lastSelectedSeries.value = serie;
+}
+//-->
+</script>
+<hr>
+
+
+<b>Push the "make small" and "make large" buttons to
+change the size of the chart.<br>
+(Works only with IE)</b><br>
+
+<p>
+<applet code=com.objectplanet.chart.ChartApplet archive="chart.jar" 
+width=350 height=250 name=ResizableChart>
+<param name=chart value="bar">
+<param name=sampleValues value="10,20,30,40,50">
+</applet>
+
+<p>
+<form name="resize">
+<input name="small" type="button" value="make large" onClick=makeLarge()>
+<input name="large" type="button" value="make small" onClick=makeSmall()>
+</form>
+
+<script language="JavaScript">
+<!--
+function makeLarge() {
+   document.ResizableChart.width=350;
+   document.ResizableChart.height=250;
+}
+function makeSmall() {
+   document.ResizableChart.width=260;
+   document.ResizableChart.height=180;
+}
+//-->
+</script> 
+
+
+<p>
+<b>HTML code:</b><br>
+&lt;applet code=com.objectplanet.chart.ChartApplet archive=chart.jar<br>
+&nbsp;width=350 height=250 name=ResizableChart&gt;<br>
+&lt;param name=chart value="bar"&gt;<br>
+&lt;param name=sampleValues value="10,20,30,40,50"&gt;<br>
+&lt;/applet&gt;<br>
+
+<p>
+&lt;form name="resize"&gt;<br>
+&lt;input name="small" type="button" value="make large" onClick=makeLarge()&gt;<br>
+&lt;input name="large" type="button" value="make small" onClick=makeSmall()&gt;<br>
+&lt;/form&gt;<br>
+<br>
+&lt;script language="JavaScript"&gt;<br>
+&lt;!--<br>
+function makeLarge() {<br>
+&nbsp;&nbsp;&nbsp;document.ResizableChart.width=350;<br>
+&nbsp;&nbsp;&nbsp;document.ResizableChart.height=250;<br>
+}<br>
+function makeSmall() {<br>
+&nbsp;&nbsp;&nbsp;document.ResizableChart.width=260;<br>
+&nbsp;&nbsp;&nbsp;document.ResizableChart.height=180;<br>
+}<br>
+//--&gt;<br>
+&lt;/script&gt;
+<hr>
+
+<b>Push the "bar", "line" and "pie" buttons to 
+switch between chart types.</b><br>
+
+<p>
+<applet code=com.objectplanet.chart.ChartApplet archive="chart.jar" 
+width=300 height=200 name=SwitchChart>
+<param name=chart value="bar">
+<param name=sampleValues value="20,10,40,30,50">
+</applet>
+
+<p>
+<form name="resize">
+<INPUT TYPE="BUTTON" NAME="bar" VALUE="bar" onClick=setbar()>
+<INPUT TYPE="BUTTON" NAME="line" VALUE="line" onClick=setline()>
+<INPUT TYPE="BUTTON" NAME="pie" VALUE="pie" onClick=setpie()>
+</form>
+
+<script LANGUAGE="JavaScript">
+<!--
+function setbar() {
+		document.SwitchChart.setParameter("chart", "bar");
+}
+function setline() {
+		document.SwitchChart.setParameter("chart", "line");
+}
+function setpie() {
+		document.SwitchChart.setParameter("chart", "pie");
+}
+//-->
+</script>
+
+
+<b>HTML code:</b><br>
+&lt;applet code=com.objectplanet.chart.ChartApplet archive=chart.jar<br>
+&nbsp;width=300 height=200 name=SwitchChart&gt;<br>
+&lt;param name=chart value="bar"&gt;<br>
+&lt;param name=sampleValues value="20,10,40,30,50"&gt;<br>
+&lt;/applet&gt;<br>
+
+<p>
+&lt;form name="resize"&gt;<br>
+&lt;INPUT TYPE="BUTTON" NAME="bar" VALUE="bar" onClick=setbar()&gt;<br>
+&lt;INPUT TYPE="BUTTON" NAME="line" VALUE="line" onClick=setline()&gt;<br>
+&lt;INPUT TYPE="BUTTON" NAME="pie" VALUE="pie" onClick=setpie()&gt;<br>
+&lt;/form&gt;<br>
+<br>
+&lt;script LANGUAGE="JavaScript"&gt;<br>
+&lt;!--<br>
+function setbar() {<br>
+&nbsp;&nbsp;&nbsp;document.SwitchChart.setParameter("chart", "bar");<br>
+}<br>
+function setline() {<br>
+&nbsp;&nbsp;&nbsp;document.SwitchChart.setParameter("chart", "line");<br>
+}<br>
+function setpie() {<br>
+&nbsp;&nbsp;&nbsp;document.SwitchChart.setParameter("chart", "pie");<br>
+}<br>
+//--&gt;<br>
+&lt;/script&gt;
+<hr>
+
+
+<font>
+</BODY>
+</HTML>
+ 
