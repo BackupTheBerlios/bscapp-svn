@@ -14,13 +14,11 @@ public class Bereich extends DefaultMutableTreeNode implements
 {
 	private static final long serialVersionUID = 1237738469520669948L;
 	
-
 	private String titel;
-	
 	
 	public Bereich( String titel )
 	{
-		super();
+		super(titel);
 		this.titel = titel;
 	}
 	

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="output" path="bin"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="library/jfreechart-1.0.9.jar"/>
+	<classpathentry kind="lib" path="library/jcommon-1.0.12.jar"/>
 	<classpathentry kind="lib" path="library/easychart.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:platform:/resource/BSC/api/EasyCharts.zip!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="library/jcommon-1.0.12.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="lib" path="library/easychart.ext.jar"/>
 </classpath>

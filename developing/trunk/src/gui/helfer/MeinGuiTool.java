@@ -1,4 +1,8 @@
-package testen;
+package gui.helfer;
+
+
+
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Point;
@@ -39,11 +43,11 @@ import javax.swing.event.ListSelectionListener;
  * 
  * @author andre
  */
-public class AndresJFrame extends JFrame implements
-                                        ActionListener,
-                                        ChangeListener,
-                                        ListSelectionListener,
-                                        MouseListener
+public class MeinGuiTool extends JFrame implements
+                                       ActionListener,
+                                       ChangeListener,
+                                       ListSelectionListener,
+                                       MouseListener
 {
 	/**
 	 * 
@@ -89,20 +93,15 @@ public class AndresJFrame extends JFrame implements
 	 *            wenn true, dann wird das jframe mit den
 	 *            defaultabmessungen auf dem bildschirm angezeigt.
 	 */
-	public AndresJFrame( boolean sofortAnzeigen )
+	public MeinGuiTool()
 	{
 		super();
 		super.setTitle( this.getClass().getName() );
 		super.setContentPane( erzeugeContentPane() );
-		super.setPreferredSize( new Dimension( 800, 600 ) );
+		super.setDefaultCloseOperation( JFrame.DO_NOTHING_ON_CLOSE );
 
-		setzeSystemLookAndFeel();
+		//setzeSystemLookAndFeel();
 		setzeWindowListener( this );
-
-		if( sofortAnzeigen )
-		{
-			zeigeMittig();
-		}
 	}
 
 
@@ -110,10 +109,11 @@ public class AndresJFrame extends JFrame implements
 	 * packt das jframe, setzt es auf die bildschirmmitte, definiert
 	 * die größe des fensters, und setzt es visible(true)
 	 */
-	protected void zeigeMittig()
+	protected void zeige()
 	{
 		super.pack();
-		super.setLocation( getMitte() );
+		super.setPreferredSize( new Dimension( 800, 600 ) );
+		super.setLocation( getMitte( this ) );
 		super.setVisible( true );
 	}
 
@@ -130,20 +130,21 @@ public class AndresJFrame extends JFrame implements
 	}
 
 
-	private Point getMitte()
+	private static Point getMitte( JFrame jframe )
 	{
 		int bildschirmBreite = Toolkit.getDefaultToolkit().getScreenSize().width;
 		int bildschirmHoehe = Toolkit.getDefaultToolkit().getScreenSize().height;
 
-		int fensterBreite = super.getSize().width;
-		int fensterHoehe = super.getSize().height;
+		int fensterBreite = jframe.getSize().width;
+		int fensterHoehe = jframe.getSize().height;
 
 		return new Point( bildschirmBreite / 2 - fensterBreite / 2,
 		                  bildschirmHoehe / 2 - fensterHoehe / 2 );
 	}
 
 
-	private void setzeSystemLookAndFeel()
+	@SuppressWarnings("unused")
+    private void setzeSystemLookAndFeel()
 	{
 		try
 		{
@@ -165,12 +166,8 @@ public class AndresJFrame extends JFrame implements
 			@ Override
 			public void windowClosing( WindowEvent e )
 			{
-				int i = JOptionPane.showConfirmDialog( frame,
-				                                       "Wollen Sie das Programm beenden?",
-				                                       "Programm beenden",
-				                                       JOptionPane.YES_NO_OPTION,
-				                                       JOptionPane.QUESTION_MESSAGE );
-				if( i == JOptionPane.YES_OPTION )
+				if( MeinGuiTool.frageTrueFalse( "Wollen Sie das Programm beenden?",
+				                                "Programm beenden" ) )
 				{
 					System.exit( 0 );
 				}
@@ -178,6 +175,67 @@ public class AndresJFrame extends JFrame implements
 		};
 
 		frame.addWindowListener( windowlistener );
+	}
+
+
+	/**
+	 * zeigt eine errormessage mit joptionpane an
+	 * 
+	 * @param message
+	 *            die meldung
+	 * @param title
+	 *            die überschrift
+	 */
+	public static void zeigeError( Object message, String title )
+	{
+		JOptionPane.showMessageDialog( null,
+		                               message,
+		                               title,
+		                               JOptionPane.ERROR_MESSAGE );
+	}
+
+
+	/**
+	 * zeigt eine infomessage mit joptionpane an
+	 * 
+	 * @param message
+	 *            die meldung
+	 * @param title
+	 *            die überschrift
+	 */
+	public static void zeigeInfo( Object message, String title )
+	{
+		JOptionPane.showMessageDialog( null,
+		                               message,
+		                               title,
+		                               JOptionPane.INFORMATION_MESSAGE );
+	}
+
+
+	/**
+	 * zeigt eine frage mit joptionpane an.
+	 * 
+	 * @param message
+	 *            die frage
+	 * @param title
+	 *            die überschrift
+	 * @return true wenn auf yes geklickt wurde, sonst false
+	 */
+	public static boolean frageTrueFalse( Object message, String title )
+	{
+		int erg = JOptionPane.showConfirmDialog( null,
+		                                         message,
+		                                         title,
+		                                         JOptionPane.YES_NO_OPTION,
+		                                         JOptionPane.QUESTION_MESSAGE );
+		if( erg == JOptionPane.YES_OPTION )
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 

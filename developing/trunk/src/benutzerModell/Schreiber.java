@@ -8,13 +8,13 @@ public class Schreiber extends Leser
 	{
 
 	}
-	
+
 
 	public void lösche()
 	{
 
 	}
-	
+
 
 	public void erstelle()
 	{

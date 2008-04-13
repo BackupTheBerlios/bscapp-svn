@@ -34,7 +34,7 @@ public class Auswertung extends DefaultMutableTreeNode implements
 	 */
 	private Auswertung()
 	{
-		super();
+		super("Auswertung");
 		titel = "Auswertung";
 	}
 	

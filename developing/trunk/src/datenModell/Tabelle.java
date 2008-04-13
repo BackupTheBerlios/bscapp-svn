@@ -24,10 +24,10 @@ public class Tabelle extends DefaultMutableTreeNode implements
 	
 	public Tabelle( String titel )
 	{
-		super();
+		super(titel);
 		this.titel = titel;
-		verdichtung = 0.0;
-		bewertung = 0.0;
+		verdichtung = 1.0;
+		bewertung = 1.0;
 	}
 	
 
