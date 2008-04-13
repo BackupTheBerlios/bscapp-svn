@@ -1,0 +1,2 @@
+Hier kommen Test-Beschreibungen für die Java-Applikation hinein.
+Eventuell mit den entsprechenden Test-Daten und Test-Ergebnissen.
