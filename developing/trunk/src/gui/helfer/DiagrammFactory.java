@@ -16,12 +16,21 @@ import com.objectplanet.chart.ext.PlotterChart;
 
 
 
+/**
+ * Hilfsklasse zum erzeugen von diagrammen.
+ * 
+ * @author andre
+ */
 public class DiagrammFactory
 {
 	/**
+	 * erzeugt ein balkendiagramm
+	 * 
 	 * @param values
+	 *            die werte
 	 * @param labels
-	 * @return
+	 *            die beschriftungen der balken
+	 * @return das diagramm
 	 */
 	@ SuppressWarnings( "serial" )
 	public static JPanel balkenDiagramm( double[] values, String[] labels )
@@ -69,6 +78,15 @@ public class DiagrammFactory
 	}
 
 
+	/**
+	 * erzeugt ein kreisdiagramm
+	 * 
+	 * @param values
+	 *            die werte
+	 * @param labels
+	 *            die beschriftungen der kreissegmente
+	 * @return das diagramm
+	 */
 	@ SuppressWarnings( "serial" )
 	public static JPanel kreisDiagramm( double[] values, String[] labels )
 	{
@@ -106,6 +124,15 @@ public class DiagrammFactory
 	}
 
 
+	/**
+	 * erzeugt eine portfolioansicht
+	 * 
+	 * @param values
+	 *            die werte
+	 * @param labels
+	 *            die beschriftungen der balken
+	 * @return das diagramm
+	 */
 	@ SuppressWarnings( "serial" )
 	public static JPanel portfolioDiagramm( Point2D.Double[] koordinaten,
 	                                        int[] groessen,
