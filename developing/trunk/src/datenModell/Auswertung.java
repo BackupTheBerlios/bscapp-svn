@@ -3,6 +3,8 @@ package datenModell;
 
 
 import java.io.Serializable;
+import java.util.Vector;
+import javax.swing.JPanel;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 
@@ -11,14 +13,14 @@ public class Auswertung extends DefaultMutableTreeNode implements
                                                       Serializable
 {
 	private static final long serialVersionUID = - 208812670706157608L;
-	
+
 
 	private String titel;
-	
+
 
 	private static Auswertung INSTANZ;
-	
-	
+
+
 	public static Auswertung getInstanz()
 	{
 		if( INSTANZ == null )
@@ -27,17 +29,17 @@ public class Auswertung extends DefaultMutableTreeNode implements
 		}
 		return INSTANZ;
 	}
-	
+
 
 	/**
 	 * @param titel
 	 */
 	private Auswertung()
 	{
-		super("Auswertung");
+		super( "Auswertung" );
 		titel = "Auswertung";
 	}
-	
+
 
 	/**
 	 * @return
@@ -46,7 +48,7 @@ public class Auswertung extends DefaultMutableTreeNode implements
 	{
 		return getInstanz().titel;
 	}
-	
+
 
 	/**
 	 * @param titel
@@ -55,7 +57,7 @@ public class Auswertung extends DefaultMutableTreeNode implements
 	{
 		getInstanz().titel = titel;
 	}
-	
+
 
 	/**
 	 * @param bereich
@@ -65,7 +67,7 @@ public class Auswertung extends DefaultMutableTreeNode implements
 		DefaultMutableTreeNode thisNode = getInstanz();
 		thisNode.add( bereich );
 	}
-	
+
 
 	/**
 	 * @param bereich
@@ -74,5 +76,23 @@ public class Auswertung extends DefaultMutableTreeNode implements
 	{
 		DefaultMutableTreeNode thisNode = getInstanz();
 		thisNode.remove( bereich );
+	}
+
+	
+	@ SuppressWarnings( "unchecked" )
+	public JPanel getJDiagramm()
+	{
+		Vector< Bereich > bereiche = super.children;
+
+		for( Bereich b : bereiche )
+		{
+
+		}
+
+		// return gui.helfer.DiagrammFactory.portfolioDiagramm(
+		// koordinaten,
+		// groessen,
+		// labels );
+		return null;
 	}
 }

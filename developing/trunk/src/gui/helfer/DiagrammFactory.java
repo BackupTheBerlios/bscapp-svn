@@ -24,6 +24,17 @@ import com.objectplanet.chart.ext.PlotterChart;
 public class DiagrammFactory
 {
 	/**
+	 * die erlaubten diagrammtypen
+	 * 
+	 * @author andre
+	 */
+	public static enum TYP
+	{
+		BALKENDIAGRAMM, KREISDIAGRAMM, PORTFOLIO
+	}
+
+
+	/**
 	 * erzeugt ein balkendiagramm
 	 * 
 	 * @param values
@@ -127,10 +138,12 @@ public class DiagrammFactory
 	/**
 	 * erzeugt eine portfolioansicht
 	 * 
-	 * @param values
-	 *            die werte
+	 * @param koordinaten
+	 *            die datenpunkte in form eines Point2D.Double[]
+	 * @param groessen
+	 *            die größe der datenpunkte in form eines int[]
 	 * @param labels
-	 *            die beschriftungen der balken
+	 *            die beschriftung der datenpunkte
 	 * @return das diagramm
 	 */
 	@ SuppressWarnings( "serial" )
@@ -202,6 +215,13 @@ public class DiagrammFactory
 	}
 
 
+	/**
+	 * gibt ein array aus farben zurück.
+	 * 
+	 * @param anzahlFarben
+	 *            die gewünschte länge des arrays
+	 * @return das array
+	 */
 	private static Color[] getFarbArray( int anzahlFarben )
 	{
 		Color[] standardfarben =
