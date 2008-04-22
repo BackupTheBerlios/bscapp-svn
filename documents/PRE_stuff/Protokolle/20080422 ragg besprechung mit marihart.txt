@@ -1,0 +1,9 @@
+# Besprechung mit Herrn Marihart über das Datenmodell und das Eingeben der Benutzerdaten
+
+# Datum: 22.4.8
+
+# es sollte ein bildschirm erstellt werden, in dem der user die daten eintippen kann. dieser bildschirm muss sowieso erstellt werden, um dem benutzer eine änderung der daten zu ermöglichen.
+
+# Der import/export aus excel ist gestorben.
+
+# es muss eine geeignete beschreibung verfasst werden, die dem benutzer an den geeigneten stellen in der gui (beim jeweiligen JTextField) erklärt, wie die verdichtung und gewichtung funktioniert, und an welche richtlinien sich der user zu halten hat. (notenschema beim bewerten, prioritätenvergabe beim bewerten)
