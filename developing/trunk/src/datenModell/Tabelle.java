@@ -8,7 +8,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.MutableTreeNode;
-import javax.swing.tree.TreeNode;
 
 
 
@@ -20,30 +19,25 @@ implements Serializable, Comparable< Tabelle >, Bewertbar
 
 	private static final long serialVersionUID = 1074172988316457301L;
 
-
-	protected String titel;
-	protected double zusammenfassung;
 	protected double prioritaet;
 
 
 	public Tabelle( String titel )
 	{
 		super( titel );
-		this.titel = titel;
-		zusammenfassung = 1.0;
 		prioritaet = 1.0;
 	}
 
 
 	public String getTitel()
 	{
-		return titel;
+		return (String)super.getUserObject();
 	}
 
 
 	public void setTitel( String titel )
 	{
-		this.titel = titel;
+		super.setUserObject( titel );
 	}
 
 
@@ -66,15 +60,13 @@ implements Serializable, Comparable< Tabelle >, Bewertbar
 		// wenn beide ein blatt sind...
 		if( thisIstBlatt && tIstBlatt )
 		{
-			return titel.compareTo( t.getTitel() );
+			return getTitel().compareTo( t.getTitel() );
 		}
-
 		// wenn beide kein blatt sind...
 		if( ! thisIstBlatt && ! tIstBlatt )
 		{
-			return titel.compareTo( t.getTitel() );
+			return getTitel().compareTo( t.getTitel() );
 		}
-
 		// wenn nur "this" ein blatt ist...
 		if( thisIstBlatt && ! tIstBlatt )
 		{
@@ -102,7 +94,6 @@ implements Serializable, Comparable< Tabelle >, Bewertbar
 			labels[ i ] = ( (Tabelle)o ).getTitel();
 		}
 
-
 		switch( typ )
 		{
 			case BALKENDIAGRAMM :
@@ -112,13 +103,24 @@ implements Serializable, Comparable< Tabelle >, Bewertbar
 				return DiagrammFactory.kreisDiagramm( values, labels );
 		}
 
-
 		return new JPanel()
 		{
 			{
 				add( new JLabel( "PORTFOLIO-Darstellung hier nicht erlaubt!" ) );
 			}
 		};
+	}
+
+
+	@ Override
+	public void setUserObject( Object userObject )
+	{
+		// um sicherzugehen dass nur ein string als "titel" definiert
+		// werden kann...
+		if( userObject instanceof String )
+		{
+			super.setUserObject( userObject );
+		}
 	}
 
 
@@ -132,7 +134,21 @@ implements Serializable, Comparable< Tabelle >, Bewertbar
 	@ Override
 	public double getZusammenfassung()
 	{
-		return zusammenfassung;
+		double summePmalZ = 0;
+    double summeP = 0;
+
+    // für jedes einzelne meiner kinder:
+    // multipliziere priorität (P) mit der zusammenfassung (Z);
+    // zum schluss nimm die summe aller P*Z
+    // und dividiere sie durch die summe aller prioritäten:
+    for(Object o : children)
+    {
+      Tabelle t = (Tabelle)o;
+      summePmalZ += t.getPrioritaet() * t.getZusammenfassung();
+      summeP += t.getPrioritaet();
+    }
+
+    return summePmalZ / summeP;
 	}
 
 
@@ -146,6 +162,8 @@ implements Serializable, Comparable< Tabelle >, Bewertbar
 	@ Override
 	public void setZusammenfassung( double zusammenfassung )
 	{
-		this.zusammenfassung = zusammenfassung;
+	// eine tabelle ermittelt autom. eine zusammenf. ihrer children!
+	// nur tabelleblatt-instanzen eine zusammenf. direkt zuordnen!
+	// es kann nur die priorität gesetzt werden!
 	}
 }

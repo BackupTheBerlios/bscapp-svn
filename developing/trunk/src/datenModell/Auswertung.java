@@ -9,8 +9,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 
 
-public class Auswertung extends DefaultMutableTreeNode implements
-                                                      Serializable
+public class Auswertung extends DefaultMutableTreeNode implements Serializable
 {
 	private static final long serialVersionUID = - 208812670706157608L;
 
@@ -78,7 +77,7 @@ public class Auswertung extends DefaultMutableTreeNode implements
 		thisNode.remove( bereich );
 	}
 
-	
+
 	@ SuppressWarnings( "unchecked" )
 	public JPanel getJDiagramm()
 	{
