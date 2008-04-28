@@ -22,51 +22,68 @@ import javax.swing.JPanel;
  */
 public interface Bewertbar
 {
-	/**
-	 * erzeugt ein diagramm das, den aktuellen node repräsentiert.
-	 * 
-	 * @param typ
-	 *            der typ des diagramms laut DiagrammFactory.TYP
-	 * @return JPanel, das das diagramm enthält.
-	 */
-	public JPanel getJDiagramm( DiagrammFactory.TYP typ );
+  /**
+   * erzeugt ein diagramm das, den aktuellen node repräsentiert.
+   * 
+   * @param typ
+   *          der typ des diagramms laut DiagrammFactory.TYP
+   * @return JPanel, das das diagramm enthält.
+   */
+  public JPanel getJDiagramm(DiagrammFactory.TYP typ);
 
 
-	/**
-	 * gibt die zusammenfassung des jeweiligen nodes zurück. das ist
-	 * ein herunterbrechen aller werte des nodes auf einen einzigen
-	 * double-wert
-	 * 
-	 * @return die zusammenfassung
-	 */
-	public double getZusammenfassung();
+  /**
+   * gibt die zusammenfassung des jeweiligen nodes zurück. das ist ein
+   * herunterbrechen aller werte des nodes auf einen einzigen
+   * double-wert
+   * 
+   * @return die zusammenfassung
+   */
+  public double getZusammenfassung();
 
 
-	/**
-	 * setzt die zusammenfassung des aktuellen nodes. das ist ein
-	 * herunterbrechen aller werte des nodes auf einen einzigen
-	 * double-wert
-	 * 
-	 * @param zusammenfassung
-	 *            die neue zusammenfassung
-	 */
-	public void setZusammenfassung( double zusammenfassung );
+  /**
+   * setzt die zusammenfassung des aktuellen nodes. das ist ein
+   * herunterbrechen aller werte des nodes auf einen einzigen
+   * double-wert
+   * 
+   * @param zusammenfassung
+   *          die neue zusammenfassung
+   */
+  public void setZusammenfassung(double zusammenfassung);
 
 
-	/**
-	 * gibt die priorität(gewichtung) des aktuellen nodes zurück.
-	 * diese bestimmt, wie viel die zusammenfassung des nodes im
-	 * vergleich zu seinen geschwisternodes wiegt.
-	 * 
-	 * @return prioritaet des nodes
-	 */
-	public double getPrioritaet();
+  /**
+   * gibt die priorität(gewichtung) des aktuellen nodes zurück. diese
+   * bestimmt, wie viel die zusammenfassung des nodes im vergleich zu
+   * seinen geschwisternodes wiegt.
+   * 
+   * @return prioritaet des nodes
+   */
+  public double getPrioritaet();
 
 
-	/**
-	 * setzt die prioritaet des aktuellen nodes auf den angegebenen
-	 * wert. diese bestimmt, wie viel die zusammenfassung des nodes im
-	 * vergleich zu seinen geschwisternodes wiegt.
-	 */
-	public void setPrioritaet( double prioritaet );
+  /**
+   * setzt die prioritaet des aktuellen nodes auf den angegebenen
+   * wert. diese bestimmt, wie viel die zusammenfassung des nodes im
+   * vergleich zu seinen geschwisternodes wiegt.
+   */
+  public void setPrioritaet(double prioritaet);
+
+
+  /**
+   * Gibt den Titel des nodes zurück.
+   * 
+   * @return
+   */
+  public String getTitel();
+
+
+  /**
+   * setzt den titel des nodes.
+   * 
+   * @param titel
+   *          der neue titel
+   */
+  public void setTitel(String titel);
 }

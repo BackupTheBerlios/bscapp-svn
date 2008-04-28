@@ -11,13 +11,18 @@ import javax.swing.tree.MutableTreeNode;
 
 
 
+/**
+ * Ein bereich ist die 2. ebene in der baumstruktur.
+ * 
+ * @author andre
+ */
 public class Bereich extends DefaultMutableTreeNode implements
                                                    Serializable,
                                                    Comparable<Bereich>,
                                                    Bewertbar
 {
   private static final long serialVersionUID = 1237738469520669948L;
-  
+
   private Point2D.Double koordinate;
   private double prioritaet;
 
@@ -29,24 +34,25 @@ public class Bereich extends DefaultMutableTreeNode implements
   }
 
 
+  /**
+   * Gibt den titel des bereichs zurück
+   * 
+   * @return den titel des bereichs
+   */
   public String getTitel()
   {
     return (String)super.getUserObject();
   }
 
 
+  /**
+   * Setzt den titel des bereichs
+   * 
+   * @param titel
+   */
   public void setTitel(String titel)
   {
     super.setUserObject(titel);
-  }
-
-
-  /**
-   * @return the koordinate
-   */
-  public Point2D.Double getKoordinate()
-  {
-    return koordinate;
   }
 
 
@@ -56,9 +62,35 @@ public class Bereich extends DefaultMutableTreeNode implements
    * 
    * @return die koordinate in form eines Point2D.Double - objekts
    */
+  public Point2D.Double getKoordinate()
+  {
+    return koordinate;
+  }
+
+
+  /**
+   * setzt die koordinate des bereichs ( die position auf der
+   * portfoliodarstellung ) zurück.
+   * 
+   * @param koordinate
+   *          die position des bereichs; die X- und Y-Koordinaten
+   *          müssen beide zwischen -100 und +100 liegen.
+   */
   public void setKoordinate(Point2D.Double koordinate)
   {
-    this.koordinate = koordinate;
+    boolean xOK = false;
+    boolean yOK = false;
+
+    if(koordinate != null)
+    {
+      xOK = koordinate.x <= 100 && koordinate.x >= - 100;
+      yOK = koordinate.y <= 100 && koordinate.y >= - 100;
+    }
+
+    if(xOK && yOK)
+    {
+      this.koordinate = koordinate;
+    }
   }
 
 
@@ -98,7 +130,9 @@ public class Bereich extends DefaultMutableTreeNode implements
   }
 
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see datenModell.Bewertbar#getJDiagramm(gui.helfer.DiagrammFactory.TYP)
    */
   @Override
@@ -109,45 +143,69 @@ public class Bereich extends DefaultMutableTreeNode implements
   }
 
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see datenModell.Bewertbar#getPrioritaet()
    */
   @Override
   public double getPrioritaet()
   {
-    return 0;
+    return prioritaet;
   }
 
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see datenModell.Bewertbar#getZusammenfassung()
    */
   @Override
   public double getZusammenfassung()
   {
-    // TODO Auto-generated method stub
-    return 0;
+    double summePmalZ = 0;
+    double summeP = 0;
+
+    // für jedes einzelne meiner kinder:
+    // multipliziere priorität (P) mit der zusammenfassung (Z);
+    // zum schluss nimm die summe aller P*Z
+    // und dividiere sie durch die summe aller prioritäten:
+    for(Object o : children)
+    {
+      Tabelle t = (Tabelle)o;
+      summePmalZ += t.getPrioritaet() * t.getZusammenfassung();
+      summeP += t.getPrioritaet();
+    }
+
+    return summePmalZ / summeP;
   }
 
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see datenModell.Bewertbar#setPrioritaet(double)
    */
   @Override
   public void setPrioritaet(double prioritaet)
   {
-    // TODO Auto-generated method stub
-    
+    if(prioritaet >= 0 && prioritaet <= 10)
+    {
+      this.prioritaet = prioritaet;
+    }
   }
 
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see datenModell.Bewertbar#setZusammenfassung(double)
    */
   @Override
   public void setZusammenfassung(double zusammenfassung)
   {
-    // TODO Auto-generated method stub
-    
+  // ein bereich ermittelt autom. eine zusammenf. ihrer children!
+  // nur tabelleblatt-instanzen eine zusammenf. direkt zuordnen!
+  // es kann nur die priorität gesetzt werden!
   }
 }
