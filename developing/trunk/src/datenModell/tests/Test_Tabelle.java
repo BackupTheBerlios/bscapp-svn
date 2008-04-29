@@ -7,18 +7,12 @@ package datenModell.tests;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
-import java.util.Set;
-import javax.swing.tree.DefaultMutableTreeNode;
+import junit.framework.TestCase;
 import datenModell.Bereich;
 import datenModell.Tabelle;
 import datenModell.TabelleBlatt;
-import junit.framework.TestCase;
 
 
 
@@ -36,6 +30,7 @@ public class Test_Tabelle extends TestCase
     * 
     * @see junit.framework.TestCase#setUp()
     */
+   @Override
    protected void setUp() throws Exception
    {
       tabelle = new Tabelle("testtabelle");
@@ -328,6 +323,10 @@ public class Test_Tabelle extends TestCase
       double erwarteteZusammenf = sum_P_mal_Z / sum_prioritäten;
       assertEquals(erwarteteZusammenf, tab.getZusammenfassung(), 0.000001);
 
+      zuf_priorität = zuf_gen.nextDouble(); // double: 0-1
+      zuf_priorität *= 10; // priorität ist zwischen 0 und 10
+      tab.setPrioritaet(zuf_priorität);
+
       return tab;
    }
 
@@ -335,6 +334,8 @@ public class Test_Tabelle extends TestCase
    @SuppressWarnings("unchecked")
    public void testeMitZufallsHierarchie()
    {
+      Bericht.sag("teste hierarchie mit zufälligen werten und gewichtungen und struktur");
+
       Random zuf_gen = new Random(1l);
 
       double sum_prioritäten; // die summe der prioritäten
@@ -343,17 +344,23 @@ public class Test_Tabelle extends TestCase
       double zuf_priorität; // die zufällig erzeugte priorität
       double zuf_zusammenf; // die zufällig erzeugte zusamenfassung
 
-
-      // schleifenkopf
-
-
+      int durchgänge = 0;
       for(int n = 0; n < 100000; n ++ )
       {
+         durchgänge ++ ;
+
          Bereich bereich = new Bereich("berecih");
          sum_prioritäten = 0;
          sum_P_mal_Z = 0;
+
+         String error = "";
+
+
          // füge zufällig viele tabellen in den bereich ein:
-         for(int i = zuf_gen.nextInt(5); i > 0; i -- )
+         int anzahlkinder = zuf_gen.nextInt(5) + 1;
+         error += "füge: " + anzahlkinder + " kinder ein:";
+
+         for(int i = anzahlkinder; i > 0; i -- )
          {
 
             Tabelle t;
@@ -361,9 +368,9 @@ public class Test_Tabelle extends TestCase
 
             // 25 % ein blatt wird eingefügt:
             if(zuf_gen.nextBoolean() && zuf_gen.nextBoolean())
-
-
             {
+               error += " blatt, ";
+
                zuf_priorität = zuf_gen.nextDouble(); // double: 0-1
                zuf_priorität *= 10; // priorität ist zwischen 0 und 10
                zuf_zusammenf = zuf_gen.nextDouble();// double: 0-1
@@ -373,10 +380,6 @@ public class Test_Tabelle extends TestCase
                t = new TabelleBlatt("blatt ebene 1");
                t.setZusammenfassung(zuf_zusammenf);
                t.setPrioritaet(zuf_priorität);
-
-               // speichere die zum testen notwendigen werte:
-               sum_prioritäten += zuf_priorität;
-               sum_P_mal_Z += zuf_priorität * zuf_zusammenf;
             }
 
 
@@ -387,6 +390,8 @@ public class Test_Tabelle extends TestCase
                // 37.5 % eine tabelle mit nur blättern wird eingefügt:
                if(zuf_gen.nextBoolean())
                {
+                  error += " tab_nur_blätter,";
+
                   t = zufaelligeTabelleMitNurBlaettern();
 
                   Enumeration kinder = t.children();
@@ -394,42 +399,57 @@ public class Test_Tabelle extends TestCase
                   {
                      zuf_priorität = zuf_gen.nextDouble(); // double:
                      // 0-1
-                     zuf_priorität *= 10; // priorität zwischen 0 und 10
+                     zuf_priorität *= 10; // priorität zwischen 0 und
+                     // 10
                      zuf_zusammenf = zuf_gen.nextDouble();// double:
                      // 0-1
                      zuf_zusammenf *= 4; // 0-4
-                     zuf_zusammenf += 1; // zusammenf zwischen 1 und 5
+                     zuf_zusammenf += 1; // zusammenf zwischen 1 und
+                     // 5
 
                      TabelleBlatt kind = (TabelleBlatt)kinder.nextElement();
                      kind.setPrioritaet(zuf_priorität);
                      kind.setZusammenfassung(zuf_zusammenf);
-
-                     // speichere die zum testen notwendigen werte:
-                     sum_prioritäten += zuf_priorität;
-                     sum_P_mal_Z += zuf_priorität * zuf_zusammenf;
                   }
 
 
                } // ende von: if(zuf_gen.nextBoolean())
 
 
-               // 37.5 % eine tabelle mit lauter tabellen wird eingefügt:
+               // 37.5 % eine tabelle mit lauter tabellen wird
+               // eingefügt:
                else
                {
+                  error += " tab_mit_tabellen";
+
                   t = new Tabelle("tabelle ebene 1");
 
                   for(int j = zuf_gen.nextInt(5); j > 0; j -- )
                   {
                      t.add(zufaelligeTabelleMitNurBlaettern());
-
-                     zuf_priorität = zuf_gen.nextDouble(); // 0-1
-                     zuf_priorität *= 10; // priorität zwischen 0 und 10
-                     t.setPrioritaet(zuf_priorität);
                   }
 
-                  // speichere die zum testen notwendigen werte:
-                  sum_prioritäten += t.getPrioritaet();
-                  sum_P_mal_Z += t.getPrioritaet() * t.getZusammenfassung();
+                  Enumeration enumer = t.children();
+
+                  while(enumer.hasMoreElements())
+                  {
+                     zuf_priorität = zuf_gen.nextDouble(); // double:
+                     // 0-1
+                     zuf_priorität *= 10; // priorität zwischen 0 und
+                     // 10
+                     Tabelle kind = (Tabelle)enumer.nextElement();
+                     kind.setPrioritaet(zuf_priorität);
+                  }
+
+
+
+                  zuf_priorität = zuf_gen.nextDouble(); // 0-1
+                  zuf_priorität *= 10; // priorität zwischen 0-10
+                  t.setPrioritaet(zuf_priorität);
+                  error += "(p=" + t.getPrioritaet()
+                           + ", z="
+                           + t.getZusammenfassung()
+                           + "); ";
                }
 
             } // ende von else
@@ -437,14 +457,38 @@ public class Test_Tabelle extends TestCase
             // einfügen der tabelle(n)
             bereich.add(t);
 
+            // speichere die zum testen notwendigen werte:
+            sum_prioritäten += t.getPrioritaet();
+            sum_P_mal_Z += t.getPrioritaet() * t.getZusammenfassung();
+
 
          }// ende von: for(int i = zuf_gen.nextInt(5); i > 0; i -- )
+
          // prüfe, ob die generierte zusammenfassung der erwarteten
          // entspricht.
-         assertEquals(sum_P_mal_Z / sum_prioritäten,
+         double durchschnitt;
+         if(sum_prioritäten == 0.0)
+         {
+            durchschnitt = 0.0;
+         }
+         else
+         {
+            durchschnitt = sum_P_mal_Z / sum_prioritäten;
+         }
+
+         error += "soll: " + durchschnitt
+                  + ",\tist: "
+                  + bereich.getZusammenfassung();
+
+         assertEquals(error,
+                      durchschnitt,
                       bereich.getZusammenfassung(),
                       0.000001);
+         assertTrue(error, bereich.getZusammenfassung() >= 1.0);
+         assertTrue(error, bereich.getZusammenfassung() <= 5.0);
       }
+      Bericht.sag("    " + durchgänge
+                  + " zufällige kombinationen wurden getestet");
 
       // ende schleife
 

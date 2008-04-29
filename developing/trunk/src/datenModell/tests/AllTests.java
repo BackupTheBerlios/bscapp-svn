@@ -18,7 +18,7 @@ public class AllTests
 
   public static Test suite()
   {
-    Bericht.setLogdatei();
+//    Bericht.setLogdatei();
     Bericht.start();
 
     TestSuite suite = new TestSuite("Test for datenModell.tests");
