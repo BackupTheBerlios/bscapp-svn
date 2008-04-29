@@ -50,7 +50,7 @@ public class Test_Auswertung extends TestCase
    */
   public void testGetInstanz()
   {
-    Bericht.klasse("Starte den Test der Klasse " + Auswertung.class.getName());
+    Bericht.klasse(Auswertung.class.getName());
     Bericht.methode("teste den konstruktor der klasse", this);
     Bericht.sag("die instanz darf nach dem erstellen nicht null sein");
     assertNotNull(Auswertung.getInstanz());

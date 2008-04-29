@@ -48,7 +48,8 @@ public class Bericht
       out(formatiere("|___ Ende der TestKlasse."));
       out("");
     }
-    out(formatiere(" ___ " + msg));
+    
+    out(formatiere("Start der TestKlasse; Klasse zu testen: " + msg));
     out("                    |");
   }
 

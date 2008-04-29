@@ -164,8 +164,8 @@ implements Serializable, Comparable<Tabelle>, Bewertbar
   @Override
   public double getZusammenfassung()
   {
-    double summePmalZ = 0;
-    double summeP = 0;
+    double summePmalZ = 0.0;
+    double summeP = 0.0;
 
     // für jedes einzelne meiner kinder:
     // multipliziere priorität (P) mit der zusammenfassung (Z);
@@ -179,7 +179,7 @@ implements Serializable, Comparable<Tabelle>, Bewertbar
         summeP += t.getPrioritaet();
       }
 
-    summeP = (summeP == 0) ? 1.0 : summeP;
+    summeP = (summeP == 0.0) ? 1.0 : summeP;
     return summePmalZ / summeP;
   }
 

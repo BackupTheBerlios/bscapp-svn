@@ -37,7 +37,7 @@ public class Test_TabelleBlatt extends TestCase
    */
   public void testTabelleBlatt()
   {
-    Bericht.klasse("Starte den Test der Klasse " + TabelleBlatt.class.getName());
+    Bericht.klasse( TabelleBlatt.class.getName());
     Bericht.methode("teste den konstruktor der klasse", this);
 
     Bericht.sag("die instanz darf nach dem erstellen nicht null sein");
