@@ -8,7 +8,7 @@ package gui.panels;
 import gui.frames.FrameLeser;
 import gui.frames.FrameSchreiber;
 import gui.frames.SuperFrame;
-import gui.helfer2.TableSorter;
+import gui.helfer.TableSorter;
 import gui.panels.tablemodels.AuswertungModel;
 import gui.panels.tablemodels.BlattModel;
 import gui.panels.tablemodels.LeeresModel;

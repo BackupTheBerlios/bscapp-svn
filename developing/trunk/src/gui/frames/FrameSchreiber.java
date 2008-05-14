@@ -5,7 +5,7 @@ package gui.frames;
 
 
 
-import gui.helfer2.Befehl;
+import gui.helfer.Befehl;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;

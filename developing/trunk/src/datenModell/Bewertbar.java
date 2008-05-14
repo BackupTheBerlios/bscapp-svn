@@ -5,7 +5,7 @@ package datenModell;
 
 
 
-import gui.helfer2.DiagrammFactory;
+import gui.helfer.DiagrammFactory;
 import javax.swing.JPanel;
 
 

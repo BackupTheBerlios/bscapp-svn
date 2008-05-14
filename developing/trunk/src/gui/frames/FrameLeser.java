@@ -5,7 +5,7 @@ package gui.frames;
 
 
 
-import gui.helfer2.Befehl;
+import gui.helfer.Befehl;
 import gui.panels.BaumPanel;
 import gui.panels.WertTabellePanel;
 import java.awt.Dimension;

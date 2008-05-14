@@ -5,7 +5,7 @@ package gui.frames;
 
 
 
-import gui.helfer2.Befehl;
+import gui.helfer.Befehl;
 import gui.panels.UserEditPanel;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;

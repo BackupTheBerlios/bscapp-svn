@@ -2,7 +2,7 @@ package datenModell;
 
 
 
-import gui.helfer2.DiagrammFactory.TYP;
+import gui.helfer.DiagrammFactory.TYP;
 import java.awt.geom.Point2D;
 import java.io.Serializable;
 import javax.swing.JPanel;

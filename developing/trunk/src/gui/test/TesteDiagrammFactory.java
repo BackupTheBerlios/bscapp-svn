@@ -8,7 +8,7 @@ package gui.test;
 import java.awt.Dimension;
 import java.awt.geom.Point2D;
 import javax.swing.JTabbedPane;
-import gui.helfer2.DiagrammFactory;
+import gui.helfer.DiagrammFactory;
 
 
 

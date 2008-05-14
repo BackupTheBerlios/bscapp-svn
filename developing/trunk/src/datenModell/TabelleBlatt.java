@@ -2,7 +2,7 @@ package datenModell;
 
 
 
-import gui.helfer2.DiagrammFactory;
+import gui.helfer.DiagrammFactory;
 import java.awt.geom.Point2D;
 import java.io.Serializable;
 import java.util.ArrayList;
