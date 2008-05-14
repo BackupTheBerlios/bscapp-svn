@@ -1,4 +1,4 @@
-package gui.helfer;
+package gui.helfer2;
 
 
 
@@ -60,7 +60,7 @@ public class DiagrammFactory
       return new JPanel()
       {
         {
-          add(new JLabel("Error:\nvalues.length != labels.length"));
+          add(new JLabel("Error: die längen der Arrays sind nicht gleich."));
         }
       };
     }
@@ -142,7 +142,8 @@ public class DiagrammFactory
    * erzeugt eine portfolioansicht
    * 
    * @param koordinaten
-   *          die datenpunkte in form eines Point2D.Double[]
+   *          die datenpunkte in form eines Point2D.Double[] deren x-
+   *          und y-werte müssen zwischen -100 und 100 liegen
    * @param groessen
    *          die größe der datenpunkte in form eines int[]
    * @param labels
