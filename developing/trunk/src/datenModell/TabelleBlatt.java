@@ -2,7 +2,7 @@ package datenModell;
 
 
 
-import gui.helfer.DiagrammFactory;
+import gui.helfer2.DiagrammFactory;
 import java.awt.geom.Point2D;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -45,6 +45,7 @@ public class TabelleBlatt extends Tabelle implements Serializable, Bewertbar
     werteA = new ArrayList<Point2D.Double>(0);
     werteB = new ArrayList<Point2D.Double>(0);
     werteC = new ArrayList<Point2D.Double>(0);
+    labels = new ArrayList<String>(0);
   }
 
 
@@ -169,5 +170,14 @@ public class TabelleBlatt extends Tabelle implements Serializable, Bewertbar
         add(new JLabel("PORTFOLIO-Darstellung hier nicht erlaubt!"));
       }
     };
+  }
+
+
+  /**
+   * @return the labels
+   */
+  public List<String> getLabels()
+  {
+    return labels;
   }
 }

@@ -2,10 +2,8 @@ package datenModell;
 
 
 
-import gui.helfer.DiagrammFactory;
+import gui.helfer2.DiagrammFactory;
 import java.io.Serializable;
-import java.util.Enumeration;
-import java.util.Vector;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -51,6 +49,13 @@ implements Serializable, Comparable<Tabelle>, Bewertbar
     if(tabelle instanceof Tabelle && getChildCount() < 6)
     {
       super.add(tabelle);
+      System.out.println(this.getClass().getSimpleName() + " "
+                         + this
+                         + ": "
+                         + tabelle.getClass().getSimpleName()
+                         + " "
+                         + tabelle
+                         + " wurde eingefügt.");
     }
   }
 

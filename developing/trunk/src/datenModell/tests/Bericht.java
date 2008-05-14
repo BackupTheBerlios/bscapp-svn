@@ -58,7 +58,7 @@ public class Bericht
   {
     out(formatiere("|___" + msg.toUpperCase()
                    + " @ "
-                   + sender.getClass().getName()));
+                   + sender.getClass().getSimpleName()));
   }
 
 

@@ -59,7 +59,7 @@ public class Test_Tabelle extends TestCase
       Bericht.klasse(Tabelle.class.getName());
       Bericht.methode("teste den konstruktor der klasse", this);
 
-      Bericht.sag("prüfe die initialen werte der neu initialisierten klasse");
+      Bericht.sag("prüfe initiale werte der neuen instanz");
       assertEquals(tabelle.getZusammenfassung(), 0.0);
       assertEquals(tabelle.getPrioritaet(), 0.0);
 
@@ -73,16 +73,16 @@ public class Test_Tabelle extends TestCase
 
    public void testeWeitergabeZusammenfassgEinesBlattes()
    {
-      Bericht.methode("teste die korrekte weitergabe der parameter bei einem blatt",
+      Bericht.methode("teste die korrekte speicherung bei einem blatt",
                       this);
 
-      Bericht.sag("versuche der tabelle illegalerweise eine zusammenfassung zuzuordnen");
+      Bericht.sag("versuche (illegal) eine zusammenfassung zuzuordnen");
       tabelle.setZusammenfassung(3.0);
       assertNotSame(tabelle.getZusammenfassung(), 3.0);
       assertEquals(tabelle.getZusammenfassung(), 0.0);
 
-      Bericht.sag("ändere das (initiale) TabellenBlatt dieser Tabelle, prüfe dabei richtige ermittlung der werte");
-      Bericht.sag("...alle Kombinationen: prior. 1-10 und zusammenf. 1-5 jeweils in 0.5-schritten aufwärts");
+      Bericht.sag("ändere initialess Blatt dieser Tabelle, prüfe ermittlung der z-werte");
+      Bericht.sag("   alle Kombinationen: p= 1-10 und z= 1-5 jeweils in 0.5-schritten");
       for(double p = 1; p <= 10; p += 0.5) // prioritäten 1-10
       {
          for(double z = 1.0; z <= 5.0; z += 0.5) // zus 1-5
@@ -98,7 +98,7 @@ public class Test_Tabelle extends TestCase
    @SuppressWarnings("unchecked")
    public void testeZusammenfassung_1blatt()
    {
-      Bericht.methode("teste die berechnung der zusammenfassungen mit einem blatt",
+      Bericht.methode("teste die berechnung der z mit 6 blättern",
                       this);
 
       // baue ausgangssituation zusammen: (1 child ist schon
@@ -124,16 +124,14 @@ public class Test_Tabelle extends TestCase
    @SuppressWarnings("unchecked")
    public void testeZusammenfassung_2blaetter()
    {
-      Random random;
-
       Enumeration e = tabelle.children();
       while(e.hasMoreElements())
       {
          assertEquals(1.0, ((Tabelle)e.nextElement()).getZusammenfassung());
       }
       assertEquals(0.0, tabelle.getZusammenfassung());
-      Bericht.sag("folgenden testmethoden wird eine toleranz von 1/10^6 erlaubt (rundungsfehler)");
-      Bericht.sag("ordne allen blättern denselben wert zu, prüfe den durchschnitt.");
+      Bericht.sag("testmethoden wird eine toleranz von 1/10^6 erlaubt (rundungsfehler)");
+      Bericht.sag("ordne allen blättern denselben wert zu, prüfe durchschnitt.");
       int anzahl = 0;
       for(double i = 1; i < 5.0; i += 0.00004)
       {
@@ -159,7 +157,7 @@ public class Test_Tabelle extends TestCase
       Random random;
       int anzahl;
 
-      Bericht.sag("teste algorithmus mit 2 blättern, verschieden bewertet, gleich gewichtet");
+      Bericht.sag("teste algorithmus mit 2 blättern, verschiedene z, gleiche p");
       tabelle.removeAllChildren();
       assertEquals(1, tabelle.getChildCount());
       tabelle.add(new TabelleBlatt("zweites"));
@@ -200,7 +198,7 @@ public class Test_Tabelle extends TestCase
       Random random;
       int anzahl;
 
-      Bericht.sag("teste algorithmus mit zufällig vielen, bewerteten blättern derselben priorität.");
+      Bericht.sag("teste zufällig viele, bewertete blätter derselben priorität.");
       anzahl = 0;
 
       random = new Random(1L);
@@ -244,7 +242,7 @@ public class Test_Tabelle extends TestCase
    @SuppressWarnings("unchecked")
    public void testeZufaellig_Anz_Prio_Zus()
    {
-      Bericht.sag("teste mit zufällig vielen, zusammengefassten und gewichteten blättern");
+      Bericht.sag("teste zufällig viele, zusammengefasste und gewichtete blätter");
 
       int anzahl = 0;
 
@@ -255,12 +253,11 @@ public class Test_Tabelle extends TestCase
          zufaelligeTabelleMitNurBlaettern();
       }
 
-
-
       Bericht.sag("    " + anzahl + " zufällige kombinationen wurden getestet");
    }
 
 
+   @SuppressWarnings("unchecked")
    private Tabelle zufaelligeTabelleMitNurBlaettern()
    {
       Random zuf_gen = new Random();

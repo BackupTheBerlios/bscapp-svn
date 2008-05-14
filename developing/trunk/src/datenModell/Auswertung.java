@@ -2,7 +2,7 @@ package datenModell;
 
 
 
-import gui.helfer.DiagrammFactory.TYP;
+import gui.helfer2.DiagrammFactory.TYP;
 import java.io.Serializable;
 import javax.swing.JPanel;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -48,7 +48,7 @@ public class Auswertung extends DefaultMutableTreeNode implements Serializable
 
   private Auswertung()
   {
-    super("Top");
+    super("Übersicht");
   }
 
 
@@ -82,11 +82,15 @@ public class Auswertung extends DefaultMutableTreeNode implements Serializable
    */
   public static void addBereich(Bereich bereich)
   {
-    Auswertung a = getInstanz(); // zum debuggen wirds referenziert.
+    Auswertung a = getInstanz(); // zum debuggen wirds
+    // referenziert.
 
     if(a.getChildCount() < 6)
     {
       a.add(bereich);
+      System.out.println(Auswertung.class.getSimpleName() + ": Bereich "
+                         + bereich
+                         + " wurde eingefügt.");
     }
   }
 
