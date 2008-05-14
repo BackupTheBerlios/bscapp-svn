@@ -37,7 +37,7 @@ public class BenutzerDatenbank implements Serializable
   private static final Schreiber TEST_SCHREIBER = new Schreiber("testschreiber",
                                                                 "123");
   private static final Leser TEST_LESER = new Leser("testleser", "123");
-  private static final String BD_DATEINAME = "data" + File.pathSeparator + "benutzerdb.user";
+  private static final String BD_DATEINAME = "data" + File.separator + "benutzerdb.user";
 
 
   /**
