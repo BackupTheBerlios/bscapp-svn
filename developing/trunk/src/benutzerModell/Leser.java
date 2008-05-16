@@ -7,12 +7,24 @@ import java.util.HashSet;
 
 
 
+/**
+ * Die Klasse Leser beschreibt einen User mit den geringsten Berechtigungsgrad!
+ * Dieser User hat nur die Möglichkeit Auswertungen zu betrachten, er darf diese 
+ * Auswertungen nicht speichern und auch nicht verändern!
+ * 
+ * Ein Leser besteht aus aus einem HashSet in dem die Passwörter gespeichert werden, es wird
+ * beim ändern des Passwortes in diesem HashSet nachgeschaut ob dieses Passwort schon vorhanden 
+ * ist!
+ * 
+ * Der Leser hat einen String Benutzername und einen String Passwort und eine Boolean Log
+ * die anzeigt ob der Benutzer am System angemeldet ist.
+ * 
+ * 
+ */
 public class Leser implements Serializable
 {
 
-  /**
-   * 
-   */
+  
   private static final long serialVersionUID = 1646957071352770096L;
 
 
