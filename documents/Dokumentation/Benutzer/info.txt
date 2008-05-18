@@ -1,0 +1,7 @@
+"Benutzerhandbuch der BSC.doc" ist das Word-2003 Format.
+Ich (Stefan) mache nur in dieser Datei Änderungen.
+
+ToDo: Folgende Punkte müssen noch geschrieben werden:
+	Elemente umbenennen
+	Prioritäten ändern
+	Bewertung festlegen
